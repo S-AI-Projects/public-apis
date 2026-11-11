@@ -5,19 +5,21 @@ Offline validation scripts for assigned Public APIs repository tasks.
 ## R02-T021: Currency Exchange Parser
 
 ### Purpose
-Extract selected API entries from the Currency Exchange category while preserving original README line numbers.
+
+Extract selected API entries from the `Currency Exchange` category in the main `README.md` while preserving their original line numbers.
 
 ### Selected APIs
 
-| API | Original README line |
-|---|---:|
-| Currencylayer | 609 |
-| Exchangerate.host | 610 |
-| Exchangeratesapi.io | 611 |
+| API | URL | Description | Auth | HTTPS | CORS | Original README line |
+|---|---|---|---|---|---|---:|
+| Currencylayer | https://currencylayer.com | Exchange rates and currency conversion | apiKey | Yes | Unknown | 609 |
+| Exchangerate.host | https://exchangerate.host | Foreign exchange & crypto rates API (keyless access ended 2023) | apiKey | Yes | Unknown | 610 |
+| Exchangeratesapi.io | https://exchangeratesapi.io | Exchange rates with currency conversion | apiKey | Yes | Yes | 611 |
 
-### Extracted fields
+### Extracted Fields
+
 - API display name
-- URL
+- URL, including URL fragments
 - Description
 - Authentication method
 - HTTPS availability
@@ -25,16 +27,9 @@ Extract selected API entries from the Currency Exchange category while preservin
 - Category
 - Original README line number
 
-### Run the parser
-    python3 tools/course_checks/r02-t021.py
+### Run the Parser
 
-### Run offline self-tests
-    python3 tools/course_checks/r02-t021.py --self-test
+From the repository root:
 
-### Test fixtures
-Stored in `tools/course_checks/fixtures/r02-t021/`.
-
-Tests cover successful parsing, line-number preservation, URL fragments, fenced code blocks, malformed rows, and missing categories.
-
-### Implementation
-Uses Python standard-library modules only. No network requests. Does not modify the main README.
+```bash
+python3 tools/course_checks/r02-t021.py
