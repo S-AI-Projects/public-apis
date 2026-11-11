@@ -1,0 +1,4 @@
+Running live URL redirect checks...
+[OK] Line 1884 - 10ML Fragrance Index -> https://mcp.10ml.com/openapi.json
+[OK] Line 1885 - 221 -> https://221.orvlabs.com/documentation
+[OK] Line 1886 - 49 Gallery Historical Data -> https://api.181649.com/docs
