@@ -1,0 +1,15 @@
+[
+{"name":"offline_200","status":200,"redirect_chain":[],"expected":"ok"},
+{"name":"redirect_301_to_200","status":200,"redirect_chain":[301],"expected":"redirected"},
+{"name":"redirect_loop","status":null,"redirect_chain":[301,302],"error":"redirect_loop","expected":"redirect_loop"},
+{"name":"request_timeout","status":null,"redirect_chain":[],"error":"timeout","expected":"timeout"},
+{"name":"http_401_login_wall","status":401,"redirect_chain":[],"expected":"login_wall"},
+{"name":"redirect_to_login","status":200,"final_url":"https://example.test/login","redirect_chain":[302],"expected":"login_wall"},
+  {
+    "name": "html_password_form",
+    "status": 200,
+    "redirect_chain": [],
+    "body": "<html><form><input type=\"password\"></form></html>",
+    "expected": "login_wall"
+  }
+]
