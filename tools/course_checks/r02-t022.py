@@ -110,14 +110,15 @@ def parse_selected_entries(readme_text):
 
         match = re.match(
             r"^\|\s*\[([^\]]+)\]\(([^)]+)\)\s*\|"
-            r"\s*(.*?)\s*\|\s*`([^`]*)`\s*\|"
-            r"\s*(Yes|No)\s*\|\s*(Yes|No|Unknown)\s*\|",
+            r"\s*(.*?)\s*\|\s*([^|]+?)\s*\|"
+        r"\s*(Yes|No)\s*\|\s*(Yes|No|Unknown)\s*\|",
             line,
         )
         if not match:
             continue
 
         name, url, description, auth, https, cors = match.groups()
+        auth = auth.strip().strip("`").strip()
         if name in SELECTED:
             entries.append({
                 "name": name,
@@ -233,7 +234,7 @@ def run_self_tests():
 ### Data Validation
 | [VATlayer](https://vatlayer.com/?x=1#docs) | VAT validation | `apiKey` | Yes | Unknown |
 | [Attestwire](https://api.attestwire.com/docs) | Invoice validation | `apiKey` | Yes | Yes |
-| [invowerk](https://invowerk.dev/docs) | E-invoice validation | `apiKey` | Yes | Unknown |
+| [invowerk](https://invowerk.dev/docs) | E-invoice validation | No | Yes | Unknown |
 ### Other Section
 | [VATlayer](https://wrong-again.example) | Ignore | `No` | Yes | Yes |
 """
@@ -242,6 +243,8 @@ def run_self_tests():
         "VATlayer", "Attestwire", "invowerk"
     ]
     assert entries[0]["url"] == "https://vatlayer.com/?x=1#docs"
+    assert entries[1]["auth"] == "apiKey"
+    assert entries[2]["auth"] == "No"
     assert [entry["line"] for entry in entries] == [4, 5, 6]
 
     print("All offline tests passed!")

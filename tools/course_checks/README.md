@@ -13,6 +13,14 @@ This checker verifies the availability and redirect behaviour of three Data Vali
 | invowerk | 645 | https://invowerk.dev/docs |
 
 The checker extracts each entry's name, URL, description, authentication, HTTPS, CORS, category, and original README line number.
+### Catalogue metadata corrections
+
+The selected entries were also reviewed against their official documentation:
+
+- **Attestwire:** CORS changed from `Yes` to `No`. Its documentation states that CORS is disabled for almost all metered endpoints, with documented exceptions.
+- **invowerk:** Auth changed from `apiKey` to `No`. Its documentation allows anonymous requests with a lower rate limit; an API key is optional for higher limits.
+
+These corrections are separate from the redirect checks. A successful HTTP response does not independently verify authentication or CORS support.
 
 ### Running the checker
 
@@ -46,3 +54,7 @@ Task evidence is stored separately in:
     work/R02-T022/
 
 The live observation on 2026-11-11 returned HTTP 200 for all three entries. The observed final URLs and redirect chains are recorded in actual.json.
+
+The checker extracts each entry's name, URL, description, authentication, HTTPS, CORS, category, and original README line number.
+
+### Catalogue metadata corrections
