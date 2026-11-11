@@ -1,0 +1,20 @@
+Task: R02-T021 - Parse Currency Exchange entries
+
+Test 1: Python syntax check
+Command: python3 -m py_compile tools/course_checks/r02-t021.py
+Result: PASS
+
+Test 2: Offline self-test
+Command: python3 tools/course_checks/r02-t021.py --self-test
+Expected: All offline tests passed!
+Result: PASS
+
+Test 3: Parse actual README
+Command: python3 tools/course_checks/r02-t021.py
+Result: PASS
+Extracted 3 selected APIs with original README line numbers 609, 610, 611.
+
+Test 4: Expected vs actual fixture output
+Command: diff -u work/R02-T021/expected.json work/R02-T021/actual.json
+Result: PASS
+Expected and actual JSON outputs match exactly.

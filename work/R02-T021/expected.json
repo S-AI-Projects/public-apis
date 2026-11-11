@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Currencylayer",
+    "url": "https://example.com/rates#latest",
+    "description": "Exchange rates",
+    "auth": "apiKey",
+    "https": "Yes",
+    "cors": "Unknown",
+    "category": "Currency Exchange",
+    "line_number": 6
+  },
+  {
+    "name": "Exchangerate.host",
+    "url": "https://real.example#current",
+    "description": "Exchange rates",
+    "auth": "apiKey",
+    "https": "Yes",
+    "cors": "Unknown",
+    "category": "Currency Exchange",
+    "line_number": 10
+  },
+  {
+    "name": "Exchangeratesapi.io",
+    "url": "https://example.org/api",
+    "description": "Conversion",
+    "auth": "apiKey",
+    "https": "Yes",
+    "cors": "Yes",
+    "category": "Currency Exchange",
+    "line_number": 11
+  }
+]

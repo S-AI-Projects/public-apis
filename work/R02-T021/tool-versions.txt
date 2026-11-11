@@ -1,0 +1,5 @@
+Python 3.15.2
+git version 2.54.0 (Apple Git-157)
+ProductName:		macOS
+ProductVersion:		27.0.1
+BuildVersion:		26A434
