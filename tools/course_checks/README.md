@@ -56,5 +56,3 @@ Task evidence is stored separately in:
 The live observation on 2026-11-11 returned HTTP 200 for all three entries. The observed final URLs and redirect chains are recorded in actual.json.
 
 The checker extracts each entry's name, URL, description, authentication, HTTPS, CORS, category, and original README line number.
-
-### Catalogue metadata corrections
