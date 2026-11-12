@@ -1,0 +1,272 @@
+[
+  {
+    "id": "exact_duplicate",
+    "description": "Exact duplicate URLs must be detected as exact matches",
+    "entries": [
+      {
+        "name": "Advice Slip",
+        "url": "http://api.adviceslip.com/",
+        "line": 10
+      },
+      {
+        "name": "Advice Slip Mirror",
+        "url": "http://api.adviceslip.com/",
+        "line": 15
+      }
+    ],
+    "expected_duplicate": true,
+    "expected_match_type": "exact",
+    "expected_reason_contains": "Exact match"
+  },
+  {
+    "id": "hostname_scheme_case_normalization",
+    "description": "Scheme and hostname casing normalization matches",
+    "entries": [
+      {
+        "name": "Astro Agents",
+        "url": "https://astro-agent.dev/llms.txt",
+        "line": 20
+      },
+      {
+        "name": "Astro Agents Upper",
+        "url": "HTTPS://ASTRO-AGENT.DEV/llms.txt",
+        "line": 25
+      }
+    ],
+    "expected_duplicate": true,
+    "expected_match_type": "conservative_normalization",
+    "expected_reason_contains": "casing"
+  },
+  {
+    "id": "default_port_http",
+    "description": "Default HTTP port 80 normalization matches",
+    "entries": [
+      {
+        "name": "Advice Slip",
+        "url": "http://api.adviceslip.com/",
+        "line": 30
+      },
+      {
+        "name": "Advice Slip Port 80",
+        "url": "http://api.adviceslip.com:80/",
+        "line": 35
+      }
+    ],
+    "expected_duplicate": true,
+    "expected_match_type": "conservative_normalization",
+    "expected_reason_contains": "80"
+  },
+  {
+    "id": "default_port_https",
+    "description": "Default HTTPS port 443 normalization matches",
+    "entries": [
+      {
+        "name": "AstroWay",
+        "url": "https://api.astroway.info/docs/",
+        "line": 40
+      },
+      {
+        "name": "AstroWay Port 443",
+        "url": "https://api.astroway.info:443/docs/",
+        "line": 45
+      }
+    ],
+    "expected_duplicate": true,
+    "expected_match_type": "conservative_normalization",
+    "expected_reason_contains": "443"
+  },
+  {
+    "id": "non_default_port_distinct",
+    "description": "Non-default ports must remain distinct",
+    "entries": [
+      {
+        "name": "Advice Slip",
+        "url": "http://api.adviceslip.com/",
+        "line": 50
+      },
+      {
+        "name": "Advice Slip Custom Port",
+        "url": "http://api.adviceslip.com:8080/",
+        "line": 55
+      }
+    ],
+    "expected_duplicate": false
+  },
+  {
+    "id": "query_parameters_distinct",
+    "description": "URLs with differing query parameters must remain distinct",
+    "entries": [
+      {
+        "name": "AstroWay JSON",
+        "url": "https://api.astroway.info/docs/?format=json",
+        "line": 60
+      },
+      {
+        "name": "AstroWay XML",
+        "url": "https://api.astroway.info/docs/?format=xml",
+        "line": 65
+      },
+      {
+        "name": "AstroWay Base",
+        "url": "https://api.astroway.info/docs/",
+        "line": 70
+      }
+    ],
+    "expected_duplicate": false
+  },
+  {
+    "id": "query_order_preserved",
+    "description": "Query parameter ordering differences must remain distinct under conservative rules",
+    "entries": [
+      {
+        "name": "AstroWay AB",
+        "url": "https://api.astroway.info/docs/?a=1&b=2",
+        "line": 75
+      },
+      {
+        "name": "AstroWay BA",
+        "url": "https://api.astroway.info/docs/?b=2&a=1",
+        "line": 80
+      }
+    ],
+    "expected_duplicate": false
+  },
+  {
+    "id": "meaningful_fragment_distinct",
+    "description": "URLs with differing meaningful fragments must remain distinct",
+    "entries": [
+      {
+        "name": "AstroWay Overview",
+        "url": "https://api.astroway.info/docs/#overview",
+        "line": 85
+      },
+      {
+        "name": "AstroWay Endpoints",
+        "url": "https://api.astroway.info/docs/#endpoints",
+        "line": 90
+      },
+      {
+        "name": "AstroWay Base",
+        "url": "https://api.astroway.info/docs/",
+        "line": 95
+      }
+    ],
+    "expected_duplicate": false
+  },
+  {
+    "id": "empty_fragment_normalized",
+    "description": "Empty fragments ('#') are not meaningful and normalize to base URL",
+    "entries": [
+      {
+        "name": "AstroWay Base",
+        "url": "https://api.astroway.info/docs/",
+        "line": 100
+      },
+      {
+        "name": "AstroWay Empty Hash",
+        "url": "https://api.astroway.info/docs/#",
+        "line": 105
+      }
+    ],
+    "expected_duplicate": true,
+    "expected_match_type": "conservative_normalization",
+    "expected_reason_contains": "Empty fragment"
+  },
+  {
+    "id": "different_paths_distinct",
+    "description": "URLs with different paths must remain distinct",
+    "entries": [
+      {
+        "name": "Astro Agents LLM",
+        "url": "https://astro-agent.dev/llms.txt",
+        "line": 110
+      },
+      {
+        "name": "Astro Agents Root",
+        "url": "https://astro-agent.dev/",
+        "line": 115
+      },
+      {
+        "name": "Astro Agents Docs",
+        "url": "https://astro-agent.dev/docs",
+        "line": 120
+      }
+    ],
+    "expected_duplicate": false
+  },
+  {
+    "id": "trailing_slash_subpath_distinct",
+    "description": "Subpaths differing by trailing slash must remain distinct conservatively",
+    "entries": [
+      {
+        "name": "AstroWay Slash",
+        "url": "https://api.astroway.info/docs/",
+        "line": 125
+      },
+      {
+        "name": "AstroWay No Slash",
+        "url": "https://api.astroway.info/docs",
+        "line": 130
+      }
+    ],
+    "expected_duplicate": false
+  },
+  {
+    "id": "trailing_slash_root_normalized",
+    "description": "Empty path and root path '/' for domain root normalize safely",
+    "entries": [
+      {
+        "name": "Advice Slip Root Slash",
+        "url": "http://api.adviceslip.com/",
+        "line": 135
+      },
+      {
+        "name": "Advice Slip Empty Path",
+        "url": "http://api.adviceslip.com",
+        "line": 140
+      }
+    ],
+    "expected_duplicate": true,
+    "expected_match_type": "conservative_normalization",
+    "expected_reason_contains": "root path"
+  },
+  {
+    "id": "scheme_distinct_http_https",
+    "description": "HTTP and HTTPS schemes must NOT be automatically treated as identical",
+    "entries": [
+      {
+        "name": "Advice Slip HTTP",
+        "url": "http://api.adviceslip.com/",
+        "line": 145
+      },
+      {
+        "name": "Advice Slip HTTPS",
+        "url": "https://api.adviceslip.com/",
+        "line": 150
+      }
+    ],
+    "expected_duplicate": false
+  },
+  {
+    "id": "unrelated_assigned_entries_distinct",
+    "description": "Unrelated URLs (the three assigned entries) must yield no duplicate results",
+    "entries": [
+      {
+        "name": "Advice Slip",
+        "url": "http://api.adviceslip.com/",
+        "line": 2005
+      },
+      {
+        "name": "Astro Agents",
+        "url": "https://astro-agent.dev/llms.txt",
+        "line": 2006
+      },
+      {
+        "name": "AstroWay",
+        "url": "https://api.astroway.info/docs/",
+        "line": 2007
+      }
+    ],
+    "expected_duplicate": false
+  }
+]
