@@ -1,0 +1,3 @@
+Running self-test for R02-T011...
+Parsed entries found: ['Bitquery', 'Blockscout', 'Chainlink']
+Self-test passed successfully!
