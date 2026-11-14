@@ -1,0 +1,45 @@
+{
+  "scenario": "other_http_errors",
+  "test_cases": [
+    {
+      "code": 500,
+      "msg": "Internal Server Error",
+      "expected": {
+        "http_status": 500,
+        "method_used": "HEAD",
+        "failure_classification": "http_500",
+        "removal_recommended": false
+      }
+    },
+    {
+      "code": 502,
+      "msg": "Bad Gateway",
+      "expected": {
+        "http_status": 502,
+        "method_used": "HEAD",
+        "failure_classification": "http_502",
+        "removal_recommended": false
+      }
+    },
+    {
+      "code": 503,
+      "msg": "Service Unavailable",
+      "expected": {
+        "http_status": 503,
+        "method_used": "HEAD",
+        "failure_classification": "http_503",
+        "removal_recommended": false
+      }
+    },
+    {
+      "code": 401,
+      "msg": "Unauthorized",
+      "expected": {
+        "http_status": 401,
+        "method_used": "HEAD",
+        "failure_classification": "http_401",
+        "removal_recommended": false
+      }
+    }
+  ]
+}

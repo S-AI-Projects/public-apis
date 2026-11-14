@@ -1,0 +1,16 @@
+{
+  "scenario": "manually_confirmed_missing",
+  "method": "HEAD",
+  "http_error": {
+    "code": 404,
+    "msg": "Not Found"
+  },
+  "manually_confirmed": true,
+  "expected": {
+    "http_status": 404,
+    "method_used": "HEAD",
+    "failure_classification": "missing_resource",
+    "manually_confirmed_missing": true,
+    "removal_recommended": true
+  }
+}
