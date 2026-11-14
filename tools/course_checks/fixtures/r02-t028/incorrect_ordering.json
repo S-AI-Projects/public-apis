@@ -1,0 +1,22 @@
+{
+  "description": "Tests exact three-entry ordering inversion case where entries appear as Mediastack, Associated Press, Chronicling America",
+  "category": "News",
+  "actual_order": [
+    "Mediastack",
+    "Associated Press",
+    "Chronicling America"
+  ],
+  "expected_sorted_order": [
+    "Associated Press",
+    "Chronicling America",
+    "Mediastack"
+  ],
+  "expected_inversions": [
+    {
+      "preceding": "Mediastack",
+      "following": "Associated Press",
+      "message": "Ordering inversion: 'Mediastack' (line 4) appears before 'Associated Press' (line 5); expected 'Associated Press' to precede 'Mediastack'"
+    }
+  ],
+  "markdown_input": "### News\nAPI | Description | Auth | HTTPS | CORS |\n|:---|:---|:---|:---|:---|\n| [Mediastack](https://mediastack.com?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers) | Free, Simple REST API for Live News & Blog Articles | `apiKey` | Yes | Unknown |\n| [Associated Press](https://developer.ap.org/) | Search for news and metadata from Associated Press | `apiKey` | Yes | Unknown |\n| [Chronicling America](http://chroniclingamerica.loc.gov/about/api/) | Provides access to millions of pages of historic US newspapers from the Library of Congress | No | Yes | Unknown |\n"
+}
