@@ -1,0 +1,13 @@
+{
+  "scenario": "timeout",
+  "method": "HEAD",
+  "exception_type": "URLError",
+  "reason_type": "timeout",
+  "reason_msg": "timed out",
+  "expected": {
+    "http_status": null,
+    "method_used": "HEAD",
+    "failure_classification": "timeout",
+    "removal_recommended": false
+  }
+}

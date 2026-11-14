@@ -1,0 +1,13 @@
+{
+  "scenario": "dns_failure",
+  "method": "HEAD",
+  "exception_type": "URLError",
+  "reason_type": "gaierror",
+  "reason_msg": "nodename nor servname provided, or not known",
+  "expected": {
+    "http_status": null,
+    "method_used": "HEAD",
+    "failure_classification": "dns_failure",
+    "removal_recommended": false
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "scenario": "http_429",
+  "method": "HEAD",
+  "http_error": {
+    "code": 429,
+    "msg": "Too Many Requests"
+  },
+  "expected": {
+    "http_status": 429,
+    "method_used": "HEAD",
+    "failure_classification": "rate_limited",
+    "removal_recommended": false
+  }
+}

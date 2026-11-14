@@ -1,0 +1,14 @@
+{
+  "scenario": "http_403",
+  "method": "HEAD",
+  "http_error": {
+    "code": 403,
+    "msg": "Forbidden"
+  },
+  "expected": {
+    "http_status": 403,
+    "method_used": "HEAD",
+    "failure_classification": "forbidden",
+    "removal_recommended": false
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "scenario": "http_404",
+  "method": "HEAD",
+  "http_error": {
+    "code": 404,
+    "msg": "Not Found"
+  },
+  "expected": {
+    "http_status": 404,
+    "method_used": "HEAD",
+    "failure_classification": "missing_resource",
+    "removal_recommended": false
+  }
+}

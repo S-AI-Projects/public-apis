@@ -1,0 +1,14 @@
+{
+  "scenario": "http_200",
+  "method": "HEAD",
+  "response": {
+    "status": 200,
+    "reason": "OK"
+  },
+  "expected": {
+    "http_status": 200,
+    "method_used": "HEAD",
+    "failure_classification": "success",
+    "removal_recommended": false
+  }
+}

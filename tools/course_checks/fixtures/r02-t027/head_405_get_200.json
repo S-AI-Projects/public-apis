@@ -1,0 +1,18 @@
+{
+  "scenario": "head_405_get_200",
+  "head_error": {
+    "code": 405,
+    "msg": "Method Not Allowed"
+  },
+  "get_response": {
+    "status": 200,
+    "reason": "OK"
+  },
+  "expected": {
+    "http_status": 200,
+    "method_used": "GET",
+    "retried_with_get": true,
+    "failure_classification": "success",
+    "removal_recommended": false
+  }
+}
