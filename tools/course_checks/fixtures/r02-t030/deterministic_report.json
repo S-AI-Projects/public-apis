@@ -1,0 +1,251 @@
+{
+  "task": "R02-T030",
+  "category": "Animals",
+  "scope": {
+    "selected_urls": [
+      "https://theaxolotlapi.netlify.app/",
+      "https://breedhealthscore.com/developers/",
+      "https://alexwohlbruck.github.io/cat-facts/"
+    ],
+    "matching_strategy": "exact_url_matching"
+  },
+  "total_selected": 3,
+  "total_parsed": 3,
+  "heading_hierarchy_valid": true,
+  "duplicate_urls": [],
+  "missing_urls": [],
+  "parse_errors": [],
+  "summary": {
+    "total_evaluated": 3,
+    "retained_count": 3,
+    "retained_unconfirmed_count": 1,
+    "updated_count": 0,
+    "operational_count": 2,
+    "transient_error_count": 1,
+    "discrepancies_detected": 0
+  },
+  "entries": [
+    {
+      "url": "https://theaxolotlapi.netlify.app/",
+      "name": "Axolotl",
+      "line": 4,
+      "existing_metadata": {
+        "name": "Axolotl",
+        "url": "https://theaxolotlapi.netlify.app/",
+        "description": "Collection of axolotl pictures and facts",
+        "auth": "No",
+        "https": "Yes",
+        "cors": "No"
+      },
+      "observed_facts": {
+        "documentation_url": "https://theaxolotlapi.netlify.app/",
+        "http_status": 200,
+        "response_classification": "successful_response",
+        "https_enforced": true,
+        "auth_observed": "No",
+        "auth_details": "Documentation explicitly specifies 'Authentication: Axolotl does not requires an API Key'",
+        "cors_observed": "No",
+        "cors_details": "Documentation explicitly specifies 'Cors: Axolotl does not have CORS support for entry'",
+        "endpoint_probe": {
+          "endpoint_url": "https://theaxolotlapi.netlify.app/",
+          "http_status": 200,
+          "content_type": "text/html; charset=UTF-8",
+          "endpoint_https_verified": true,
+          "cors_header_present": false,
+          "cors_established": true
+        }
+      },
+      "manual_verification_decisions": {
+        "auth_decision": "No",
+        "https_decision": "Yes",
+        "cors_decision": "No",
+        "status_decision": "operational",
+        "verified_fields": [
+          "auth",
+          "https",
+          "cors"
+        ],
+        "inconclusive_fields": [],
+        "retained_unconfirmed_fields": [],
+        "decision_rationale": "Official documentation landing page is operational and explicitly documents no API key requirement, HTTPS support, and absence of CORS support. Verified values match catalogue exactly."
+      },
+      "recommended_metadata": {
+        "name": "Axolotl",
+        "url": "https://theaxolotlapi.netlify.app/",
+        "description": "Collection of axolotl pictures and facts",
+        "auth": "No",
+        "https": "Yes",
+        "cors": "No",
+        "action": "retain",
+        "field_actions": {
+          "auth": "retain",
+          "https": "retain",
+          "cors": "retain"
+        },
+        "changes": [],
+        "discrepancies": [],
+        "retained_unconfirmed": [],
+        "reasoning": "Existing metadata matches verified evidence (Auth: No, HTTPS: Yes, CORS: No). No modifications required."
+      },
+      "evidence_and_limitations": {
+        "evidence_sources": [
+          "https://theaxolotlapi.netlify.app/"
+        ],
+        "limitations": [
+          "No dynamic interactive endpoint query parameter documentation found on landing page; metadata verified directly from provider's explicit API specification block."
+        ]
+      }
+    },
+    {
+      "url": "https://breedhealthscore.com/developers/",
+      "name": "Breed Health Score",
+      "line": 5,
+      "existing_metadata": {
+        "name": "Breed Health Score",
+        "url": "https://breedhealthscore.com/developers/",
+        "description": "Dog breed health scores, median lifespans and conditions",
+        "auth": "No",
+        "https": "Yes",
+        "cors": "No"
+      },
+      "observed_facts": {
+        "documentation_url": "https://breedhealthscore.com/developers/",
+        "http_status": 200,
+        "response_classification": "successful_response",
+        "https_enforced": true,
+        "auth_observed": "No",
+        "auth_details": "Documentation FAQ explicitly states 'No key or sign-up is required'",
+        "cors_observed": "No",
+        "cors_details": "API endpoint GET /api/breeds.json returns HTTP 200 without Access-Control-Allow-Origin header; OPTIONS preflight returns HTTP 405",
+        "endpoint_probe": {
+          "endpoint_url": "https://breedhealthscore.com/api/breeds.json",
+          "http_status": 200,
+          "content_type": "application/json",
+          "endpoint_https_verified": true,
+          "cors_header_present": false,
+          "cors_established": true
+        }
+      },
+      "manual_verification_decisions": {
+        "auth_decision": "No",
+        "https_decision": "Yes",
+        "cors_decision": "No",
+        "status_decision": "operational",
+        "verified_fields": [
+          "auth",
+          "https",
+          "cors"
+        ],
+        "inconclusive_fields": [],
+        "retained_unconfirmed_fields": [],
+        "decision_rationale": "Documentation and API endpoints are fully operational. Provider confirms open access with no key/signup. Live probe confirms HTTPS and absence of CORS headers on the API endpoint. Verified values match catalogue exactly."
+      },
+      "recommended_metadata": {
+        "name": "Breed Health Score",
+        "url": "https://breedhealthscore.com/developers/",
+        "description": "Dog breed health scores, median lifespans and conditions",
+        "auth": "No",
+        "https": "Yes",
+        "cors": "No",
+        "action": "retain",
+        "field_actions": {
+          "auth": "retain",
+          "https": "retain",
+          "cors": "retain"
+        },
+        "changes": [],
+        "discrepancies": [],
+        "retained_unconfirmed": [],
+        "reasoning": "Existing metadata matches verified evidence (Auth: No, HTTPS: Yes, CORS: No). No modifications required."
+      },
+      "evidence_and_limitations": {
+        "evidence_sources": [
+          "https://breedhealthscore.com/developers/",
+          "https://breedhealthscore.com/api/breeds.json",
+          "https://breedhealthscore.com/api/v1/openapi.json"
+        ],
+        "limitations": [
+          "Static JSON dataset distributed over CDN; rate limiting is advisory ('please cache responses and be reasonable')."
+        ]
+      }
+    },
+    {
+      "url": "https://alexwohlbruck.github.io/cat-facts/",
+      "name": "Cat Facts",
+      "line": 6,
+      "existing_metadata": {
+        "name": "Cat Facts",
+        "url": "https://alexwohlbruck.github.io/cat-facts/",
+        "description": "Daily cat facts",
+        "auth": "No",
+        "https": "Yes",
+        "cors": "No"
+      },
+      "observed_facts": {
+        "documentation_url": "https://alexwohlbruck.github.io/cat-facts/",
+        "http_status": 200,
+        "response_classification": "successful_response",
+        "https_enforced": true,
+        "auth_observed": "No",
+        "auth_details": "Documentation for /facts endpoint indicates read access without credentials; /users requires authentication",
+        "cors_observed": "inconclusive",
+        "cors_details": "API endpoint https://cat-fact.herokuapp.com/facts returned HTTP 503, leaving CORS unestablished. Documentation host (GitHub Pages) CORS headers do not govern the API backend.",
+        "endpoint_probe": {
+          "endpoint_url": "https://cat-fact.herokuapp.com/facts",
+          "http_status": 503,
+          "content_type": "text/html; charset=utf-8",
+          "endpoint_https_verified": true,
+          "cors_header_present": null,
+          "cors_established": false
+        }
+      },
+      "manual_verification_decisions": {
+        "auth_decision": "No",
+        "https_decision": "Yes",
+        "cors_decision": "retained_unconfirmed",
+        "status_decision": "transient_http_error",
+        "verified_fields": [
+          "auth",
+          "https"
+        ],
+        "inconclusive_fields": [
+          "cors"
+        ],
+        "retained_unconfirmed_fields": [
+          "cors"
+        ],
+        "decision_rationale": "Documentation is reachable on GitHub Pages and documents unauthenticated /facts endpoints. Direct probe of API endpoint https://cat-fact.herokuapp.com/facts confirms TLS encryption/HTTPS enforcement on the API backend. Heroku backend returned HTTP 503, indicating free dyno sleeping or transient server outage, not service discontinuation. Because HTTP 503 did not establish CORS headers, CORS configuration is inconclusive; existing catalogue CORS 'No' is retained without claiming independent confirmation."
+      },
+      "recommended_metadata": {
+        "name": "Cat Facts",
+        "url": "https://alexwohlbruck.github.io/cat-facts/",
+        "description": "Daily cat facts",
+        "auth": "No",
+        "https": "Yes",
+        "cors": "No",
+        "action": "retain",
+        "field_actions": {
+          "auth": "retain",
+          "https": "retain",
+          "cors": "retain"
+        },
+        "changes": [],
+        "discrepancies": [],
+        "retained_unconfirmed": [
+          "cors"
+        ],
+        "reasoning": "Existing catalogue values match verified evidence for Auth and HTTPS. Field(s) ['cors'] retained from catalogue without claiming independent confirmation due to inconclusive evidence (transient_http_error)."
+      },
+      "evidence_and_limitations": {
+        "evidence_sources": [
+          "https://alexwohlbruck.github.io/cat-facts/",
+          "https://alexwohlbruck.github.io/cat-facts/docs",
+          "https://cat-fact.herokuapp.com/facts"
+        ],
+        "limitations": [
+          "Heroku backend returned HTTP 503; per repository policy, isolated server errors or sleeping free dynos must not be inferred as service discontinuation. CORS cannot be established on the backend during 503."
+        ]
+      }
+    }
+  ]
+}
