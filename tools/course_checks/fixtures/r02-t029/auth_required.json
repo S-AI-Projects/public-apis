@@ -1,0 +1,32 @@
+{
+  "test_case": "authentication_required_verification",
+  "description": "Verifies classification of authentication requirements across selected entries",
+  "entries": [
+    {
+      "name": "AgentPay Doc Tools",
+      "auth_required": false,
+      "mechanism": "None for conventional identity auth; x402 payment authorization in PAYMENT-SIGNATURE required for paid calls",
+      "status": "verified",
+      "evidence_url": "https://agentpay-tools.agentpay-apis.workers.dev/tools/openapi.json",
+      "conflated_with_payment": false,
+      "payment_authorization_required": true,
+      "notes": "Conventional account/API authentication is No, but cryptographic payment authorization is strictly required for paid API calls"
+    },
+    {
+      "name": "Airtable",
+      "auth_required": true,
+      "mechanism": "OAuth 2.0 / Bearer Token",
+      "status": "verified",
+      "evidence_url": "https://airtable.com/developers/web/api/authentication.md",
+      "deprecated_method": "apiKey (deprecated February 1, 2024)"
+    },
+    {
+      "name": "Api2Convert",
+      "auth_required": true,
+      "mechanism": "apiKey (header: x-api2convert-api-key) / Job Token (header: x-api2convert-token)",
+      "status": "verified",
+      "evidence_url": "https://www.api2convert.com/documentation/guides/authentication",
+      "unauthenticated_endpoints": ["GET /v2/conversions", "GET /v2/presets"]
+    }
+  ]
+}

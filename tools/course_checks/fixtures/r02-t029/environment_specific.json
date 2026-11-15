@@ -1,0 +1,30 @@
+{
+  "test_case": "environment_specific_access_verification",
+  "description": "Verifies whether access depends on a specific workspace, deployment, account type, or client environment",
+  "entries": [
+    {
+      "name": "AgentPay Doc Tools",
+      "environment_required": false,
+      "scope_type": "Global public endpoints",
+      "status": "verified",
+      "evidence_url": "https://agentpay-tools.agentpay-apis.workers.dev/tools/llms.txt",
+      "details": "Standard HTTP endpoints open to any HTTP client"
+    },
+    {
+      "name": "Airtable",
+      "environment_required": true,
+      "scope_type": "Workspace, base, and OAuth scope restricted",
+      "status": "verified",
+      "evidence_url": "https://airtable.com/developers/web/api/authentication.md",
+      "details": "Tokens only grant access to explicitly granted workspaces, bases, and scopes"
+    },
+    {
+      "name": "Api2Convert",
+      "environment_required": false,
+      "scope_type": "Account-scoped credit quota",
+      "status": "verified",
+      "evidence_url": "https://www.api2convert.com/documentation",
+      "details": "Standard cloud REST API with no local deployment or workspace binding"
+    }
+  ]
+}
