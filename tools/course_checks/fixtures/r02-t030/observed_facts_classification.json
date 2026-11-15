@@ -1,0 +1,81 @@
+{
+  "test_cases": [
+    {
+      "name": "successful_200",
+      "input": {
+        "status_code": 200,
+        "is_timeout": false,
+        "dns_error": false,
+        "headers": {"access-control-allow-origin": "*"}
+      },
+      "expected_classification": "successful_response",
+      "is_dead_or_discontinued": false
+    },
+    {
+      "name": "redirect_301",
+      "input": {
+        "status_code": 301,
+        "is_timeout": false,
+        "dns_error": false,
+        "headers": {"location": "https://example.com/new-location"}
+      },
+      "expected_classification": "redirect",
+      "is_dead_or_discontinued": false
+    },
+    {
+      "name": "auth_required_401",
+      "input": {
+        "status_code": 401,
+        "is_timeout": false,
+        "dns_error": false,
+        "headers": {}
+      },
+      "expected_classification": "authentication_required",
+      "is_dead_or_discontinued": false
+    },
+    {
+      "name": "http_error_503_transient",
+      "input": {
+        "status_code": 503,
+        "is_timeout": false,
+        "dns_error": false,
+        "headers": {}
+      },
+      "expected_classification": "http_error",
+      "is_dead_or_discontinued": false
+    },
+    {
+      "name": "timeout_transient",
+      "input": {
+        "status_code": null,
+        "is_timeout": true,
+        "dns_error": false,
+        "headers": {}
+      },
+      "expected_classification": "timeout",
+      "is_dead_or_discontinued": false
+    },
+    {
+      "name": "dns_failure_case",
+      "input": {
+        "status_code": null,
+        "is_timeout": false,
+        "dns_error": true,
+        "headers": {}
+      },
+      "expected_classification": "dns_failure",
+      "is_dead_or_discontinued": false
+    },
+    {
+      "name": "blocked_cloudflare_403",
+      "input": {
+        "status_code": 403,
+        "is_timeout": false,
+        "dns_error": false,
+        "headers": {"server": "cloudflare"}
+      },
+      "expected_classification": "blocked_or_inconclusive",
+      "is_dead_or_discontinued": false
+    }
+  ]
+}

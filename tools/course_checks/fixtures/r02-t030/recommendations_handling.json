@@ -1,0 +1,32 @@
+{
+  "test_cases": [
+    {
+      "description": "Metadata matches verified evidence exactly",
+      "existing": {"auth": "No", "https": "Yes", "cors": "No"},
+      "verified": {"auth": "No", "https": "Yes", "cors": "No"},
+      "expected_action": "retain",
+      "expected_changes": []
+    },
+    {
+      "description": "Evidence proves CORS supported but catalogue has No",
+      "existing": {"auth": "No", "https": "Yes", "cors": "No"},
+      "verified": {"auth": "No", "https": "Yes", "cors": "Yes"},
+      "expected_action": "update",
+      "expected_changes": ["CORS: No -> Yes"]
+    },
+    {
+      "description": "Transient error or inconclusive response must not trigger dead API removal",
+      "existing": {"auth": "No", "https": "Yes", "cors": "No"},
+      "verified": {"auth": "No", "https": "Yes", "cors": "inconclusive", "status": "transient_http_error"},
+      "expected_action": "retain",
+      "expected_changes": []
+    },
+    {
+      "description": "Contradicting metadata recommends update and records discrepancies",
+      "existing": {"auth": "apiKey", "https": "No", "cors": "No"},
+      "verified": {"auth": "No", "https": "Yes", "cors": "No"},
+      "expected_action": "update",
+      "expected_changes": ["Auth: apiKey -> No", "HTTPS: No -> Yes"]
+    }
+  ]
+}
