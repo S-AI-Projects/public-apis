@@ -1,0 +1,30 @@
+{
+  "test_case": "registration_required_verification",
+  "description": "Verifies account registration requirements distinguishing anonymous access from registered access",
+  "entries": [
+    {
+      "name": "AgentPay Doc Tools",
+      "registration_required": false,
+      "anonymous_access": true,
+      "status": "verified",
+      "evidence_url": "https://agentpay-tools.agentpay-apis.workers.dev",
+      "notes": "No account signup needed; can pay via x402 directly or request trial key without registration"
+    },
+    {
+      "name": "Airtable",
+      "registration_required": true,
+      "anonymous_access": false,
+      "status": "verified",
+      "evidence_url": "https://airtable.com/developers/web/api/authentication.md",
+      "notes": "User account required to create personal access tokens or register OAuth apps"
+    },
+    {
+      "name": "Api2Convert",
+      "registration_required": true,
+      "anonymous_access": false,
+      "status": "verified",
+      "evidence_url": "https://www.api2convert.com/documentation/guides/quickstart",
+      "notes": "Account registration required to obtain x-api2convert-api-key"
+    }
+  ]
+}

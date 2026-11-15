@@ -1,0 +1,36 @@
+{
+  "test_case": "paid_access_and_free_tier_limitations",
+  "description": "Verifies payment requirements and distinguishes free tiers from unrestricted free usage",
+  "entries": [
+    {
+      "name": "AgentPay Doc Tools",
+      "payment_required": true,
+      "has_free_tier": true,
+      "free_tier_unrestricted": false,
+      "free_tier_details": "GET /credits/trial returns $0.05 trial credit (one per network per day)",
+      "payment_model": "Micropayment per request via x402 in USDC on Base or Algorand ($0.005-$0.01/call)",
+      "status": "verified",
+      "evidence_url": "https://agentpay-tools.agentpay-apis.workers.dev"
+    },
+    {
+      "name": "Airtable",
+      "payment_required": false,
+      "has_free_tier": true,
+      "free_tier_unrestricted": false,
+      "free_tier_details": "Free plan includes unlimited bases, up to 1,000 records per base, 1GB attachments",
+      "payment_model": "Freemium with monthly/annual paid plans (Team, Business, Enterprise)",
+      "status": "verified",
+      "evidence_url": "https://airtable.com/pricing"
+    },
+    {
+      "name": "Api2Convert",
+      "payment_required": false,
+      "has_free_tier": true,
+      "free_tier_unrestricted": false,
+      "free_tier_details": "30 free credits every 24 hours for every registered user",
+      "payment_model": "Freemium with credit packages and monthly recurring subscriptions",
+      "status": "verified",
+      "evidence_url": "https://www.api2convert.com/pricing"
+    }
+  ]
+}

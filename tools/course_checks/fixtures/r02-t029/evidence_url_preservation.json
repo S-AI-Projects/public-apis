@@ -1,0 +1,56 @@
+{
+  "test_case": "official_evidence_url_preservation",
+  "description": "Verifies that every verified access requirement claim records and preserves an official evidence URL",
+  "verified_claims": [
+    {
+      "api": "AgentPay Doc Tools",
+      "claim": "Direct requests use x402 payment headers; optional bearer apiKey for credits",
+      "official_evidence_url": "https://agentpay-tools.agentpay-apis.workers.dev/tools/openapi.json"
+    },
+    {
+      "api": "AgentPay Doc Tools",
+      "claim": "No account registration required; anonymous access supported",
+      "official_evidence_url": "https://agentpay-tools.agentpay-apis.workers.dev"
+    },
+    {
+      "api": "AgentPay Doc Tools",
+      "claim": "Paid per call via x402 in USDC ($0.005-$0.01) with $0.05 trial credit key",
+      "official_evidence_url": "https://agentpay-tools.agentpay-apis.workers.dev"
+    },
+    {
+      "api": "Airtable",
+      "claim": "API keys deprecated Feb 1, 2024; Bearer tokens with OAuth 2.0 / PAT required",
+      "official_evidence_url": "https://airtable.com/developers/web/api/authentication.md"
+    },
+    {
+      "api": "Airtable",
+      "claim": "Account registration required for user account and personal access tokens",
+      "official_evidence_url": "https://airtable.com/developers/web/api/authentication.md"
+    },
+    {
+      "api": "Airtable",
+      "claim": "Free tier available indefinitely with base and record limits; paid plans for higher limits",
+      "official_evidence_url": "https://airtable.com/pricing"
+    },
+    {
+      "api": "Airtable",
+      "claim": "Access is scoped to specific workspaces, bases, and configured token scopes",
+      "official_evidence_url": "https://airtable.com/developers/web/api/authentication.md"
+    },
+    {
+      "api": "Api2Convert",
+      "claim": "API key required via x-api2convert-api-key header for file conversion operations",
+      "official_evidence_url": "https://www.api2convert.com/documentation/guides/authentication"
+    },
+    {
+      "api": "Api2Convert",
+      "claim": "Account registration required to obtain API key from dashboard",
+      "official_evidence_url": "https://www.api2convert.com/documentation/guides/quickstart"
+    },
+    {
+      "api": "Api2Convert",
+      "claim": "Free tier grants 30 free credits every 24 hours to registered users",
+      "official_evidence_url": "https://www.api2convert.com/pricing"
+    }
+  ]
+}

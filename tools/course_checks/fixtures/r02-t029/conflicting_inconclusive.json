@@ -1,0 +1,16 @@
+{
+  "test_case": "conflicting_or_inconclusive_evidence",
+  "description": "Exercises classifier behavior when provider documentation contains conflicting or inconclusive access terms",
+  "resource": {
+    "name": "ConflictingDoc API",
+    "url": "https://example.com/api/docs",
+    "reported_claims": [
+      {"source": "marketing_landing_page", "claim": "Completely free anonymous REST API"},
+      {"source": "terms_of_service", "claim": "Commercial enterprise license required for all automated calls"}
+    ],
+    "expected_status": "unverified",
+    "expected_reason": "Inconclusive access requirements due to conflicting provider statements",
+    "is_classified_as_free": false,
+    "is_classified_as_auth_free": false
+  }
+}

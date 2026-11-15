@@ -1,0 +1,15 @@
+{
+  "test_case": "unavailable_resource_classification",
+  "description": "Exercises classifier behavior when a resource fails automated probes or timeouts",
+  "resource": {
+    "name": "TemporarilyUnavailable API",
+    "url": "https://example.com/unavailable-api",
+    "observed_error": "Connection timed out after 10.0 seconds",
+    "expected_status": "unverified",
+    "expected_reason": "Resource endpoint unreachable or timed out; access requirements cannot be verified offline",
+    "classified_as_discontinued": false,
+    "classified_as_broken": false,
+    "classified_as_free": false,
+    "remove_from_catalogue": false
+  }
+}
