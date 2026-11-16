@@ -1,0 +1,23 @@
+R02-T031 — Tool versions and environment
+=========================================
+
+Python:
+Python 3.15.2
+
+Platform:
+Darwin Apuravs-MacBook-Air.local 27.2.0 Darwin Kernel Version 27.2.0: Wed Oct 14 23:48:06 PDT 2026; root:xnu-13432.41.4~25/RELEASE_ARM64_T8142 arm64
+
+Git:
+git version 2.55.0
+
+Commit:
+2676ca49d557ef14a0f478311506dae947639028
+
+Branch:
+student/e26b07f0885/R02-T031
+
+Repository formatter:
+scripts/validate/format.py (repository-provided)
+
+Checker dependencies:
+Python standard library only: argparse, json, re, subprocess, sys, pathlib

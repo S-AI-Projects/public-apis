@@ -1,0 +1,39 @@
+
+[
+  {
+    "display_name": "4chan",
+    "url": "https://github.com/4chan/4chan-API",
+    "category": "Social",
+    "source_line": 7,
+    "metadata": {
+      "description": "Image-based bulletin board",
+      "auth": "No",
+      "https": "Yes",
+      "cors": "Yes"
+    }
+  },
+  {
+    "display_name": "API Direct",
+    "url": "https://apidirect.io/docs#overview",
+    "category": "Social",
+    "source_line": 8,
+    "metadata": {
+      "description": "Real-time social media data",
+      "auth": "apiKey",
+      "https": "Yes",
+      "cors": "Yes"
+    }
+  },
+  {
+    "display_name": "Ayrshare",
+    "url": "https://www.ayrshare.com",
+    "category": "Social",
+    "source_line": 9,
+    "metadata": {
+      "description": "Social media management APIs",
+      "auth": "apiKey",
+      "https": "Yes",
+      "cors": "Yes"
+    }
+  }
+]

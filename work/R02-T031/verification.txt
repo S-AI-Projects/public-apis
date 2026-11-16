@@ -1,0 +1,68 @@
+R02-T031 — Verification evidence
+=================================
+Date (UTC): 2026-11-16T05:16:56Z
+Commit: 2676ca49d557ef14a0f478311506dae947639028
+Branch: student/e26b07f0885/R02-T031
+
+1. Baseline commands
+--------------------
+
+$ python3 -m py_compile tools/course_checks/r02-t031.py
+  EXIT=0
+
+$ python3 tools/course_checks/r02-t031.py --self-test
+  Self-test passed: 3 Social APIs extracted; wrong-category, non-assigned, backtick-fenced, tilde-fenced and fake links ignored; URL fragment preserved; source lines 7/8/9.
+  Failure input rejected with a non-zero exit code.
+  Actual results written to: work/R02-T031/actual.json
+  EXIT=0
+
+$ python3 tools/course_checks/r02-t031.py   (real README)
+  EXIT=0
+  entries: 3
+    4chan        line 2289  https://github.com/4chan/4chan-API
+    API Direct   line 2290  https://apidirect.io/docs
+    Ayrshare     line 2291  https://www.ayrshare.com
+
+$ git diff --check && git diff --cached --check
+  EXIT=0 (no whitespace errors)
+
+2. Source-line verification against README.md
+---------------------------------------------
+
+  README.md L2289: | [4chan](https://github.com/4chan/4chan-API) | Simple image-based bul...
+  README.md L2290: | [API Direct](https://apidirect.io/docs) | Real-time social media dat...
+  README.md L2291: | [Ayrshare](https://www.ayrshare.com) | Social media APIs to post, ge...
+
+  Social section heading: 2286:### Social
+  Next category heading:  2352: ### Sports & Fitness
+
+3. Failure case: assertion failure must exit non-zero
+------------------------------------------------------
+  corrupted expected.json -> --self-test EXIT=1  (non-zero = PASS)
+
+  $ python3 tools/course_checks/r02-t031.py --input work/R02-T031/fixtures/no-match.md
+  No assigned entries found.
+  []
+  EXIT=1
+
+  $ python3 -O tools/course_checks/r02-t031.py --self-test  (assertions disabled)
+  ERROR: assertions are disabled (python -O/-OO); refusing to report a false pass.
+  EXIT=1  (non-zero = refuses false pass)
+
+4. Mutation testing — each requirement is genuinely exercised
+-------------------------------------------------------------
+(Each mutation deliberately breaks one behaviour; the self-test must then fail.)
+
+  Social category scoping removed            exit=1  -> CAUGHT (self-test failed as required)
+  fence handling removed (all)               exit=1  -> CAUGHT (self-test failed as required)
+  backtick fence only removed                exit=1  -> CAUGHT (self-test failed as required)
+  tilde fence only removed                   exit=1  -> CAUGHT (self-test failed as required)
+  assigned-name filter removed               exit=1  -> CAUGHT (self-test failed as required)
+  URL fragment stripped                      exit=1  -> CAUGHT (self-test failed as required)
+  source_line mapping broken                 exit=1  -> CAUGHT (self-test failed as required)
+  metadata extraction broken                 exit=1  -> CAUGHT (self-test failed as required)
+
+5. Fixture fence balance
+------------------------
+  input.md       fences balanced: L18 OPEN(`), L24 CLOSE(`), L26 OPEN(~), L32 CLOSE(~)
+  no-match.md    fences balanced: L9 OPEN(~), L14 CLOSE(~)
