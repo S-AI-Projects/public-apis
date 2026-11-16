@@ -1,0 +1,15 @@
+{
+  "task": "R02-T033",
+  "scope": {
+    "file": "README.md",
+    "section": "Environment",
+    "expected_entries_scanned": 33
+  },
+  "expected": {
+    "exact_duplicates": [],
+    "conservative_normalization_matches": [],
+    "catalogue_modified": false,
+    "automatic_deletion_recommendations": false
+  },
+  "interpretation": "The checker should scan all 33 Environment entries and report no exact or conservative normalization duplicates. No catalogue entries should be modified or marked for automatic deletion."
+}

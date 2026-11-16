@@ -1,0 +1,23 @@
+{
+  "task": "R02-T033",
+  "command": "python3 tools/course_checks/r02-t033.py",
+  "entries_scanned": 33,
+  "exact_duplicates": [],
+  "conservative_normalization_matches": [],
+  "manual_review_required_for_reported_matches": true,
+  "catalogue_modified": false,
+  "automatic_deletion_recommendations": false,
+  "stdout": [
+    "R02-T033 — Environment URL duplicate report",
+    "Entries scanned: 33",
+    "",
+    "Exact URL duplicates:",
+    "  None found.",
+    "",
+    "Conservative normalization matches:",
+    "  None found.",
+    "",
+    "Manual review is required for every reported match.",
+    "No catalogue entries were changed or marked for automatic deletion."
+  ]
+}

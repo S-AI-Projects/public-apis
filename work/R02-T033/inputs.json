@@ -1,0 +1,30 @@
+{
+  "task": "R02-T033",
+  "source_file": "README.md",
+  "source_section": "Environment",
+  "source_lines": {
+    "AirNow": 1058,
+    "BreezoMeter Pollen": 1059,
+    "Calendrier Tempo": 1060
+  },
+  "entries": [
+    {
+      "name": "AirNow",
+      "line": 1058,
+      "url": "https://docs.airnowapi.org/",
+      "markdown": "| [AirNow](https://docs.airnowapi.org/) | US EPA air quality data and forecasts | `apiKey` | Yes | Yes |"
+    },
+    {
+      "name": "BreezoMeter Pollen",
+      "line": 1059,
+      "url": "https://docs.breezometer.com/api-documentation/pollen-api/v2/",
+      "markdown": "| [BreezoMeter Pollen](https://docs.breezometer.com/api-documentation/pollen-api/v2/) | Daily Forecast pollen conditions data for a specific location | `apiKey` | Yes | Unknown |"
+    },
+    {
+      "name": "Calendrier Tempo",
+      "line": 1060,
+      "url": "https://www.calendrier-tempo.fr/api-tempo",
+      "markdown": "| [Calendrier Tempo](https://www.calendrier-tempo.fr/api-tempo) | French EDF Tempo tariff: today's and tomorrow's colour, kWh prices and 15-day colour forecasts | No | Yes | Yes |"
+    }
+  ]
+}
