@@ -1,0 +1,293 @@
+# R02-T032 validation log
+# Generated: 2026-11-16T16:24:02Z
+# Branch: student/e26b07f0885/R02-T032
+# HEAD: 2676ca49d557ef14a0f478311506dae947639028
+
+## python3 -m py_compile tools/course_checks/r02-t032.py
+exit=0
+
+## python3 -O tools/course_checks/r02-t032.py --self-test
+R02-T032 offline self-test
+Parameters: max_redirects=2, connect_timeout=1.0s, read_timeout=0.5s, allow_loopback_for_self_test=True
+
+Resolver fixtures (57 cases):
+[PASS] direct-200 [OK, HTTP 200]
+[PASS] direct-204 [OK, HTTP 204]
+[PASS] direct-201-created [OK, HTTP 201]
+[PASS] direct-206-partial [OK, HTTP 206]
+[PASS] direct-non-html-not-inspected [OK, HTTP 200]
+[PASS] direct-login-html [AUTH_WALL, HTTP 200]
+[PASS] direct-ordinary-html [OK, HTTP 200]
+[PASS] direct-html-without-login-indicators [OK, HTTP 200]
+[PASS] direct-html-body-timeout [TIMEOUT, HTTP 200]
+[PASS] direct-html-body-read-error [CONNECTION_ERROR, HTTP 200]
+[PASS] redirect-301 [MOVED, HTTP 200]
+[PASS] redirect-302 [MOVED, HTTP 200]
+[PASS] redirect-303 [MOVED, HTTP 200]
+[PASS] redirect-307 [MOVED, HTTP 200]
+[PASS] redirect-308 [MOVED, HTTP 200]
+[PASS] relative-redirect [MOVED, HTTP 200]
+[PASS] multiple-redirects [MOVED, HTTP 200]
+[PASS] redirect-query [MOVED, HTTP 200]
+[PASS] redirect-204 [MOVED, HTTP 204]
+[PASS] within-budget [MOVED, HTTP 200]
+[PASS] budget-exhausted [REDIRECT_LIMIT, HTTP 302]
+[PASS] redirect-loop [REDIRECT_LOOP, HTTP 302]
+[PASS] self-loop [REDIRECT_LOOP, HTTP 302]
+[PASS] missing-location [HTTP_ERROR, HTTP 302]
+[PASS] malformed-location [INVALID_URL, HTTP 302]
+[PASS] unsupported-scheme-redirect [UNSUPPORTED_SCHEME, HTTP 302]
+[PASS] http-401 [AUTH_WALL, HTTP 401]
+[PASS] http-403 [AUTH_WALL, HTTP 403]
+[PASS] login-path-redirect [AUTH_WALL, HTTP 302]
+[PASS] identity-provider-redirect [AUTH_WALL, HTTP 302]
+[PASS] login-page-body [AUTH_WALL, HTTP 200]
+[PASS] redirect-html-ok [MOVED, HTTP 200]
+[PASS] redirect-404 [HTTP_ERROR, HTTP 404]
+[PASS] redirect-401 [AUTH_WALL, HTTP 401]
+[PASS] http-404 [HTTP_ERROR, HTTP 404]
+[PASS] http-500 [TRANSIENT_FAILURE, HTTP 500]
+[PASS] http-429 [TRANSIENT_FAILURE, HTTP 429]
+[PASS] http-408 [TRANSIENT_FAILURE, HTTP 408]
+[PASS] http-425 [TRANSIENT_FAILURE, HTTP 425]
+[PASS] http-503 [TRANSIENT_FAILURE, HTTP 503]
+[PASS] redirect-403 [AUTH_WALL, HTTP 403]
+[PASS] redirect-500 [TRANSIENT_FAILURE, HTTP 500]
+[PASS] unexpected-300 [HTTP_ERROR, HTTP 300]
+[PASS] unexpected-304 [HTTP_ERROR, HTTP 304]
+[PASS] redirected-html-body-timeout [TIMEOUT, HTTP 200]
+[PASS] redirect-private-blocked [BLOCKED_TARGET, HTTP 302]
+[PASS] read-timeout [TIMEOUT]
+[PASS] connection-closed [CONNECTION_ERROR]
+[PASS] dns-failure [DNS_FAILURE]
+[PASS] invalid-url [INVALID_URL]
+[PASS] credentials-in-url [INVALID_URL]
+[PASS] unsupported-scheme-input [UNSUPPORTED_SCHEME]
+[PASS] blocked-loopback [BLOCKED_TARGET]
+[PASS] blocked-private-10 [BLOCKED_TARGET]
+[PASS] blocked-link-local [BLOCKED_TARGET]
+[PASS] blocked-ipv6-loopback [BLOCKED_TARGET]
+[PASS] blocked-localhost [BLOCKED_TARGET]
+
+Consistency checks:
+[PASS] readme-food-drink-rows
+[PASS] fixed-target-scope
+[PASS] login-heuristics
+[PASS] login-body-detection
+[PASS] exception-mapping
+[PASS] dns-timeout
+[PASS] validated-connect
+[PASS] peer-address-guard
+[PASS] tls-verification
+[PASS] ssrf-guard
+[PASS] url-validation
+
+Summary: 57/57 resolver cases passed; 11/11 consistency checks passed.
+Expected results: work/R02-T032/expected-results.json
+Actual results:   work/R02-T032/actual-results.json
+Overall: PASS
+exit=0
+
+## python3 -OO tools/course_checks/r02-t032.py --self-test
+R02-T032 offline self-test
+Parameters: max_redirects=2, connect_timeout=1.0s, read_timeout=0.5s, allow_loopback_for_self_test=True
+
+Resolver fixtures (57 cases):
+[PASS] direct-200 [OK, HTTP 200]
+[PASS] direct-204 [OK, HTTP 204]
+[PASS] direct-201-created [OK, HTTP 201]
+[PASS] direct-206-partial [OK, HTTP 206]
+[PASS] direct-non-html-not-inspected [OK, HTTP 200]
+[PASS] direct-login-html [AUTH_WALL, HTTP 200]
+[PASS] direct-ordinary-html [OK, HTTP 200]
+[PASS] direct-html-without-login-indicators [OK, HTTP 200]
+[PASS] direct-html-body-timeout [TIMEOUT, HTTP 200]
+[PASS] direct-html-body-read-error [CONNECTION_ERROR, HTTP 200]
+[PASS] redirect-301 [MOVED, HTTP 200]
+[PASS] redirect-302 [MOVED, HTTP 200]
+[PASS] redirect-303 [MOVED, HTTP 200]
+[PASS] redirect-307 [MOVED, HTTP 200]
+[PASS] redirect-308 [MOVED, HTTP 200]
+[PASS] relative-redirect [MOVED, HTTP 200]
+[PASS] multiple-redirects [MOVED, HTTP 200]
+[PASS] redirect-query [MOVED, HTTP 200]
+[PASS] redirect-204 [MOVED, HTTP 204]
+[PASS] within-budget [MOVED, HTTP 200]
+[PASS] budget-exhausted [REDIRECT_LIMIT, HTTP 302]
+[PASS] redirect-loop [REDIRECT_LOOP, HTTP 302]
+[PASS] self-loop [REDIRECT_LOOP, HTTP 302]
+[PASS] missing-location [HTTP_ERROR, HTTP 302]
+[PASS] malformed-location [INVALID_URL, HTTP 302]
+[PASS] unsupported-scheme-redirect [UNSUPPORTED_SCHEME, HTTP 302]
+[PASS] http-401 [AUTH_WALL, HTTP 401]
+[PASS] http-403 [AUTH_WALL, HTTP 403]
+[PASS] login-path-redirect [AUTH_WALL, HTTP 302]
+[PASS] identity-provider-redirect [AUTH_WALL, HTTP 302]
+[PASS] login-page-body [AUTH_WALL, HTTP 200]
+[PASS] redirect-html-ok [MOVED, HTTP 200]
+[PASS] redirect-404 [HTTP_ERROR, HTTP 404]
+[PASS] redirect-401 [AUTH_WALL, HTTP 401]
+[PASS] http-404 [HTTP_ERROR, HTTP 404]
+[PASS] http-500 [TRANSIENT_FAILURE, HTTP 500]
+[PASS] http-429 [TRANSIENT_FAILURE, HTTP 429]
+[PASS] http-408 [TRANSIENT_FAILURE, HTTP 408]
+[PASS] http-425 [TRANSIENT_FAILURE, HTTP 425]
+[PASS] http-503 [TRANSIENT_FAILURE, HTTP 503]
+[PASS] redirect-403 [AUTH_WALL, HTTP 403]
+[PASS] redirect-500 [TRANSIENT_FAILURE, HTTP 500]
+[PASS] unexpected-300 [HTTP_ERROR, HTTP 300]
+[PASS] unexpected-304 [HTTP_ERROR, HTTP 304]
+[PASS] redirected-html-body-timeout [TIMEOUT, HTTP 200]
+[PASS] redirect-private-blocked [BLOCKED_TARGET, HTTP 302]
+[PASS] read-timeout [TIMEOUT]
+[PASS] connection-closed [CONNECTION_ERROR]
+[PASS] dns-failure [DNS_FAILURE]
+[PASS] invalid-url [INVALID_URL]
+[PASS] credentials-in-url [INVALID_URL]
+[PASS] unsupported-scheme-input [UNSUPPORTED_SCHEME]
+[PASS] blocked-loopback [BLOCKED_TARGET]
+[PASS] blocked-private-10 [BLOCKED_TARGET]
+[PASS] blocked-link-local [BLOCKED_TARGET]
+[PASS] blocked-ipv6-loopback [BLOCKED_TARGET]
+[PASS] blocked-localhost [BLOCKED_TARGET]
+
+Consistency checks:
+[PASS] readme-food-drink-rows
+[PASS] fixed-target-scope
+[PASS] login-heuristics
+[PASS] login-body-detection
+[PASS] exception-mapping
+[PASS] dns-timeout
+[PASS] validated-connect
+[PASS] peer-address-guard
+[PASS] tls-verification
+[PASS] ssrf-guard
+[PASS] url-validation
+
+Summary: 57/57 resolver cases passed; 11/11 consistency checks passed.
+Expected results: work/R02-T032/expected-results.json
+Actual results:   work/R02-T032/actual-results.json
+Overall: PASS
+exit=0
+
+## python3 tools/course_checks/r02-t032.py --self-test
+R02-T032 offline self-test
+Parameters: max_redirects=2, connect_timeout=1.0s, read_timeout=0.5s, allow_loopback_for_self_test=True
+
+Resolver fixtures (57 cases):
+[PASS] direct-200 [OK, HTTP 200]
+[PASS] direct-204 [OK, HTTP 204]
+[PASS] direct-201-created [OK, HTTP 201]
+[PASS] direct-206-partial [OK, HTTP 206]
+[PASS] direct-non-html-not-inspected [OK, HTTP 200]
+[PASS] direct-login-html [AUTH_WALL, HTTP 200]
+[PASS] direct-ordinary-html [OK, HTTP 200]
+[PASS] direct-html-without-login-indicators [OK, HTTP 200]
+[PASS] direct-html-body-timeout [TIMEOUT, HTTP 200]
+[PASS] direct-html-body-read-error [CONNECTION_ERROR, HTTP 200]
+[PASS] redirect-301 [MOVED, HTTP 200]
+[PASS] redirect-302 [MOVED, HTTP 200]
+[PASS] redirect-303 [MOVED, HTTP 200]
+[PASS] redirect-307 [MOVED, HTTP 200]
+[PASS] redirect-308 [MOVED, HTTP 200]
+[PASS] relative-redirect [MOVED, HTTP 200]
+[PASS] multiple-redirects [MOVED, HTTP 200]
+[PASS] redirect-query [MOVED, HTTP 200]
+[PASS] redirect-204 [MOVED, HTTP 204]
+[PASS] within-budget [MOVED, HTTP 200]
+[PASS] budget-exhausted [REDIRECT_LIMIT, HTTP 302]
+[PASS] redirect-loop [REDIRECT_LOOP, HTTP 302]
+[PASS] self-loop [REDIRECT_LOOP, HTTP 302]
+[PASS] missing-location [HTTP_ERROR, HTTP 302]
+[PASS] malformed-location [INVALID_URL, HTTP 302]
+[PASS] unsupported-scheme-redirect [UNSUPPORTED_SCHEME, HTTP 302]
+[PASS] http-401 [AUTH_WALL, HTTP 401]
+[PASS] http-403 [AUTH_WALL, HTTP 403]
+[PASS] login-path-redirect [AUTH_WALL, HTTP 302]
+[PASS] identity-provider-redirect [AUTH_WALL, HTTP 302]
+[PASS] login-page-body [AUTH_WALL, HTTP 200]
+[PASS] redirect-html-ok [MOVED, HTTP 200]
+[PASS] redirect-404 [HTTP_ERROR, HTTP 404]
+[PASS] redirect-401 [AUTH_WALL, HTTP 401]
+[PASS] http-404 [HTTP_ERROR, HTTP 404]
+[PASS] http-500 [TRANSIENT_FAILURE, HTTP 500]
+[PASS] http-429 [TRANSIENT_FAILURE, HTTP 429]
+[PASS] http-408 [TRANSIENT_FAILURE, HTTP 408]
+[PASS] http-425 [TRANSIENT_FAILURE, HTTP 425]
+[PASS] http-503 [TRANSIENT_FAILURE, HTTP 503]
+[PASS] redirect-403 [AUTH_WALL, HTTP 403]
+[PASS] redirect-500 [TRANSIENT_FAILURE, HTTP 500]
+[PASS] unexpected-300 [HTTP_ERROR, HTTP 300]
+[PASS] unexpected-304 [HTTP_ERROR, HTTP 304]
+[PASS] redirected-html-body-timeout [TIMEOUT, HTTP 200]
+[PASS] redirect-private-blocked [BLOCKED_TARGET, HTTP 302]
+[PASS] read-timeout [TIMEOUT]
+[PASS] connection-closed [CONNECTION_ERROR]
+[PASS] dns-failure [DNS_FAILURE]
+[PASS] invalid-url [INVALID_URL]
+[PASS] credentials-in-url [INVALID_URL]
+[PASS] unsupported-scheme-input [UNSUPPORTED_SCHEME]
+[PASS] blocked-loopback [BLOCKED_TARGET]
+[PASS] blocked-private-10 [BLOCKED_TARGET]
+[PASS] blocked-link-local [BLOCKED_TARGET]
+[PASS] blocked-ipv6-loopback [BLOCKED_TARGET]
+[PASS] blocked-localhost [BLOCKED_TARGET]
+
+Consistency checks:
+[PASS] readme-food-drink-rows
+[PASS] fixed-target-scope
+[PASS] login-heuristics
+[PASS] login-body-detection
+[PASS] exception-mapping
+[PASS] dns-timeout
+[PASS] validated-connect
+[PASS] peer-address-guard
+[PASS] tls-verification
+[PASS] ssrf-guard
+[PASS] url-validation
+
+Summary: 57/57 resolver cases passed; 11/11 consistency checks passed.
+Expected results: work/R02-T032/expected-results.json
+Actual results:   work/R02-T032/actual-results.json
+Overall: PASS
+exit=0
+
+## Python assert statements in checker
+none
+
+## Trailing whitespace in edited text files
+none
+
+## git diff --check
+exit=0
+
+## git status --short --untracked-files=all
+?? tools/course_checks/README.md
+?? tools/course_checks/r02-t032.py
+?? work/R02-T032/README.md
+?? work/R02-T032/actual-results.json
+?? work/R02-T032/api-verification.md
+?? work/R02-T032/environment.txt
+?? work/R02-T032/expected-results.json
+?? work/R02-T032/inputs.json
+?? work/R02-T032/live-results.json
+?? work/R02-T032/validation.txt
+exit=0
+
+## git diff --stat
+exit=0
+
+## git diff (tracked changes)
+exit=0
+
+## git rev-list --left-right --count upstream/master...HEAD
+0	0
+exit=0
+
+## live-results summary
+window: 2026-11-16T12:49:07Z -> 2026-11-16T12:49:10Z
+body_inspection_policy: all_2xx_html_inspected_timeout_is_failure
+summary: {'targets': 3, 'classification_counts': {'OK': 3}, 'definitive_success': 3, 'inconclusive_or_failed': 0}
+BaconMockup: OK HTTP 200 final=https://baconmockup.com/ redirects=0 requests=1 validated=162.243.9.212 peer=162.243.9.212 body_inspected=True body_truncated=False body_timeout=False
+CalorieNinjas: OK HTTP 200 final=https://calorieninjas.com/api redirects=0 requests=1 validated=13.225.5.128 peer=13.225.5.128 body_inspected=True body_truncated=True body_timeout=False
+Chomp: OK HTTP 200 final=https://chompthis.com/api/ redirects=0 requests=1 validated=162.243.43.15 peer=162.243.43.15 body_inspected=True body_truncated=True body_timeout=False

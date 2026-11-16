@@ -1,0 +1,79 @@
+{
+  "task": "R02-T032",
+  "assignment": "2 of 10",
+  "section": "Food & Drink",
+  "readme_commit": "2676ca49d557ef14a0f478311506dae947639028",
+  "readme_sha256": "1ce4b056b48404fe8a332497495ca5d12ca2b9f5aa4e985e8fd5fb14f90fe164",
+  "fixed_targets_only": true,
+  "targets": [
+    {
+      "name": "BaconMockup",
+      "url": "https://baconmockup.com/",
+      "auth": "No",
+      "https": "Yes",
+      "cors": "Yes",
+      "description": "Resizable bacon placeholder images",
+      "readme_line": 1220,
+      "readme_category": "Food & Drink",
+      "readme_row": "| [BaconMockup](https://baconmockup.com/) | Resizable bacon placeholder images | No | Yes | Yes |"
+    },
+    {
+      "name": "CalorieNinjas",
+      "url": "https://calorieninjas.com/api",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Yes",
+      "description": "Nutrition and calorie data for foods and recipes",
+      "readme_line": 1221,
+      "readme_category": "Food & Drink",
+      "readme_row": "| [CalorieNinjas](https://calorieninjas.com/api) | Nutrition and calorie data for foods and recipes | `apiKey` | Yes | Yes |"
+    },
+    {
+      "name": "Chomp",
+      "url": "https://chompthis.com/api/",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "description": "Data about various grocery products and foods",
+      "readme_line": 1222,
+      "readme_category": "Food & Drink",
+      "readme_row": "| [Chomp](https://chompthis.com/api/) | Data about various grocery products and foods | `apiKey` | Yes | Unknown |"
+    }
+  ],
+  "parameters": {
+    "default_max_redirects": 5,
+    "self_test_max_redirects": 2,
+    "self_test_connect_timeout_seconds": 1.0,
+    "self_test_read_timeout_seconds": 0.5,
+    "live_connect_timeout_seconds": 5.0,
+    "live_read_timeout_seconds": 5.0,
+    "self_test_max_body_bytes": 4096,
+    "live_max_body_bytes": 32768,
+    "follow_redirect_statuses": [
+      301,
+      302,
+      303,
+      307,
+      308
+    ],
+    "allowed_schemes": [
+      "http",
+      "https"
+    ],
+    "user_agent": "public-apis-course-checker/1.0 (R02-T032 educational redirect verifier; +https://github.com/S-AI-Projects/public-apis)",
+    "dns_timeout_policy": "caller_wait_is_bounded_resolver_thread_is_not_cancellable",
+    "connection_timeout_policy": "all_validated_address_attempts_share_one_connect_deadline",
+    "body_inspection_policy": "all_2xx_html_inspected_timeout_is_failure"
+  },
+  "safety": [
+    "No API keys or credentials are sent.",
+    "No authenticated API calls, form submissions or writes are made.",
+    "Only the three fixed targets are requested by the live mode.",
+    "Loopback, private, link-local and other non-global destinations are refused in live mode.",
+    "Self-test mode permits only loopback fixture addresses, not private or public addresses.",
+    "Each destination is resolved once; every returned address is validated before a socket is opened.",
+    "The socket connects to a validated numeric address, while the original host name is used for Host, TLS SNI and certificate verification.",
+    "The actual connected peer address is compared with the validated address.",
+    "Every 2xx HTML response body, direct or redirected, is read only up to 32 KiB for login-form detection. A body read timeout is reported as TIMEOUT and a body read error as CONNECTION_ERROR. Non-HTML and 204/205 bodies are not read."
+  ]
+}
