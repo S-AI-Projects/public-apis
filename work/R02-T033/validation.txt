@@ -1,0 +1,40 @@
+R02-T033 — Validation Log
+Date: 17 November 2026
+
+1. Offline self-tests
+Command: python3 tools/course_checks/r02-t033.py --self-test
+Result: PASS — 34 checks passed.
+
+2. Optimized-mode self-tests
+Command: python3 -O tools/course_checks/r02-t033.py --self-test
+Result: PASS — 34 checks passed.
+
+3. Maximum-optimization self-tests
+Command: python3 -OO tools/course_checks/r02-t033.py --self-test
+Result: PASS — 34 checks passed.
+
+4. Real catalogue scan
+Command: python3 tools/course_checks/r02-t033.py
+Result: PASS
+Entries scanned: 33
+Exact URL duplicates: None found.
+Conservative normalization matches: None found.
+Catalogue modifications: None.
+
+5. Python compilation
+Command: python3 -m py_compile tools/course_checks/r02-t033.py
+Result: PASS.
+
+6. Patch whitespace validation
+Command: git diff --check
+Result: PASS — no errors reported.
+
+7. JSON evidence validation
+Commands:
+- python3 -m json.tool work/R02-T033/inputs.json
+- python3 -m json.tool work/R02-T033/expected-results.json
+- python3 -m json.tool work/R02-T033/actual-results.json
+Result: PASS — all three files parsed successfully.
+
+8. Cache cleanup
+Removed tools/course_checks/__pycache__/ after compilation.
