@@ -1,0 +1,710 @@
+{
+  "task": "R02-T032",
+  "mode": "offline-self-test",
+  "generated_at": "2026-11-16T16:26:51Z",
+  "parameters": {
+    "max_redirects": 2,
+    "connect_timeout_seconds": 1.0,
+    "read_timeout_seconds": 0.5,
+    "max_body_bytes": 4096,
+    "allow_loopback_for_self_test": true,
+    "dns_timeout_policy": "caller_wait_is_bounded_resolver_thread_is_not_cancellable",
+    "connection_timeout_policy": "all_validated_address_attempts_share_one_connect_deadline",
+    "body_inspection_policy": "all_2xx_html_inspected_timeout_is_failure"
+  },
+  "resolver_cases": [
+    {
+      "name": "direct-200",
+      "expected": {
+        "classification": "OK",
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/ok",
+        "error_type": null,
+        "auth_evidence_present": false
+      }
+    },
+    {
+      "name": "direct-204",
+      "expected": {
+        "classification": "OK",
+        "http_status": 204,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/ok204"
+      }
+    },
+    {
+      "name": "direct-201-created",
+      "expected": {
+        "classification": "OK",
+        "http_status": 201,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/status/201"
+      }
+    },
+    {
+      "name": "direct-206-partial",
+      "expected": {
+        "classification": "OK",
+        "http_status": 206,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/status/206"
+      }
+    },
+    {
+      "name": "direct-non-html-not-inspected",
+      "expected": {
+        "classification": "OK",
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/ok",
+        "body_inspected": false,
+        "body_read_timeout": false
+      }
+    },
+    {
+      "name": "direct-login-html",
+      "expected": {
+        "classification": "AUTH_WALL",
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/portal",
+        "error_type": "login_page",
+        "auth_evidence_contains": "password",
+        "body_inspected": true,
+        "body_read_timeout": false
+      }
+    },
+    {
+      "name": "direct-ordinary-html",
+      "expected": {
+        "classification": "OK",
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/html-ok",
+        "auth_evidence_present": false,
+        "body_inspected": true,
+        "body_read_timeout": false
+      }
+    },
+    {
+      "name": "direct-html-without-login-indicators",
+      "expected": {
+        "classification": "OK",
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/docs-html",
+        "auth_evidence_present": false,
+        "body_inspected": true,
+        "body_read_timeout": false
+      }
+    },
+    {
+      "name": "direct-html-body-timeout",
+      "expected": {
+        "classification": "TIMEOUT",
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/slow-body",
+        "error_type": "body_read_timeout",
+        "body_inspected": true,
+        "body_read_timeout": true
+      }
+    },
+    {
+      "name": "direct-html-body-read-error",
+      "expected": {
+        "classification": "CONNECTION_ERROR",
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/truncated-body",
+        "error_type": "body_read_error",
+        "body_inspected": true,
+        "body_read_timeout": false
+      }
+    },
+    {
+      "name": "redirect-301",
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirect_statuses": [
+          301
+        ],
+        "final_path": "/ok"
+      }
+    },
+    {
+      "name": "redirect-302",
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirect_statuses": [
+          302
+        ],
+        "final_path": "/ok"
+      }
+    },
+    {
+      "name": "redirect-303",
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirect_statuses": [
+          303
+        ],
+        "final_path": "/ok"
+      }
+    },
+    {
+      "name": "redirect-307",
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirect_statuses": [
+          307
+        ],
+        "final_path": "/ok"
+      }
+    },
+    {
+      "name": "redirect-308",
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirect_statuses": [
+          308
+        ],
+        "final_path": "/ok"
+      }
+    },
+    {
+      "name": "relative-redirect",
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "last_location": "ok",
+        "final_path": "/ok"
+      }
+    },
+    {
+      "name": "multiple-redirects",
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 3,
+        "redirect_count": 2,
+        "redirect_statuses": [
+          302,
+          301
+        ],
+        "final_path": "/ok"
+      }
+    },
+    {
+      "name": "redirect-query",
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "final_path": "/ok",
+        "final_query": "from=redirect"
+      }
+    },
+    {
+      "name": "redirect-204",
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 204,
+        "request_count": 2,
+        "redirect_count": 1,
+        "final_path": "/ok204"
+      }
+    },
+    {
+      "name": "within-budget",
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 3,
+        "redirect_count": 2,
+        "final_path": "/chain/0"
+      }
+    },
+    {
+      "name": "budget-exhausted",
+      "expected": {
+        "classification": "REDIRECT_LIMIT",
+        "http_status": 302,
+        "request_count": 3,
+        "redirect_count": 3,
+        "final_path": "/chain/1",
+        "redirect_target_path": "/chain/0",
+        "error_type": "redirect_limit"
+      }
+    },
+    {
+      "name": "redirect-loop",
+      "expected": {
+        "classification": "REDIRECT_LOOP",
+        "http_status": 302,
+        "request_count": 2,
+        "redirect_count": 2,
+        "final_path": "/loop-b",
+        "redirect_target_path": "/loop-a",
+        "error_type": "redirect_loop"
+      }
+    },
+    {
+      "name": "self-loop",
+      "expected": {
+        "classification": "REDIRECT_LOOP",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "final_path": "/self-loop",
+        "redirect_target_path": "/self-loop"
+      }
+    },
+    {
+      "name": "missing-location",
+      "expected": {
+        "classification": "HTTP_ERROR",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "final_path": "/missing-location",
+        "last_location": null,
+        "error_type": "missing_location"
+      }
+    },
+    {
+      "name": "malformed-location",
+      "expected": {
+        "classification": "INVALID_URL",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "final_path": "/malformed-location",
+        "last_location": "http://[::1",
+        "error_type": "malformed_location"
+      }
+    },
+    {
+      "name": "unsupported-scheme-redirect",
+      "expected": {
+        "classification": "UNSUPPORTED_SCHEME",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "final_path": "/unsupported-scheme",
+        "error_type": "unsupported_scheme"
+      }
+    },
+    {
+      "name": "http-401",
+      "expected": {
+        "classification": "AUTH_WALL",
+        "http_status": 401,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "http_401",
+        "auth_evidence_contains": "401"
+      }
+    },
+    {
+      "name": "http-403",
+      "expected": {
+        "classification": "AUTH_WALL",
+        "http_status": 403,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "http_403",
+        "auth_evidence_contains": "403"
+      }
+    },
+    {
+      "name": "login-path-redirect",
+      "expected": {
+        "classification": "AUTH_WALL",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "final_path": "/login-redirect",
+        "redirect_target_path": "/login",
+        "error_type": "login_redirect",
+        "auth_evidence_contains": "login path"
+      }
+    },
+    {
+      "name": "identity-provider-redirect",
+      "expected": {
+        "classification": "AUTH_WALL",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "final_path": "/identity-provider",
+        "redirect_target_path": "/o/oauth2/v2/auth",
+        "error_type": "login_redirect",
+        "auth_evidence_contains": "identity provider"
+      }
+    },
+    {
+      "name": "login-page-body",
+      "expected": {
+        "classification": "AUTH_WALL",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "final_path": "/portal",
+        "error_type": "login_page",
+        "auth_evidence_contains": "password",
+        "body_inspected": true,
+        "body_read_timeout": false
+      }
+    },
+    {
+      "name": "redirect-html-ok",
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "final_path": "/html-ok",
+        "auth_evidence_present": false,
+        "body_inspected": true,
+        "body_read_timeout": false
+      }
+    },
+    {
+      "name": "redirect-404",
+      "expected": {
+        "classification": "HTTP_ERROR",
+        "http_status": 404,
+        "request_count": 2,
+        "redirect_count": 1,
+        "final_path": "/404",
+        "error_type": "http_404"
+      }
+    },
+    {
+      "name": "redirect-401",
+      "expected": {
+        "classification": "AUTH_WALL",
+        "http_status": 401,
+        "request_count": 2,
+        "redirect_count": 1,
+        "final_path": "/401",
+        "error_type": "http_401"
+      }
+    },
+    {
+      "name": "http-404",
+      "expected": {
+        "classification": "HTTP_ERROR",
+        "http_status": 404,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "http_404"
+      }
+    },
+    {
+      "name": "http-500",
+      "expected": {
+        "classification": "TRANSIENT_FAILURE",
+        "http_status": 500,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "http_500"
+      }
+    },
+    {
+      "name": "http-429",
+      "expected": {
+        "classification": "TRANSIENT_FAILURE",
+        "http_status": 429,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "http_429"
+      }
+    },
+    {
+      "name": "http-408",
+      "expected": {
+        "classification": "TRANSIENT_FAILURE",
+        "http_status": 408,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "http_408"
+      }
+    },
+    {
+      "name": "http-425",
+      "expected": {
+        "classification": "TRANSIENT_FAILURE",
+        "http_status": 425,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "http_425"
+      }
+    },
+    {
+      "name": "http-503",
+      "expected": {
+        "classification": "TRANSIENT_FAILURE",
+        "http_status": 503,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "http_503"
+      }
+    },
+    {
+      "name": "redirect-403",
+      "expected": {
+        "classification": "AUTH_WALL",
+        "http_status": 403,
+        "request_count": 2,
+        "redirect_count": 1,
+        "final_path": "/403",
+        "error_type": "http_403",
+        "redirect_statuses": [
+          302
+        ]
+      }
+    },
+    {
+      "name": "redirect-500",
+      "expected": {
+        "classification": "TRANSIENT_FAILURE",
+        "http_status": 500,
+        "request_count": 2,
+        "redirect_count": 1,
+        "final_path": "/status/500",
+        "error_type": "http_500",
+        "redirect_statuses": [
+          302
+        ]
+      }
+    },
+    {
+      "name": "unexpected-300",
+      "expected": {
+        "classification": "HTTP_ERROR",
+        "http_status": 300,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "unexpected_status_300"
+      }
+    },
+    {
+      "name": "unexpected-304",
+      "expected": {
+        "classification": "HTTP_ERROR",
+        "http_status": 304,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "unexpected_status_304"
+      }
+    },
+    {
+      "name": "redirected-html-body-timeout",
+      "expected": {
+        "classification": "TIMEOUT",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "final_path": "/slow-body",
+        "error_type": "body_read_timeout",
+        "body_inspected": true,
+        "body_read_timeout": true
+      }
+    },
+    {
+      "name": "redirect-private-blocked",
+      "expected": {
+        "classification": "BLOCKED_TARGET",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "final_path": "/redirect-private",
+        "redirect_target_path": "/",
+        "error_type": "blocked_destination"
+      }
+    },
+    {
+      "name": "read-timeout",
+      "expected": {
+        "classification": "TIMEOUT",
+        "http_status": null,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "read_timeout"
+      }
+    },
+    {
+      "name": "connection-closed",
+      "expected": {
+        "classification": "CONNECTION_ERROR",
+        "http_status": null,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "remote_disconnected"
+      }
+    },
+    {
+      "name": "dns-failure",
+      "expected": {
+        "classification": "DNS_FAILURE",
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "final_path": null,
+        "error_type": "dns_failure"
+      }
+    },
+    {
+      "name": "invalid-url",
+      "expected": {
+        "classification": "INVALID_URL",
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "final_path": null,
+        "error_type": "invalid_url"
+      }
+    },
+    {
+      "name": "credentials-in-url",
+      "expected": {
+        "classification": "INVALID_URL",
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "error_type": "credentials_not_allowed"
+      }
+    },
+    {
+      "name": "unsupported-scheme-input",
+      "expected": {
+        "classification": "UNSUPPORTED_SCHEME",
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "error_type": "unsupported_scheme"
+      }
+    },
+    {
+      "name": "blocked-loopback",
+      "expected": {
+        "classification": "BLOCKED_TARGET",
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "final_path": null,
+        "error_type": "blocked_destination"
+      }
+    },
+    {
+      "name": "blocked-private-10",
+      "expected": {
+        "classification": "BLOCKED_TARGET",
+        "request_count": 0,
+        "final_path": null,
+        "error_type": "blocked_destination"
+      }
+    },
+    {
+      "name": "blocked-link-local",
+      "expected": {
+        "classification": "BLOCKED_TARGET",
+        "request_count": 0,
+        "error_type": "blocked_destination"
+      }
+    },
+    {
+      "name": "blocked-ipv6-loopback",
+      "expected": {
+        "classification": "BLOCKED_TARGET",
+        "request_count": 0,
+        "error_type": "blocked_destination"
+      }
+    },
+    {
+      "name": "blocked-localhost",
+      "expected": {
+        "classification": "BLOCKED_TARGET",
+        "request_count": 0,
+        "error_type": "blocked_destination"
+      }
+    }
+  ],
+  "consistency_checks": [
+    {
+      "name": "readme-food-drink-rows",
+      "expected": "pass"
+    },
+    {
+      "name": "fixed-target-scope",
+      "expected": "pass"
+    },
+    {
+      "name": "login-heuristics",
+      "expected": "pass"
+    },
+    {
+      "name": "login-body-detection",
+      "expected": "pass"
+    },
+    {
+      "name": "exception-mapping",
+      "expected": "pass"
+    },
+    {
+      "name": "dns-timeout",
+      "expected": "pass"
+    },
+    {
+      "name": "validated-connect",
+      "expected": "pass"
+    },
+    {
+      "name": "peer-address-guard",
+      "expected": "pass"
+    },
+    {
+      "name": "tls-verification",
+      "expected": "pass"
+    },
+    {
+      "name": "ssrf-guard",
+      "expected": "pass"
+    },
+    {
+      "name": "url-validation",
+      "expected": "pass"
+    }
+  ]
+}

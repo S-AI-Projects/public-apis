@@ -1,0 +1,2502 @@
+{
+  "task": "R02-T032",
+  "mode": "offline-self-test",
+  "generated_at": "2026-11-16T16:26:51Z",
+  "python": "3.15.2",
+  "parameters": {
+    "max_redirects": 2,
+    "connect_timeout_seconds": 1.0,
+    "read_timeout_seconds": 0.5,
+    "max_body_bytes": 4096,
+    "allow_loopback_for_self_test": true,
+    "dns_timeout_policy": "caller_wait_is_bounded_resolver_thread_is_not_cancellable",
+    "connection_timeout_policy": "all_validated_address_attempts_share_one_connect_deadline",
+    "body_inspection_policy": "all_2xx_html_inspected_timeout_is_failure"
+  },
+  "summary": {
+    "resolver_cases": 57,
+    "resolver_passed": 57,
+    "consistency_checks": 11,
+    "consistency_passed": 11,
+    "all_passed": true
+  },
+  "resolver_cases": [
+    {
+      "name": "direct-200",
+      "passed": true,
+      "expected": {
+        "classification": "OK",
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/ok",
+        "error_type": null,
+        "auth_evidence_present": false
+      },
+      "actual": {
+        "label": "direct-200",
+        "original_url": "http://127.0.0.1:51971/ok",
+        "classification": "OK",
+        "final_url": "http://127.0.0.1:51971/ok",
+        "redirect_target": null,
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": null,
+        "message": "HTTP 200 success",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:49Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "direct-204",
+      "passed": true,
+      "expected": {
+        "classification": "OK",
+        "http_status": 204,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/ok204"
+      },
+      "actual": {
+        "label": "direct-204",
+        "original_url": "http://127.0.0.1:51971/ok204",
+        "classification": "OK",
+        "final_url": "http://127.0.0.1:51971/ok204",
+        "redirect_target": null,
+        "http_status": 204,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": null,
+        "message": "HTTP 204 success",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:49Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "direct-201-created",
+      "passed": true,
+      "expected": {
+        "classification": "OK",
+        "http_status": 201,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/status/201"
+      },
+      "actual": {
+        "label": "direct-201-created",
+        "original_url": "http://127.0.0.1:51971/status/201",
+        "classification": "OK",
+        "final_url": "http://127.0.0.1:51971/status/201",
+        "redirect_target": null,
+        "http_status": 201,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": null,
+        "message": "HTTP 201 success",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:49Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "direct-206-partial",
+      "passed": true,
+      "expected": {
+        "classification": "OK",
+        "http_status": 206,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/status/206"
+      },
+      "actual": {
+        "label": "direct-206-partial",
+        "original_url": "http://127.0.0.1:51971/status/206",
+        "classification": "OK",
+        "final_url": "http://127.0.0.1:51971/status/206",
+        "redirect_target": null,
+        "http_status": 206,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": null,
+        "message": "HTTP 206 success",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:49Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "direct-non-html-not-inspected",
+      "passed": true,
+      "expected": {
+        "classification": "OK",
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/ok",
+        "body_inspected": false,
+        "body_read_timeout": false
+      },
+      "actual": {
+        "label": "direct-non-html-not-inspected",
+        "original_url": "http://127.0.0.1:51971/ok",
+        "classification": "OK",
+        "final_url": "http://127.0.0.1:51971/ok",
+        "redirect_target": null,
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": null,
+        "message": "HTTP 200 success",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:49Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "direct-login-html",
+      "passed": true,
+      "expected": {
+        "classification": "AUTH_WALL",
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/portal",
+        "error_type": "login_page",
+        "auth_evidence_contains": "password",
+        "body_inspected": true,
+        "body_read_timeout": false
+      },
+      "actual": {
+        "label": "direct-login-html",
+        "original_url": "http://127.0.0.1:51971/portal",
+        "classification": "AUTH_WALL",
+        "final_url": "http://127.0.0.1:51971/portal",
+        "redirect_target": null,
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "login_page",
+        "message": "HTML page contains an explicit login form",
+        "auth_wall_evidence": "password input field on HTML page",
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "text/html; charset=utf-8",
+        "body_inspected": true,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:49Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "direct-ordinary-html",
+      "passed": true,
+      "expected": {
+        "classification": "OK",
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/html-ok",
+        "auth_evidence_present": false,
+        "body_inspected": true,
+        "body_read_timeout": false
+      },
+      "actual": {
+        "label": "direct-ordinary-html",
+        "original_url": "http://127.0.0.1:51971/html-ok",
+        "classification": "OK",
+        "final_url": "http://127.0.0.1:51971/html-ok",
+        "redirect_target": null,
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": null,
+        "message": "HTTP 200 success",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "text/html; charset=utf-8",
+        "body_inspected": true,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:49Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "direct-html-without-login-indicators",
+      "passed": true,
+      "expected": {
+        "classification": "OK",
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/docs-html",
+        "auth_evidence_present": false,
+        "body_inspected": true,
+        "body_read_timeout": false
+      },
+      "actual": {
+        "label": "direct-html-without-login-indicators",
+        "original_url": "http://127.0.0.1:51971/docs-html",
+        "classification": "OK",
+        "final_url": "http://127.0.0.1:51971/docs-html",
+        "redirect_target": null,
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": null,
+        "message": "HTTP 200 success",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "text/html; charset=utf-8",
+        "body_inspected": true,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:49Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "direct-html-body-timeout",
+      "passed": true,
+      "expected": {
+        "classification": "TIMEOUT",
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/slow-body",
+        "error_type": "body_read_timeout",
+        "body_inspected": true,
+        "body_read_timeout": true
+      },
+      "actual": {
+        "label": "direct-html-body-timeout",
+        "original_url": "http://127.0.0.1:51971/slow-body",
+        "classification": "TIMEOUT",
+        "final_url": "http://127.0.0.1:51971/slow-body",
+        "redirect_target": null,
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "body_read_timeout",
+        "message": "Timed out reading the HTML body needed for login-wall classification",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "text/html; charset=utf-8",
+        "body_inspected": true,
+        "body_truncated": false,
+        "body_read_timeout": true,
+        "body_read_error": "body_read_timeout: timed out",
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 502,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "direct-html-body-read-error",
+      "passed": true,
+      "expected": {
+        "classification": "CONNECTION_ERROR",
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "final_path": "/truncated-body",
+        "error_type": "body_read_error",
+        "body_inspected": true,
+        "body_read_timeout": false
+      },
+      "actual": {
+        "label": "direct-html-body-read-error",
+        "original_url": "http://127.0.0.1:51971/truncated-body",
+        "classification": "CONNECTION_ERROR",
+        "final_url": "http://127.0.0.1:51971/truncated-body",
+        "redirect_target": null,
+        "http_status": 200,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "body_read_error",
+        "message": "Failed to read the HTML body needed for login-wall classification",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "text/html; charset=utf-8",
+        "body_inspected": true,
+        "body_truncated": true,
+        "body_read_timeout": false,
+        "body_read_error": "body_read_error: incomplete HTML body (19 of 4096 bytes)",
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "redirect-301",
+      "passed": true,
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirect_statuses": [
+          301
+        ],
+        "final_path": "/ok"
+      },
+      "actual": {
+        "label": "redirect-301",
+        "original_url": "http://127.0.0.1:51971/redirect301",
+        "classification": "MOVED",
+        "final_url": "http://127.0.0.1:51971/ok",
+        "redirect_target": "http://127.0.0.1:51971/ok",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/redirect301",
+            "status": 301,
+            "location": "/ok",
+            "to_url": "http://127.0.0.1:51971/ok"
+          }
+        ],
+        "error_type": null,
+        "message": "Redirect chain ended at HTTP 200",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "redirect-302",
+      "passed": true,
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirect_statuses": [
+          302
+        ],
+        "final_path": "/ok"
+      },
+      "actual": {
+        "label": "redirect-302",
+        "original_url": "http://127.0.0.1:51971/redirect302",
+        "classification": "MOVED",
+        "final_url": "http://127.0.0.1:51971/ok",
+        "redirect_target": "http://127.0.0.1:51971/ok",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/redirect302",
+            "status": 302,
+            "location": "/ok",
+            "to_url": "http://127.0.0.1:51971/ok"
+          }
+        ],
+        "error_type": null,
+        "message": "Redirect chain ended at HTTP 200",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "redirect-303",
+      "passed": true,
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirect_statuses": [
+          303
+        ],
+        "final_path": "/ok"
+      },
+      "actual": {
+        "label": "redirect-303",
+        "original_url": "http://127.0.0.1:51971/redirect303",
+        "classification": "MOVED",
+        "final_url": "http://127.0.0.1:51971/ok",
+        "redirect_target": "http://127.0.0.1:51971/ok",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/redirect303",
+            "status": 303,
+            "location": "/ok",
+            "to_url": "http://127.0.0.1:51971/ok"
+          }
+        ],
+        "error_type": null,
+        "message": "Redirect chain ended at HTTP 200",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "redirect-307",
+      "passed": true,
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirect_statuses": [
+          307
+        ],
+        "final_path": "/ok"
+      },
+      "actual": {
+        "label": "redirect-307",
+        "original_url": "http://127.0.0.1:51971/redirect307",
+        "classification": "MOVED",
+        "final_url": "http://127.0.0.1:51971/ok",
+        "redirect_target": "http://127.0.0.1:51971/ok",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/redirect307",
+            "status": 307,
+            "location": "/ok",
+            "to_url": "http://127.0.0.1:51971/ok"
+          }
+        ],
+        "error_type": null,
+        "message": "Redirect chain ended at HTTP 200",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "redirect-308",
+      "passed": true,
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirect_statuses": [
+          308
+        ],
+        "final_path": "/ok"
+      },
+      "actual": {
+        "label": "redirect-308",
+        "original_url": "http://127.0.0.1:51971/redirect308",
+        "classification": "MOVED",
+        "final_url": "http://127.0.0.1:51971/ok",
+        "redirect_target": "http://127.0.0.1:51971/ok",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/redirect308",
+            "status": 308,
+            "location": "/ok",
+            "to_url": "http://127.0.0.1:51971/ok"
+          }
+        ],
+        "error_type": null,
+        "message": "Redirect chain ended at HTTP 200",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "relative-redirect",
+      "passed": true,
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "last_location": "ok",
+        "final_path": "/ok"
+      },
+      "actual": {
+        "label": "relative-redirect",
+        "original_url": "http://127.0.0.1:51971/relative",
+        "classification": "MOVED",
+        "final_url": "http://127.0.0.1:51971/ok",
+        "redirect_target": "http://127.0.0.1:51971/ok",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/relative",
+            "status": 302,
+            "location": "ok",
+            "to_url": "http://127.0.0.1:51971/ok"
+          }
+        ],
+        "error_type": null,
+        "message": "Redirect chain ended at HTTP 200",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "multiple-redirects",
+      "passed": true,
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 3,
+        "redirect_count": 2,
+        "redirect_statuses": [
+          302,
+          301
+        ],
+        "final_path": "/ok"
+      },
+      "actual": {
+        "label": "multiple-redirects",
+        "original_url": "http://127.0.0.1:51971/multi1",
+        "classification": "MOVED",
+        "final_url": "http://127.0.0.1:51971/ok",
+        "redirect_target": "http://127.0.0.1:51971/ok",
+        "http_status": 200,
+        "request_count": 3,
+        "redirect_count": 2,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/multi1",
+            "status": 302,
+            "location": "/multi2",
+            "to_url": "http://127.0.0.1:51971/multi2"
+          },
+          {
+            "from_url": "http://127.0.0.1:51971/multi2",
+            "status": 301,
+            "location": "/ok",
+            "to_url": "http://127.0.0.1:51971/ok"
+          }
+        ],
+        "error_type": null,
+        "message": "Redirect chain ended at HTTP 200",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "redirect-query",
+      "passed": true,
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "final_path": "/ok",
+        "final_query": "from=redirect"
+      },
+      "actual": {
+        "label": "redirect-query",
+        "original_url": "http://127.0.0.1:51971/redirect-query",
+        "classification": "MOVED",
+        "final_url": "http://127.0.0.1:51971/ok?from=redirect",
+        "redirect_target": "http://127.0.0.1:51971/ok?from=redirect",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/redirect-query",
+            "status": 302,
+            "location": "/ok?from=redirect",
+            "to_url": "http://127.0.0.1:51971/ok?from=redirect"
+          }
+        ],
+        "error_type": null,
+        "message": "Redirect chain ended at HTTP 200",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "redirect-204",
+      "passed": true,
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 204,
+        "request_count": 2,
+        "redirect_count": 1,
+        "final_path": "/ok204"
+      },
+      "actual": {
+        "label": "redirect-204",
+        "original_url": "http://127.0.0.1:51971/redirect-204",
+        "classification": "MOVED",
+        "final_url": "http://127.0.0.1:51971/ok204",
+        "redirect_target": "http://127.0.0.1:51971/ok204",
+        "http_status": 204,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/redirect-204",
+            "status": 302,
+            "location": "/ok204",
+            "to_url": "http://127.0.0.1:51971/ok204"
+          }
+        ],
+        "error_type": null,
+        "message": "Redirect chain ended at HTTP 204",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "within-budget",
+      "passed": true,
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 3,
+        "redirect_count": 2,
+        "final_path": "/chain/0"
+      },
+      "actual": {
+        "label": "within-budget",
+        "original_url": "http://127.0.0.1:51971/chain/2",
+        "classification": "MOVED",
+        "final_url": "http://127.0.0.1:51971/chain/0",
+        "redirect_target": "http://127.0.0.1:51971/chain/0",
+        "http_status": 200,
+        "request_count": 3,
+        "redirect_count": 2,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/chain/2",
+            "status": 302,
+            "location": "/chain/1",
+            "to_url": "http://127.0.0.1:51971/chain/1"
+          },
+          {
+            "from_url": "http://127.0.0.1:51971/chain/1",
+            "status": 302,
+            "location": "/chain/0",
+            "to_url": "http://127.0.0.1:51971/chain/0"
+          }
+        ],
+        "error_type": null,
+        "message": "Redirect chain ended at HTTP 200",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "budget-exhausted",
+      "passed": true,
+      "expected": {
+        "classification": "REDIRECT_LIMIT",
+        "http_status": 302,
+        "request_count": 3,
+        "redirect_count": 3,
+        "final_path": "/chain/1",
+        "redirect_target_path": "/chain/0",
+        "error_type": "redirect_limit"
+      },
+      "actual": {
+        "label": "budget-exhausted",
+        "original_url": "http://127.0.0.1:51971/chain/3",
+        "classification": "REDIRECT_LIMIT",
+        "final_url": "http://127.0.0.1:51971/chain/1",
+        "redirect_target": "http://127.0.0.1:51971/chain/0",
+        "http_status": 302,
+        "request_count": 3,
+        "redirect_count": 3,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/chain/3",
+            "status": 302,
+            "location": "/chain/2",
+            "to_url": "http://127.0.0.1:51971/chain/2"
+          },
+          {
+            "from_url": "http://127.0.0.1:51971/chain/2",
+            "status": 302,
+            "location": "/chain/1",
+            "to_url": "http://127.0.0.1:51971/chain/1"
+          },
+          {
+            "from_url": "http://127.0.0.1:51971/chain/1",
+            "status": 302,
+            "location": "/chain/0",
+            "to_url": "http://127.0.0.1:51971/chain/0"
+          }
+        ],
+        "error_type": "redirect_limit",
+        "message": "Redirect budget of 2 exceeded",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "redirect-loop",
+      "passed": true,
+      "expected": {
+        "classification": "REDIRECT_LOOP",
+        "http_status": 302,
+        "request_count": 2,
+        "redirect_count": 2,
+        "final_path": "/loop-b",
+        "redirect_target_path": "/loop-a",
+        "error_type": "redirect_loop"
+      },
+      "actual": {
+        "label": "redirect-loop",
+        "original_url": "http://127.0.0.1:51971/loop-a",
+        "classification": "REDIRECT_LOOP",
+        "final_url": "http://127.0.0.1:51971/loop-b",
+        "redirect_target": "http://127.0.0.1:51971/loop-a",
+        "http_status": 302,
+        "request_count": 2,
+        "redirect_count": 2,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/loop-a",
+            "status": 302,
+            "location": "/loop-b",
+            "to_url": "http://127.0.0.1:51971/loop-b"
+          },
+          {
+            "from_url": "http://127.0.0.1:51971/loop-b",
+            "status": 302,
+            "location": "/loop-a",
+            "to_url": "http://127.0.0.1:51971/loop-a"
+          }
+        ],
+        "error_type": "redirect_loop",
+        "message": "Redirect repeated an already-visited URL: http://127.0.0.1:51971/loop-a",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "self-loop",
+      "passed": true,
+      "expected": {
+        "classification": "REDIRECT_LOOP",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "final_path": "/self-loop",
+        "redirect_target_path": "/self-loop"
+      },
+      "actual": {
+        "label": "self-loop",
+        "original_url": "http://127.0.0.1:51971/self-loop",
+        "classification": "REDIRECT_LOOP",
+        "final_url": "http://127.0.0.1:51971/self-loop",
+        "redirect_target": "http://127.0.0.1:51971/self-loop",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/self-loop",
+            "status": 302,
+            "location": "/self-loop",
+            "to_url": "http://127.0.0.1:51971/self-loop"
+          }
+        ],
+        "error_type": "redirect_loop",
+        "message": "Redirect repeated an already-visited URL: http://127.0.0.1:51971/self-loop",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "missing-location",
+      "passed": true,
+      "expected": {
+        "classification": "HTTP_ERROR",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "final_path": "/missing-location",
+        "last_location": null,
+        "error_type": "missing_location"
+      },
+      "actual": {
+        "label": "missing-location",
+        "original_url": "http://127.0.0.1:51971/missing-location",
+        "classification": "HTTP_ERROR",
+        "final_url": "http://127.0.0.1:51971/missing-location",
+        "redirect_target": null,
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/missing-location",
+            "status": 302,
+            "location": null,
+            "to_url": null
+          }
+        ],
+        "error_type": "missing_location",
+        "message": "Redirect status 302 without a Location header",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "malformed-location",
+      "passed": true,
+      "expected": {
+        "classification": "INVALID_URL",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "final_path": "/malformed-location",
+        "last_location": "http://[::1",
+        "error_type": "malformed_location"
+      },
+      "actual": {
+        "label": "malformed-location",
+        "original_url": "http://127.0.0.1:51971/malformed-location",
+        "classification": "INVALID_URL",
+        "final_url": "http://127.0.0.1:51971/malformed-location",
+        "redirect_target": null,
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/malformed-location",
+            "status": 302,
+            "location": "http://[::1",
+            "to_url": null
+          }
+        ],
+        "error_type": "malformed_location",
+        "message": "Malformed Location header: Invalid IPv6 URL",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "unsupported-scheme-redirect",
+      "passed": true,
+      "expected": {
+        "classification": "UNSUPPORTED_SCHEME",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "final_path": "/unsupported-scheme",
+        "error_type": "unsupported_scheme"
+      },
+      "actual": {
+        "label": "unsupported-scheme-redirect",
+        "original_url": "http://127.0.0.1:51971/unsupported-scheme",
+        "classification": "UNSUPPORTED_SCHEME",
+        "final_url": "http://127.0.0.1:51971/unsupported-scheme",
+        "redirect_target": "ftp://example.com/file",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/unsupported-scheme",
+            "status": 302,
+            "location": "ftp://example.com/file",
+            "to_url": "ftp://example.com/file"
+          }
+        ],
+        "error_type": "unsupported_scheme",
+        "message": "Invalid redirect destination: Unsupported URL scheme: ftp",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "http-401",
+      "passed": true,
+      "expected": {
+        "classification": "AUTH_WALL",
+        "http_status": 401,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "http_401",
+        "auth_evidence_contains": "401"
+      },
+      "actual": {
+        "label": "http-401",
+        "original_url": "http://127.0.0.1:51971/401",
+        "classification": "AUTH_WALL",
+        "final_url": "http://127.0.0.1:51971/401",
+        "redirect_target": null,
+        "http_status": 401,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "http_401",
+        "message": "HTTP 401 authentication/access denial",
+        "auth_wall_evidence": "HTTP 401 response",
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "http-403",
+      "passed": true,
+      "expected": {
+        "classification": "AUTH_WALL",
+        "http_status": 403,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "http_403",
+        "auth_evidence_contains": "403"
+      },
+      "actual": {
+        "label": "http-403",
+        "original_url": "http://127.0.0.1:51971/403",
+        "classification": "AUTH_WALL",
+        "final_url": "http://127.0.0.1:51971/403",
+        "redirect_target": null,
+        "http_status": 403,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "http_403",
+        "message": "HTTP 403 authentication/access denial",
+        "auth_wall_evidence": "HTTP 403 response",
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "login-path-redirect",
+      "passed": true,
+      "expected": {
+        "classification": "AUTH_WALL",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "final_path": "/login-redirect",
+        "redirect_target_path": "/login",
+        "error_type": "login_redirect",
+        "auth_evidence_contains": "login path"
+      },
+      "actual": {
+        "label": "login-path-redirect",
+        "original_url": "http://127.0.0.1:51971/login-redirect",
+        "classification": "AUTH_WALL",
+        "final_url": "http://127.0.0.1:51971/login-redirect",
+        "redirect_target": "http://127.0.0.1:51971/login?next=/",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/login-redirect",
+            "status": 302,
+            "location": "/login?next=/",
+            "to_url": "http://127.0.0.1:51971/login?next=/"
+          }
+        ],
+        "error_type": "login_redirect",
+        "message": "Redirect destination looks like a login wall (login path: /login)",
+        "auth_wall_evidence": "login path: /login",
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "identity-provider-redirect",
+      "passed": true,
+      "expected": {
+        "classification": "AUTH_WALL",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "final_path": "/identity-provider",
+        "redirect_target_path": "/o/oauth2/v2/auth",
+        "error_type": "login_redirect",
+        "auth_evidence_contains": "identity provider"
+      },
+      "actual": {
+        "label": "identity-provider-redirect",
+        "original_url": "http://127.0.0.1:51971/identity-provider",
+        "classification": "AUTH_WALL",
+        "final_url": "http://127.0.0.1:51971/identity-provider",
+        "redirect_target": "https://accounts.google.com/o/oauth2/v2/auth?client_id=fixture",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/identity-provider",
+            "status": 302,
+            "location": "https://accounts.google.com/o/oauth2/v2/auth?client_id=fixture",
+            "to_url": "https://accounts.google.com/o/oauth2/v2/auth?client_id=fixture"
+          }
+        ],
+        "error_type": "login_redirect",
+        "message": "Redirect destination looks like a login wall (identity provider host: accounts.google.com)",
+        "auth_wall_evidence": "identity provider host: accounts.google.com",
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "login-page-body",
+      "passed": true,
+      "expected": {
+        "classification": "AUTH_WALL",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "final_path": "/portal",
+        "error_type": "login_page",
+        "auth_evidence_contains": "password",
+        "body_inspected": true,
+        "body_read_timeout": false
+      },
+      "actual": {
+        "label": "login-page-body",
+        "original_url": "http://127.0.0.1:51971/portal-redirect",
+        "classification": "AUTH_WALL",
+        "final_url": "http://127.0.0.1:51971/portal",
+        "redirect_target": "http://127.0.0.1:51971/portal",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/portal-redirect",
+            "status": 302,
+            "location": "/portal",
+            "to_url": "http://127.0.0.1:51971/portal"
+          }
+        ],
+        "error_type": "login_page",
+        "message": "HTML page contains an explicit login form",
+        "auth_wall_evidence": "password input field on HTML page",
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "text/html; charset=utf-8",
+        "body_inspected": true,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "redirect-html-ok",
+      "passed": true,
+      "expected": {
+        "classification": "MOVED",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "final_path": "/html-ok",
+        "auth_evidence_present": false,
+        "body_inspected": true,
+        "body_read_timeout": false
+      },
+      "actual": {
+        "label": "redirect-html-ok",
+        "original_url": "http://127.0.0.1:51971/redirect-html-ok",
+        "classification": "MOVED",
+        "final_url": "http://127.0.0.1:51971/html-ok",
+        "redirect_target": "http://127.0.0.1:51971/html-ok",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/redirect-html-ok",
+            "status": 302,
+            "location": "/html-ok",
+            "to_url": "http://127.0.0.1:51971/html-ok"
+          }
+        ],
+        "error_type": null,
+        "message": "Redirect chain ended at HTTP 200",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "text/html; charset=utf-8",
+        "body_inspected": true,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "redirect-404",
+      "passed": true,
+      "expected": {
+        "classification": "HTTP_ERROR",
+        "http_status": 404,
+        "request_count": 2,
+        "redirect_count": 1,
+        "final_path": "/404",
+        "error_type": "http_404"
+      },
+      "actual": {
+        "label": "redirect-404",
+        "original_url": "http://127.0.0.1:51971/redirect-404",
+        "classification": "HTTP_ERROR",
+        "final_url": "http://127.0.0.1:51971/404",
+        "redirect_target": "http://127.0.0.1:51971/404",
+        "http_status": 404,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/redirect-404",
+            "status": 302,
+            "location": "/404",
+            "to_url": "http://127.0.0.1:51971/404"
+          }
+        ],
+        "error_type": "http_404",
+        "message": "HTTP status 404",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "redirect-401",
+      "passed": true,
+      "expected": {
+        "classification": "AUTH_WALL",
+        "http_status": 401,
+        "request_count": 2,
+        "redirect_count": 1,
+        "final_path": "/401",
+        "error_type": "http_401"
+      },
+      "actual": {
+        "label": "redirect-401",
+        "original_url": "http://127.0.0.1:51971/redirect-401",
+        "classification": "AUTH_WALL",
+        "final_url": "http://127.0.0.1:51971/401",
+        "redirect_target": "http://127.0.0.1:51971/401",
+        "http_status": 401,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/redirect-401",
+            "status": 302,
+            "location": "/401",
+            "to_url": "http://127.0.0.1:51971/401"
+          }
+        ],
+        "error_type": "http_401",
+        "message": "HTTP 401 authentication/access denial",
+        "auth_wall_evidence": "HTTP 401 response",
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "http-404",
+      "passed": true,
+      "expected": {
+        "classification": "HTTP_ERROR",
+        "http_status": 404,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "http_404"
+      },
+      "actual": {
+        "label": "http-404",
+        "original_url": "http://127.0.0.1:51971/404",
+        "classification": "HTTP_ERROR",
+        "final_url": "http://127.0.0.1:51971/404",
+        "redirect_target": null,
+        "http_status": 404,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "http_404",
+        "message": "HTTP status 404",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "http-500",
+      "passed": true,
+      "expected": {
+        "classification": "TRANSIENT_FAILURE",
+        "http_status": 500,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "http_500"
+      },
+      "actual": {
+        "label": "http-500",
+        "original_url": "http://127.0.0.1:51971/500",
+        "classification": "TRANSIENT_FAILURE",
+        "final_url": "http://127.0.0.1:51971/500",
+        "redirect_target": null,
+        "http_status": 500,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "http_500",
+        "message": "Temporary HTTP status 500",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "http-429",
+      "passed": true,
+      "expected": {
+        "classification": "TRANSIENT_FAILURE",
+        "http_status": 429,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "http_429"
+      },
+      "actual": {
+        "label": "http-429",
+        "original_url": "http://127.0.0.1:51971/429",
+        "classification": "TRANSIENT_FAILURE",
+        "final_url": "http://127.0.0.1:51971/429",
+        "redirect_target": null,
+        "http_status": 429,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "http_429",
+        "message": "Temporary HTTP status 429",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "http-408",
+      "passed": true,
+      "expected": {
+        "classification": "TRANSIENT_FAILURE",
+        "http_status": 408,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "http_408"
+      },
+      "actual": {
+        "label": "http-408",
+        "original_url": "http://127.0.0.1:51971/status/408",
+        "classification": "TRANSIENT_FAILURE",
+        "final_url": "http://127.0.0.1:51971/status/408",
+        "redirect_target": null,
+        "http_status": 408,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "http_408",
+        "message": "Temporary HTTP status 408",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "http-425",
+      "passed": true,
+      "expected": {
+        "classification": "TRANSIENT_FAILURE",
+        "http_status": 425,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "http_425"
+      },
+      "actual": {
+        "label": "http-425",
+        "original_url": "http://127.0.0.1:51971/status/425",
+        "classification": "TRANSIENT_FAILURE",
+        "final_url": "http://127.0.0.1:51971/status/425",
+        "redirect_target": null,
+        "http_status": 425,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "http_425",
+        "message": "Temporary HTTP status 425",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "http-503",
+      "passed": true,
+      "expected": {
+        "classification": "TRANSIENT_FAILURE",
+        "http_status": 503,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "http_503"
+      },
+      "actual": {
+        "label": "http-503",
+        "original_url": "http://127.0.0.1:51971/status/503",
+        "classification": "TRANSIENT_FAILURE",
+        "final_url": "http://127.0.0.1:51971/status/503",
+        "redirect_target": null,
+        "http_status": 503,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "http_503",
+        "message": "Temporary HTTP status 503",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "redirect-403",
+      "passed": true,
+      "expected": {
+        "classification": "AUTH_WALL",
+        "http_status": 403,
+        "request_count": 2,
+        "redirect_count": 1,
+        "final_path": "/403",
+        "error_type": "http_403",
+        "redirect_statuses": [
+          302
+        ]
+      },
+      "actual": {
+        "label": "redirect-403",
+        "original_url": "http://127.0.0.1:51971/redirect-403",
+        "classification": "AUTH_WALL",
+        "final_url": "http://127.0.0.1:51971/403",
+        "redirect_target": "http://127.0.0.1:51971/403",
+        "http_status": 403,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/redirect-403",
+            "status": 302,
+            "location": "/403",
+            "to_url": "http://127.0.0.1:51971/403"
+          }
+        ],
+        "error_type": "http_403",
+        "message": "HTTP 403 authentication/access denial",
+        "auth_wall_evidence": "HTTP 403 response",
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "redirect-500",
+      "passed": true,
+      "expected": {
+        "classification": "TRANSIENT_FAILURE",
+        "http_status": 500,
+        "request_count": 2,
+        "redirect_count": 1,
+        "final_path": "/status/500",
+        "error_type": "http_500",
+        "redirect_statuses": [
+          302
+        ]
+      },
+      "actual": {
+        "label": "redirect-500",
+        "original_url": "http://127.0.0.1:51971/redirect-500",
+        "classification": "TRANSIENT_FAILURE",
+        "final_url": "http://127.0.0.1:51971/status/500",
+        "redirect_target": "http://127.0.0.1:51971/status/500",
+        "http_status": 500,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/redirect-500",
+            "status": 302,
+            "location": "/status/500",
+            "to_url": "http://127.0.0.1:51971/status/500"
+          }
+        ],
+        "error_type": "http_500",
+        "message": "Temporary HTTP status 500",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "unexpected-300",
+      "passed": true,
+      "expected": {
+        "classification": "HTTP_ERROR",
+        "http_status": 300,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "unexpected_status_300"
+      },
+      "actual": {
+        "label": "unexpected-300",
+        "original_url": "http://127.0.0.1:51971/status/300",
+        "classification": "HTTP_ERROR",
+        "final_url": "http://127.0.0.1:51971/status/300",
+        "redirect_target": null,
+        "http_status": 300,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "unexpected_status_300",
+        "message": "HTTP status 300",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "unexpected-304",
+      "passed": true,
+      "expected": {
+        "classification": "HTTP_ERROR",
+        "http_status": 304,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "unexpected_status_304"
+      },
+      "actual": {
+        "label": "unexpected-304",
+        "original_url": "http://127.0.0.1:51971/not-modified",
+        "classification": "HTTP_ERROR",
+        "final_url": "http://127.0.0.1:51971/not-modified",
+        "redirect_target": null,
+        "http_status": 304,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "unexpected_status_304",
+        "message": "HTTP status 304",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "redirected-html-body-timeout",
+      "passed": true,
+      "expected": {
+        "classification": "TIMEOUT",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "final_path": "/slow-body",
+        "error_type": "body_read_timeout",
+        "body_inspected": true,
+        "body_read_timeout": true
+      },
+      "actual": {
+        "label": "redirected-html-body-timeout",
+        "original_url": "http://127.0.0.1:51971/slow-body-redirect",
+        "classification": "TIMEOUT",
+        "final_url": "http://127.0.0.1:51971/slow-body",
+        "redirect_target": "http://127.0.0.1:51971/slow-body",
+        "http_status": 200,
+        "request_count": 2,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/slow-body-redirect",
+            "status": 302,
+            "location": "/slow-body",
+            "to_url": "http://127.0.0.1:51971/slow-body"
+          }
+        ],
+        "error_type": "body_read_timeout",
+        "message": "Timed out reading the HTML body needed for login-wall classification",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "text/html; charset=utf-8",
+        "body_inspected": true,
+        "body_truncated": false,
+        "body_read_timeout": true,
+        "body_read_error": "body_read_timeout: timed out",
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 502,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "redirect-private-blocked",
+      "passed": true,
+      "expected": {
+        "classification": "BLOCKED_TARGET",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "final_path": "/redirect-private",
+        "redirect_target_path": "/",
+        "error_type": "blocked_destination"
+      },
+      "actual": {
+        "label": "redirect-private-blocked",
+        "original_url": "http://127.0.0.1:51971/redirect-private",
+        "classification": "BLOCKED_TARGET",
+        "final_url": "http://127.0.0.1:51971/redirect-private",
+        "redirect_target": "http://10.0.0.1/",
+        "http_status": 302,
+        "request_count": 1,
+        "redirect_count": 1,
+        "redirects": [
+          {
+            "from_url": "http://127.0.0.1:51971/redirect-private",
+            "status": 302,
+            "location": "http://10.0.0.1/",
+            "to_url": "http://10.0.0.1/"
+          }
+        ],
+        "error_type": "blocked_destination",
+        "message": "Redirect destination refused: Non-loopback destination refused by offline fixture policy: 10.0.0.1",
+        "auth_wall_evidence": null,
+        "server": "R02T032Mock/1.0 Python/3.15.2",
+        "content_type": "",
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:50Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "read-timeout",
+      "passed": true,
+      "expected": {
+        "classification": "TIMEOUT",
+        "http_status": null,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "read_timeout"
+      },
+      "actual": {
+        "label": "read-timeout",
+        "original_url": "http://127.0.0.1:51971/timeout",
+        "classification": "TIMEOUT",
+        "final_url": "http://127.0.0.1:51971/timeout",
+        "redirect_target": null,
+        "http_status": null,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "read_timeout",
+        "message": "timed out",
+        "auth_wall_evidence": null,
+        "server": null,
+        "content_type": null,
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 502,
+        "observed_at": "2026-11-16T16:26:51Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "connection-closed",
+      "passed": true,
+      "expected": {
+        "classification": "CONNECTION_ERROR",
+        "http_status": null,
+        "request_count": 1,
+        "redirect_count": 0,
+        "error_type": "remote_disconnected"
+      },
+      "actual": {
+        "label": "connection-closed",
+        "original_url": "http://127.0.0.1:51971/close",
+        "classification": "CONNECTION_ERROR",
+        "final_url": "http://127.0.0.1:51971/close",
+        "redirect_target": null,
+        "http_status": null,
+        "request_count": 1,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "remote_disconnected",
+        "message": "Remote end closed connection without response",
+        "auth_wall_evidence": null,
+        "server": null,
+        "content_type": null,
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": "127.0.0.1",
+        "validated_address": "127.0.0.1",
+        "host_header": "127.0.0.1:51971",
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:51Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "dns-failure",
+      "passed": true,
+      "expected": {
+        "classification": "DNS_FAILURE",
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "final_path": null,
+        "error_type": "dns_failure"
+      },
+      "actual": {
+        "label": "dns-failure",
+        "original_url": "http://r02-t032-does-not-exist.invalid/",
+        "classification": "DNS_FAILURE",
+        "final_url": null,
+        "redirect_target": null,
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "dns_failure",
+        "message": "[Errno 8] nodename nor servname provided, or not known",
+        "auth_wall_evidence": null,
+        "server": null,
+        "content_type": null,
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": null,
+        "validated_address": null,
+        "host_header": null,
+        "elapsed_ms": 1,
+        "observed_at": "2026-11-16T16:26:51Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "invalid-url",
+      "passed": true,
+      "expected": {
+        "classification": "INVALID_URL",
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "final_path": null,
+        "error_type": "invalid_url"
+      },
+      "actual": {
+        "label": "invalid-url",
+        "original_url": "not-a-url",
+        "classification": "INVALID_URL",
+        "final_url": null,
+        "redirect_target": null,
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "invalid_url",
+        "message": "URL has no scheme",
+        "auth_wall_evidence": null,
+        "server": null,
+        "content_type": null,
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": null,
+        "validated_address": null,
+        "host_header": null,
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:51Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "credentials-in-url",
+      "passed": true,
+      "expected": {
+        "classification": "INVALID_URL",
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "error_type": "credentials_not_allowed"
+      },
+      "actual": {
+        "label": "credentials-in-url",
+        "original_url": "http://user:pass@example.com/",
+        "classification": "INVALID_URL",
+        "final_url": null,
+        "redirect_target": null,
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "credentials_not_allowed",
+        "message": "URLs containing credentials are not requested",
+        "auth_wall_evidence": null,
+        "server": null,
+        "content_type": null,
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": null,
+        "validated_address": null,
+        "host_header": null,
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:51Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "unsupported-scheme-input",
+      "passed": true,
+      "expected": {
+        "classification": "UNSUPPORTED_SCHEME",
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "error_type": "unsupported_scheme"
+      },
+      "actual": {
+        "label": "unsupported-scheme-input",
+        "original_url": "ftp://example.com/file",
+        "classification": "UNSUPPORTED_SCHEME",
+        "final_url": null,
+        "redirect_target": null,
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "unsupported_scheme",
+        "message": "Unsupported URL scheme: ftp",
+        "auth_wall_evidence": null,
+        "server": null,
+        "content_type": null,
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": null,
+        "validated_address": null,
+        "host_header": null,
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:51Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "blocked-loopback",
+      "passed": true,
+      "expected": {
+        "classification": "BLOCKED_TARGET",
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "final_path": null,
+        "error_type": "blocked_destination"
+      },
+      "actual": {
+        "label": "blocked-loopback",
+        "original_url": "http://127.0.0.1:51971/ok",
+        "classification": "BLOCKED_TARGET",
+        "final_url": null,
+        "redirect_target": null,
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "blocked_destination",
+        "message": "Non-global destination refused: 127.0.0.1",
+        "auth_wall_evidence": null,
+        "server": null,
+        "content_type": null,
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": null,
+        "validated_address": null,
+        "host_header": null,
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:51Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "blocked-private-10",
+      "passed": true,
+      "expected": {
+        "classification": "BLOCKED_TARGET",
+        "request_count": 0,
+        "final_path": null,
+        "error_type": "blocked_destination"
+      },
+      "actual": {
+        "label": "blocked-private-10",
+        "original_url": "http://10.0.0.1/",
+        "classification": "BLOCKED_TARGET",
+        "final_url": null,
+        "redirect_target": null,
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "blocked_destination",
+        "message": "Non-global destination refused: 10.0.0.1",
+        "auth_wall_evidence": null,
+        "server": null,
+        "content_type": null,
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": null,
+        "validated_address": null,
+        "host_header": null,
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:51Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "blocked-link-local",
+      "passed": true,
+      "expected": {
+        "classification": "BLOCKED_TARGET",
+        "request_count": 0,
+        "error_type": "blocked_destination"
+      },
+      "actual": {
+        "label": "blocked-link-local",
+        "original_url": "http://169.254.169.254/latest/meta-data",
+        "classification": "BLOCKED_TARGET",
+        "final_url": null,
+        "redirect_target": null,
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "blocked_destination",
+        "message": "Non-global destination refused: 169.254.169.254",
+        "auth_wall_evidence": null,
+        "server": null,
+        "content_type": null,
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": null,
+        "validated_address": null,
+        "host_header": null,
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:51Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "blocked-ipv6-loopback",
+      "passed": true,
+      "expected": {
+        "classification": "BLOCKED_TARGET",
+        "request_count": 0,
+        "error_type": "blocked_destination"
+      },
+      "actual": {
+        "label": "blocked-ipv6-loopback",
+        "original_url": "http://[::1]/",
+        "classification": "BLOCKED_TARGET",
+        "final_url": null,
+        "redirect_target": null,
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "blocked_destination",
+        "message": "Non-global destination refused: ::1",
+        "auth_wall_evidence": null,
+        "server": null,
+        "content_type": null,
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": null,
+        "validated_address": null,
+        "host_header": null,
+        "elapsed_ms": 0,
+        "observed_at": "2026-11-16T16:26:51Z"
+      },
+      "failures": []
+    },
+    {
+      "name": "blocked-localhost",
+      "passed": true,
+      "expected": {
+        "classification": "BLOCKED_TARGET",
+        "request_count": 0,
+        "error_type": "blocked_destination"
+      },
+      "actual": {
+        "label": "blocked-localhost",
+        "original_url": "http://localhost/",
+        "classification": "BLOCKED_TARGET",
+        "final_url": null,
+        "redirect_target": null,
+        "http_status": null,
+        "request_count": 0,
+        "redirect_count": 0,
+        "redirects": [],
+        "error_type": "blocked_destination",
+        "message": "Non-global destination refused: ::1",
+        "auth_wall_evidence": null,
+        "server": null,
+        "content_type": null,
+        "body_inspected": false,
+        "body_truncated": false,
+        "body_read_timeout": false,
+        "body_read_error": null,
+        "peer_address": null,
+        "validated_address": null,
+        "host_header": null,
+        "elapsed_ms": 2,
+        "observed_at": "2026-11-16T16:26:51Z"
+      },
+      "failures": []
+    }
+  ],
+  "consistency_checks": [
+    {
+      "name": "readme-food-drink-rows",
+      "passed": true,
+      "failures": [],
+      "details": [
+        "BaconMockup: line 1220, category Food & Drink",
+        "CalorieNinjas: line 1221, category Food & Drink",
+        "Chomp: line 1222, category Food & Drink"
+      ]
+    },
+    {
+      "name": "fixed-target-scope",
+      "passed": true,
+      "failures": [],
+      "details": []
+    },
+    {
+      "name": "login-heuristics",
+      "passed": true,
+      "failures": [],
+      "details": []
+    },
+    {
+      "name": "login-body-detection",
+      "passed": true,
+      "failures": [],
+      "details": []
+    },
+    {
+      "name": "exception-mapping",
+      "passed": true,
+      "failures": [],
+      "details": []
+    },
+    {
+      "name": "dns-timeout",
+      "passed": true,
+      "failures": [],
+      "details": [
+        "caller wait was bounded; resolver thread is not cancellable"
+      ]
+    },
+    {
+      "name": "validated-connect",
+      "passed": true,
+      "failures": [],
+      "details": [
+        "host name: validated-target.r02-t032.test",
+        "resolved/validated address: 127.0.0.1",
+        "actual peer: 127.0.0.1",
+        "Host header: validated-target.r02-t032.test:51971"
+      ]
+    },
+    {
+      "name": "peer-address-guard",
+      "passed": true,
+      "failures": [],
+      "details": []
+    },
+    {
+      "name": "tls-verification",
+      "passed": true,
+      "failures": [],
+      "details": []
+    },
+    {
+      "name": "ssrf-guard",
+      "passed": true,
+      "failures": [],
+      "details": []
+    },
+    {
+      "name": "url-validation",
+      "passed": true,
+      "failures": [],
+      "details": []
+    }
+  ]
+}
