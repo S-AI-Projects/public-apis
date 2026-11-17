@@ -1,0 +1,196 @@
+{
+  "cases": [
+    {
+      "file": "valid-all.md",
+      "expect_exit": 0,
+      "expected_table": {
+        "heading_line": 3,
+        "header_line": 4,
+        "separator_line": 5,
+        "table_end_line": 8
+      },
+      "expected_entries": [
+        {
+          "name": "Auto Body Shop Directory",
+          "line": 6,
+          "url": "https://autobodyshopnear.com/developers/body-shop-api",
+          "auth": "No",
+          "https": "Yes",
+          "cors": "No"
+        },
+        {
+          "name": "Bike Reliability",
+          "line": 7,
+          "url": "https://bikereliability.co.uk/developers",
+          "auth": "No",
+          "https": "Yes",
+          "cors": "Yes"
+        },
+        {
+          "name": "BoltPatternHQ",
+          "line": 8,
+          "url": "https://boltpatternhq.com/mcp/",
+          "auth": "No",
+          "https": "Yes",
+          "cors": "Yes"
+        }
+      ]
+    },
+    {
+      "file": "malformed-row.md",
+      "expect_exit": 1,
+      "expected_errors": [
+        {
+          "line": 9,
+          "contains": "expected 5 cells, found 4"
+        }
+      ],
+      "expected_entries": [
+        {
+          "name": "Auto Body Shop Directory",
+          "line": 6
+        },
+        {
+          "name": "Bike Reliability",
+          "line": 7
+        },
+        {
+          "name": "BoltPatternHQ",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "file": "missing-entry.md",
+      "expect_exit": 1,
+      "expected_errors": [
+        {
+          "line": null,
+          "contains": "missing selected entry: Bike Reliability"
+        }
+      ]
+    },
+    {
+      "file": "missing-required-field.md",
+      "expect_exit": 1,
+      "expected_errors": [
+        {
+          "line": 7,
+          "contains": "Bike Reliability: Description is empty"
+        }
+      ]
+    },
+    {
+      "file": "unusual-urls.md",
+      "expect_exit": 0,
+      "expected_rows": [
+        {
+          "name": "Query API",
+          "line": 9,
+          "url": "https://example.com/search?q=wheel&size=17&page=1"
+        },
+        {
+          "name": "Encoded API",
+          "line": 10,
+          "url": "https://example.com/docs/a%20b/%28c%29?next=%2Fhome"
+        },
+        {
+          "name": "Paren API",
+          "line": 11,
+          "url": "https://example.com/docs/API_(v2)"
+        },
+        {
+          "name": "Angle API",
+          "line": 12,
+          "url": "https://example.com/docs/angle_(v1)"
+        },
+        {
+          "name": "Fragment API",
+          "line": 13,
+          "url": "https://example.com/docs/page#section-2"
+        },
+        {
+          "name": "Titled API",
+          "line": 14,
+          "url": "https://example.com/docs/API_(v3)"
+        },
+        {
+          "name": "Escaped Paren API",
+          "line": 15,
+          "url": "https://example.com/docs/API_(v4)"
+        },
+        {
+          "name": "Pipe API",
+          "line": 16,
+          "url": "https://example.com/docs/a|b"
+        }
+      ]
+    },
+    {
+      "file": "query-encoded-url.md",
+      "expect_exit": 0,
+      "expected_rows": [
+        {
+          "name": "Query Encoded API",
+          "line": 9,
+          "url": "https://example.com/search?q=wheel%20size&filter=%28oem%29&page=2"
+        }
+      ]
+    },
+    {
+      "file": "parentheses-url.md",
+      "expect_exit": 0,
+      "expected_rows": [
+        {
+          "name": "Paren API",
+          "line": 9,
+          "url": "https://example.com/docs/API_(v2)"
+        }
+      ]
+    },
+    {
+      "file": "wrong-metadata.md",
+      "expect_exit": 1,
+      "expected_errors": [
+        {
+          "line": 7,
+          "contains": "Bike Reliability: CORS mismatch: expected Yes, found No"
+        }
+      ]
+    },
+    {
+      "file": "malformed-header.md",
+      "expect_exit": 1,
+      "expected_table": {
+        "heading_line": 3,
+        "header_line": 4
+      },
+      "expected_errors": [
+        {
+          "line": 4,
+          "contains": "expected table header"
+        }
+      ]
+    },
+    {
+      "file": "bad-url.md",
+      "expect_exit": 1,
+      "expected_errors": [
+        {
+          "line": 9,
+          "contains": "Bad URL: URL scheme must be http or https"
+        }
+      ]
+    },
+    {
+      "file": "bad-link.md",
+      "expect_exit": 1,
+      "expected_errors": [
+        {
+          "line": 9,
+          "contains": "API cell is not a Markdown link"
+        }
+      ]
+    }
+  ]
+}

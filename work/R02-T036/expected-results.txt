@@ -1,0 +1,98 @@
+R02-T036 expected results
+=========================
+
+Expected catalogue result
+-------------------------
+README.md, Vehicle table:
+  heading line 2651
+  header line 2652
+  separator line 2653
+  selected entries:
+    line 2654  Auto Body Shop Directory  Auth=No  HTTPS=Yes  CORS=No
+    line 2655  Bike Reliability          Auth=No  HTTPS=Yes  CORS=Yes
+    line 2656  BoltPatternHQ             Auth=No  HTTPS=Yes  CORS=Yes
+
+Expected: checker exits 0, reports the table as lines 2651-2671, and reports
+all three selected entries as OK. No README catalogue changes are expected.
+
+Expected fixture outcomes
+-------------------------
+All fixtures are under work/R02-T036/fixtures/. The machine-readable copy of
+these expectations is manifest.json.
+
+1. valid-all.md
+   Expected: PASS, exit 0.
+   Table: heading 3, header 4, separator 5, last row 8.
+   Selected entries:
+     line 6  Auto Body Shop Directory  URL https://autobodyshopnear.com/developers/body-shop-api  Auth=No HTTPS=Yes CORS=No
+     line 7  Bike Reliability          URL https://bikereliability.co.uk/developers                       Auth=No HTTPS=Yes CORS=Yes
+     line 8  BoltPatternHQ             URL https://boltpatternhq.com/mcp/                                 Auth=No HTTPS=Yes CORS=Yes
+
+2. malformed-row.md
+   Expected: FAIL, exit 1.
+   Expected error: line 9, "expected 5 cells, found 4".
+   The three selected entries must still be parsed at lines 6-8.
+
+3. missing-entry.md
+   Expected: FAIL, exit 1.
+   Expected error: no line, "missing selected entry: Bike Reliability".
+
+4. missing-required-field.md
+   Expected: FAIL, exit 1.
+   Expected error: line 7, "Bike Reliability: Description is empty".
+
+5. unusual-urls.md
+   Expected: PASS, exit 0.
+   Expected parsed rows:
+     line 9   Query API     https://example.com/search?q=wheel&size=17&page=1
+     line 10  Encoded API   https://example.com/docs/a%20b/%28c%29?next=%2Fhome
+     line 11  Paren API     https://example.com/docs/API_(v2)
+     line 12  Angle API     https://example.com/docs/angle_(v1)
+     line 13  Fragment API  https://example.com/docs/page#section-2
+     line 14  Titled API    https://example.com/docs/API_(v3)
+     line 15  Escaped Paren API  https://example.com/docs/API_(v4)
+   This covers query parameters, percent encoding, balanced parentheses,
+   angle-bracket destinations, fragments, escaped pipes, code spans, a Markdown
+   link title, and backslash-escaped parentheses.
+
+6. query-encoded-url.md
+   Expected: PASS, exit 0.
+   Expected parsed row: line 9, Query Encoded API,
+   https://example.com/search?q=wheel%20size&filter=%28oem%29&page=2
+
+7. parentheses-url.md
+   Expected: PASS, exit 0.
+   Expected parsed row: line 9, Paren API,
+   https://example.com/docs/API_(v2)
+
+8. wrong-metadata.md
+   Expected: FAIL, exit 1.
+   Expected error: line 7, "Bike Reliability: CORS mismatch: expected Yes, found No".
+
+9. malformed-header.md
+   Expected: FAIL, exit 1.
+   Table heading: line 3; header: line 4.
+   Expected error: line 4, "expected table header".
+
+10. bad-url.md
+    Expected: FAIL, exit 1.
+    Expected error: line 9, "Bad URL: URL scheme must be http or https".
+
+11. bad-link.md
+    Expected: FAIL, exit 1.
+    Expected error: line 9, "API cell is not a Markdown link".
+
+Expected command results
+------------------------
+$ python3 tools/course_checks/r02-t036.py --self-test
+  Expected exit status: 0
+  Expected summary: Self-test: 11/11 fixtures passed
+
+$ python3 tools/course_checks/r02-t036.py
+  Expected exit status: 0
+  Expected summary: OK: Vehicle table structure valid; all 3 selected entries
+  match expected metadata.
+
+$ python3 tools/course_checks/r02-t036.py --readme work/R02-T036/fixtures/malformed-row.md
+  Expected exit status: 1
+  Expected error: line 9, expected 5 cells, found 4

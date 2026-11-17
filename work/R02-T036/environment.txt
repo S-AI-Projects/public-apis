@@ -1,0 +1,44 @@
+R02-T036 environment
+====================
+
+Date: 2026-11-17
+Repository: /Users/apuravagarwal/programming/snai assignment/public-apis-r02-t036
+Clone source: https://github.com/apurav-invisible/public-apis.git
+Branch: student/e26b07f0885/R02-T036
+Base commit: 2676ca49d557ef14a0f478311506dae947639028
+Working tree before changes: clean (only the new branch differed from master)
+
+Git remotes:
+  origin    https://github.com/apurav-invisible/public-apis.git (fetch)
+  origin    https://github.com/apurav-invisible/public-apis.git (push)
+  upstream  https://github.com/S-AI-Projects/public-apis.git (fetch)
+  upstream  https://github.com/S-AI-Projects/public-apis.git (push)
+
+Python:
+  python3 --version
+  Python 3.15.2
+
+  sys.version
+  3.15.2 (main, Oct 25 2026, 16:57:51) [Clang 21.0.0 (clang-2100.3.34.2)]
+
+  platform.platform()
+  macOS-27.2-arm64-arm-64bit-Mach-O
+
+  platform.machine()
+  arm64
+
+Operating system:
+  ProductName:    macOS
+  ProductVersion: 27.2
+  BuildVersion:   26B123
+
+Tools:
+  git --version
+  git version 2.55.0
+
+  curl --version (first line)
+  curl 8.7.1 (x86_64-apple-darwin26.0) libcurl/8.7.1 (SecureTransport) LibreSSL/3.3.6 zlib/1.2.12 nghttp2/1.69.0
+
+Network:
+  The checker and self-test do not use the network. Manual API checks were
+  limited to the three selected API domains with curl --max-time 20.
