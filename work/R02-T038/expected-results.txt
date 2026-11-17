@@ -1,0 +1,31 @@
+R02-T038 Expected Results
+=========================
+
+Self-test (16 fixtures):
+  valid-all.md             exit=0  errors=[]
+  malformed-row.md         exit=1  errors=[bad_link, missing_entry]
+  missing-entry.md         exit=1  errors=[missing_entry]
+  wrong-order.md           exit=1  errors=[wrong_order, wrong_order]
+  bad-link.md              exit=1  errors=[empty_url, wrong_url]
+  non-english.md           exit=0  errors=[]
+  paren-url.md             exit=1  errors=[wrong_url]
+  query-encoded.md         exit=1  errors=[wrong_url]
+  header-error.md          exit=1  errors=[bad_header, bad_separator]
+  separator-error.md       exit=1  errors=[bad_separator]
+  unexpected-error.md      exit=1  errors=[invalid_cors, wrong_cors]
+  long-description.md      exit=1  errors=[description_too_long]
+  bad-padding.md           exit=1  errors=[bad_padding]
+  invalid-selected-auth.md exit=1  errors=[invalid_auth, wrong_auth]
+  invalid-selected-cors.md exit=1  errors=[invalid_cors, wrong_cors]
+  neighbor-order-error.md  exit=1  errors=[wrong_order]
+
+Summary: 16/16 fixtures pass.
+
+Live validation (against README.md at pinned commit 2676ca49):
+  Selected entries: arcsecond.io, arXiv, Botlero
+  All three entries present, valid, and correctly ordered relative to neighbors
+  (including Chempirical after Botlero).
+  Pre-existing upstream ordering violations reported:
+    line 2140: wrong_order (NASA InSight before NASA ADS)
+    line 2151: wrong_order (OpenAlex before Open Ephemeris)
+  Exit code: 1 (due to upstream ordering issues, not selected entry errors)

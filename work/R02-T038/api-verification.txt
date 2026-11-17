@@ -1,0 +1,62 @@
+R02-T038 API Verification
+=========================
+Pinned commit: 2676ca49d557ef14a0f478311506dae947639028
+
+--- arcsecond.io ---
+Documentation URL : https://api.arcsecond.io/
+Auth              : No (public read access, no API key required for basic endpoints)
+HTTPS             : Yes (confirmed via HTTPS URL)
+CORS              : Unknown (not documented on the API documentation page)
+Catalogue Auth    : No       — CORRECT
+Catalogue HTTPS   : Yes      — CORRECT
+Catalogue CORS    : Unknown  — CORRECT
+Verdict           : Entry is correct. No change required.
+
+Source: https://api.arcsecond.io/ — the base URL returns a JSON API
+index listing available endpoints. No authentication header is required
+for read-only access. The domain uses HTTPS. CORS headers are not
+described in the documentation.
+
+--- arXiv ---
+Documentation URL : https://info.arxiv.org/help/api/user-manual.html
+Auth              : No (arXiv API is open; no key needed for queries)
+HTTPS             : Yes (served over HTTPS)
+CORS              : Unknown (not documented; API is primarily for server-side use)
+Catalogue Auth    : No       — CORRECT
+Catalogue HTTPS   : Yes      — CORRECT
+Catalogue CORS    : Unknown  — CORRECT
+Verdict           : Entry is correct. No change required.
+
+Source: arXiv User Manual at https://info.arxiv.org/help/api/user-manual.html
+states the API is free and open with no authentication requirement. The
+primary interface is via HTTP GET requests; CORS support is not mentioned.
+
+--- Botlero ---
+Documentation URL : https://botlero.com/api/robots
+Auth              : No (public, no API key)
+HTTPS             : Yes (domain served over HTTPS)
+CORS              : Yes (documented/indicated as CORS-enabled)
+Catalogue Auth    : No   — CORRECT
+Catalogue HTTPS   : Yes  — CORRECT
+Catalogue CORS    : Yes  — CORRECT
+Verdict           : Entry is correct. No change required.
+
+Source: https://botlero.com/api/robots — API documentation page for the
+humanoid robot specifications API. The page indicates public access with
+CORS support.
+
+--- Ordering ---
+Section: ### Science & Math (README line 2110)
+Header:  line 2111
+Separator: line 2112
+arcsecond.io: line 2113  (casefold: "arcsecond.io")
+arXiv:        line 2114  (casefold: "arxiv")
+Botlero:      line 2115  (casefold: "botlero")
+
+"arcsecond.io" < "arxiv" < "botlero"  — ORDER CORRECT
+
+Pre-existing upstream ordering violations (not in selected entries):
+- NASA InSight (line 2139) before NASA ADS (line 2140): "insight" > "ads"
+- OpenAlex (line 2150) before Open Ephemeris (line 2151): "openalex" > "open ephemeris"
+These are upstream issues; no README change was made.
+
