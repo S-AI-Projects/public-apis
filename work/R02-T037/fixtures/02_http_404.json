@@ -1,0 +1,21 @@
+{
+  "description": "HTTP 404 means the resource was not found; it is not a successful response.",
+  "expected": {
+    "classification": "Missing resource (Not Found)",
+    "method": "HEAD",
+    "status": 404
+  },
+  "must_not_be": [
+    "Success",
+    "Success via GET fallback",
+    "Forbidden",
+    "Rate Limited",
+    "Timeout",
+    "DNS Failure"
+  ],
+  "responses": {
+    "HEAD": {
+      "status": 404
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "description": "HTTP 429 is rate limiting, not a missing resource or a generic failure.",
+  "expected": {
+    "classification": "Rate Limited",
+    "method": "HEAD",
+    "status": 429
+  },
+  "must_not_be": [
+    "Success",
+    "Missing resource (Not Found)",
+    "Forbidden",
+    "Timeout",
+    "DNS Failure"
+  ],
+  "responses": {
+    "HEAD": {
+      "status": 429
+    }
+  }
+}

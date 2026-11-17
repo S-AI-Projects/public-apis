@@ -1,0 +1,21 @@
+{
+  "description": "HTTP 200 from HEAD is a success.",
+  "expected": {
+    "classification": "Success",
+    "method": "HEAD",
+    "status": 200
+  },
+  "must_not_be": [
+    "Missing resource (Not Found)",
+    "Forbidden",
+    "Rate Limited",
+    "Timeout",
+    "DNS Failure",
+    "Success via GET fallback"
+  ],
+  "responses": {
+    "HEAD": {
+      "status": 200
+    }
+  }
+}
