@@ -1,0 +1,20 @@
+{
+  "description": "HTTP 403 is forbidden access, not a missing resource.",
+  "expected": {
+    "classification": "Forbidden",
+    "method": "HEAD",
+    "status": 403
+  },
+  "must_not_be": [
+    "Success",
+    "Missing resource (Not Found)",
+    "Rate Limited",
+    "Timeout",
+    "DNS Failure"
+  ],
+  "responses": {
+    "HEAD": {
+      "status": 403
+    }
+  }
+}

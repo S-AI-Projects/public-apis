@@ -1,0 +1,65 @@
+R02-T037 expected results
+=========================
+
+Category
+--------
+Games & Comics (README line 1260), entries at lines 1263, 1264, 1265.
+
+Expected fixture classifications
+--------------------------------
+Each fixture is loaded by tools/course_checks/r02-t037.py --self-test through
+an in-memory fake transport. No fixture makes a network request.
+
+| Fixture | Simulation | Expected classification | Expected method | Expected status |
+| --- | --- | --- | --- | --- |
+| 01_http_200.json | HEAD 200 | Success | HEAD | 200 |
+| 02_http_404.json | HEAD 404 | Missing resource (Not Found) | HEAD | 404 |
+| 03_http_429.json | HEAD 429 | Rate Limited | HEAD | 429 |
+| 04_http_403.json | HEAD 403 | Forbidden | HEAD | 403 |
+| 05_head_405_get_200.json | HEAD 405, GET 200 | Success via GET fallback | GET | 200 |
+| 06_timeout.json | HEAD raises timeout | Timeout | HEAD | none |
+| 07_dns_failure.json | HEAD raises DNS error | DNS Failure | HEAD | none |
+| 08_head_501_get_200.json | HEAD 501, GET 200 | Success via GET fallback | GET | 200 |
+| 09_head_405_get_429.json | HEAD 405, GET 429 | Rate Limited (GET result preserved) | GET | 429 |
+
+Required negative assertions
+----------------------------
+- Timeout must not equal DNS Failure.
+- DNS Failure must not equal Timeout.
+- HTTP 403 must not equal Missing resource (Not Found).
+- HTTP 429 must not equal Missing resource (Not Found).
+- HTTP 404 must not equal Success and must not produce an automatic removal
+  recommendation.
+- HEAD 405 + GET 200 must equal Success via GET fallback, not plain Success.
+- HEAD 405 + GET 429 must preserve the GET Rate Limited result.
+Any violated assertion makes the self-test exit non-zero.
+
+Expected README parser result
+-----------------------------
+- Category: Games & Comics.
+- AmiiboAPI at line 1263.
+- Animal Crossing: New Horizons at line 1264.
+- Astroworld at line 1265.
+- The parsed line number must point at the row containing the API name.
+
+Expected catalogue metadata (evidence-based)
+--------------------------------------------
+| API | Auth | HTTPS | CORS | Expected action |
+| --- | --- | --- | --- | --- |
+| AmiiboAPI | No | Yes | Yes | Keep unchanged |
+| Animal Crossing: New Horizons | No | Yes | Unknown | Keep unchanged |
+| Astroworld | No | Yes | Yes | Keep unchanged |
+
+No README.md correction is expected. No API is expected to be removed.
+
+Expected live checker behavior
+------------------------------
+- Probe only the three selected entries, sequentially.
+- Use HEAD first with an explicit timeout (default 10 seconds).
+- Fall back to GET only for HEAD 405 or 501.
+- Report README line, URL, method, status/exception, and a distinct
+  classification.
+- Exit 0 when the live run completes, regardless of endpoint availability.
+- Never recommend removal from a single failed request.
+- Live classifications are observations, not assertions: they may vary with
+  network conditions.

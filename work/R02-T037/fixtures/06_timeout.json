@@ -1,0 +1,21 @@
+{
+  "description": "A request timeout is classified as Timeout, never as DNS failure.",
+  "expected": {
+    "classification": "Timeout",
+    "method": "HEAD",
+    "status": null
+  },
+  "must_not_be": [
+    "Success",
+    "Missing resource (Not Found)",
+    "Forbidden",
+    "Rate Limited",
+    "DNS Failure",
+    "Network Error"
+  ],
+  "responses": {
+    "HEAD": {
+      "exception": "timeout"
+    }
+  }
+}

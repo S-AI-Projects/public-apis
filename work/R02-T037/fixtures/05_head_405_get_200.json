@@ -1,0 +1,24 @@
+{
+  "description": "HEAD 405 is unsupported, so GET is tried and its HTTP 200 is a fallback success.",
+  "expected": {
+    "classification": "Success via GET fallback",
+    "method": "GET",
+    "status": 200
+  },
+  "must_not_be": [
+    "Success",
+    "Missing resource (Not Found)",
+    "Forbidden",
+    "Rate Limited",
+    "Timeout",
+    "DNS Failure"
+  ],
+  "responses": {
+    "HEAD": {
+      "status": 405
+    },
+    "GET": {
+      "status": 200
+    }
+  }
+}

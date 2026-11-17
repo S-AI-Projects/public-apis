@@ -1,0 +1,222 @@
+R02-T037 actual results
+=======================
+
+Date: 2026-11-17 (UTC)
+Repository: /Users/apuravagarwal/programming/snai assignment/public-apis-r02-t037
+Branch: student/e26b07f0885/R02-T037
+
+All commands below were run from the repository root. Outputs are copied from
+the actual runs.
+
+
+1. Offline self-test with network proxied to a closed port
+----------------------------------------------------------
+
+This proves the self-test does not depend on network access. The plain
+`python3 tools/course_checks/r02-t037.py --self-test` command was also run and
+exited 0 with the same output.
+
+Command:
+  HTTP_PROXY=http://127.0.0.1:9 \
+  HTTPS_PROXY=http://127.0.0.1:9 \
+  ALL_PROXY=http://127.0.0.1:9 \
+  NO_PROXY= \
+  python3 tools/course_checks/r02-t037.py --self-test
+
+Exit status: 0
+
+Output:
+R02-T037 offline self-test
+Fixtures: /Users/apuravagarwal/programming/snai assignment/public-apis-r02-t037/work/R02-T037/fixtures
+
+fixture: 01_http_200.json
+  expected: Success / HEAD / 200
+  actual:   Success / HEAD / 200
+  PASS
+
+fixture: 02_http_404.json
+  expected: Missing resource (Not Found) / HEAD / 404
+  actual:   Missing resource (Not Found) / HEAD / 404
+  PASS
+
+fixture: 03_http_429.json
+  expected: Rate Limited / HEAD / 429
+  actual:   Rate Limited / HEAD / 429
+  PASS
+
+fixture: 04_http_403.json
+  expected: Forbidden / HEAD / 403
+  actual:   Forbidden / HEAD / 403
+  PASS
+
+fixture: 05_head_405_get_200.json
+  expected: Success via GET fallback / GET / 200
+  actual:   Success via GET fallback / GET / 200
+  PASS
+
+fixture: 06_timeout.json
+  expected: Timeout / HEAD / None
+  actual:   Timeout / HEAD / None
+  PASS
+
+fixture: 07_dns_failure.json
+  expected: DNS Failure / HEAD / None
+  actual:   DNS Failure / HEAD / None
+  PASS
+
+fixture: 08_head_501_get_200.json
+  expected: Success via GET fallback / GET / 200
+  actual:   Success via GET fallback / GET / 200
+  PASS
+
+fixture: 09_head_405_get_429.json
+  expected: Rate Limited / GET / 429
+  actual:   Rate Limited / GET / 429
+  PASS
+
+README parser check
+README parse: category and three selected entries found
+  AmiiboAPI: README.md:1263
+  Animal Crossing: New Horizons: README.md:1264
+  Astroworld: README.md:1265
+  PASS
+
+SELF-TEST PASSED: 9 fixtures, README parser check
+
+
+2. Negative assertion test A: wrong expected classification
+-----------------------------------------------------------
+
+Command:
+  python3 tools/course_checks/r02-t037.py --self-test --fixtures "$TMP/a"
+
+where the temporary fixture copied 01_http_200.json but changed the expected
+classification to "Missing resource (Not Found)".
+
+Exit status: 1
+
+Output:
+R02-T037 offline self-test
+Fixtures: /var/folders/my/_xhgt5v512b8hmgv8m2g184c0000gn/T/tmp.LNTyoPOTIX/a
+
+fixture: bad_expectation.json
+  expected: Missing resource (Not Found) / HEAD / 200
+  actual:   Success / HEAD / 200
+  FAIL
+
+README parser check
+README parse: category and three selected entries found
+  AmiiboAPI: README.md:1263
+  Animal Crossing: New Horizons: README.md:1264
+  Astroworld: README.md:1265
+  PASS
+
+SELF-TEST FAILED: 1 assertion(s)
+  - bad_expectation.json: classification: expected 'Missing resource (Not Found)', got 'Success'
+
+
+3. Negative assertion test B: must_not_be violation
+---------------------------------------------------
+
+Command:
+  python3 tools/course_checks/r02-t037.py --self-test --fixtures "$TMP/b"
+
+where the temporary fixture copied 01_http_200.json and asserted that the
+classification must not be "Success".
+
+Exit status: 1
+
+Output:
+R02-T037 offline self-test
+Fixtures: /var/folders/my/_xhgt5v512b8hmgv8m2g184c0000gn/T/tmp.LNTyoPOTIX/b
+
+fixture: bad_negative_assertion.json
+  expected: Success / HEAD / 200
+  actual:   Success / HEAD / 200
+  FAIL
+
+README parser check
+README parse: category and three selected entries found
+  AmiiboAPI: README.md:1263
+  Animal Crossing: New Horizons: README.md:1264
+  Astroworld: README.md:1265
+  PASS
+
+SELF-TEST FAILED: 1 assertion(s)
+  - bad_negative_assertion.json: negative assertion failed: classification must not be 'Success'
+
+
+4. Live availability checker
+----------------------------
+
+Command:
+  python3 tools/course_checks/r02-t037.py
+
+Exit status: 0
+
+Output:
+R02-T037 availability checker
+README: /Users/apuravagarwal/programming/snai assignment/public-apis-r02-t037/README.md
+Category: Games & Comics
+Mode: live, sequential, timeout 10s
+
+[1/3] AmiiboAPI
+  README line: README.md:1263
+  URL: https://amiiboapi.com/
+  Catalogue metadata: Auth=No, HTTPS=Yes, CORS=Yes
+  Request: HEAD -> HTTP 200
+  Result: Success
+
+[2/3] Animal Crossing: New Horizons
+  README line: README.md:1264
+  URL: http://acnhapi.com/
+  Catalogue metadata: Auth=No, HTTPS=Yes, CORS=Unknown
+  Request: HEAD -> RemoteDisconnected: Remote end closed connection without response
+  Result: Network Error
+  Action: temporary network failure; retry later and verify manually before any change.
+
+[3/3] Astroworld
+  README line: README.md:1265
+  URL: https://api.astroworldmc.com
+  Catalogue metadata: Auth=No, HTTPS=Yes, CORS=Yes
+  Request: HEAD -> HTTP 200
+  Result: Success
+
+Summary: Network Error=1, Success=2
+Removal policy: a single failed request is never sufficient evidence for removal.
+Preserve entries unless a missing resource is manually confirmed with reliable evidence.
+
+Note: an earlier run of the same command observed AmiiboAPI as Timeout on HEAD
+and the remaining two entries unchanged. Live results vary with network
+conditions and are not used to alter the catalogue automatically.
+
+
+5. Additional validation
+------------------------
+
+Command:
+  python3 -m py_compile tools/course_checks/r02-t037.py
+Exit status: 0
+
+Command (validate every fixture as JSON):
+  for f in work/R02-T037/fixtures/*.json; do python3 -m json.tool "$f" > /dev/null || exit 1; done
+Exit status: 0
+
+Command (trailing whitespace check on new text files):
+  grep -nE '[[:blank:]]+$' tools/course_checks/r02-t037.py tools/course_checks/README.md work/R02-T037/*.md work/R02-T037/*.txt work/R02-T037/fixtures/*.json
+Exit status: 1 (no matches; grep returns 1 when nothing matches)
+
+Command:
+  git diff --check
+Exit status: 0
+Output: (none)
+
+Note: the new files are currently untracked, so `git diff --check` has no
+tracked changes to inspect. The manual trailing-whitespace check above covers
+the new text files.
+
+Command:
+  git status --short
+Output:
+?? tools/
+?? work/

@@ -1,0 +1,123 @@
+R02-T037 API verification
+=========================
+
+Verification date: 2026-11-17 (UTC)
+Pinned repository: https://github.com/S-AI-Projects/public-apis
+Pinned commit: 2676ca49d557ef14a0f478311506dae947639028
+README category: Games & Comics (heading line 1260)
+
+The catalogue rows checked are README lines 1263, 1264 and 1265. Sources are
+separated below into (A) official documentation evidence and (B) live HTTP
+observations. Live observations are point-in-time and do not by themselves
+prove that metadata is correct or incorrect.
+
+
+1. AmiiboAPI
+------------
+
+Catalogue row (README line 1263):
+
+| [AmiiboAPI](https://amiiboapi.com/) | Nintendo Amiibo Information | No | Yes | Yes |
+
+(A) Documentation evidence
+- https://amiiboapi.org/docs/ (HTTP 200 on 2026-11-17) contains:
+  "This is a reading-only API. Only HTTP GET method is allowed by this API."
+  "No authentication is required to use this API. All resources are allowed to access."
+  => supports Auth = No.
+- https://github.com/N3evin/AmiiboAPI (archived official repository) lists
+  https://www.amiiboapi.com/ as its homepage and uses Flask-Cors. The pinned
+  requirements file contains "Flask-Cors==4.0.2":
+  https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/requirements.txt
+  => supports CORS = Yes.
+- Note on provenance: https://amiiboapi.com/docs/ returned unrelated
+  promotional content during this check, so it was not used as documentation
+  evidence. The .org mirror above and the GitHub repository were used instead.
+
+(B) Live HTTP observations (curl, 2026-11-17T14:38Z window)
+- GET https://amiiboapi.com/ -> HTTP 200 over HTTPS
+  => HTTPS = Yes is supported.
+- GET https://amiiboapi.org/api/amiibo/ -> HTTP 200, header
+  "Access-Control-Allow-Origin: *"
+  => CORS is enabled on the working API deployment.
+- GET https://amiiboapi.com/api/amiibo?name=mario -> HTTP 404
+- GET https://www.amiiboapi.com/api/amiibo?name=mario -> HTTP 404
+  => The .com API paths were not serving responses at check time, while the
+  .org deployment was. This is an availability inconsistency, not a metadata
+  correction. It does not justify changing Auth/HTTPS/CORS or removing the
+  entry.
+- An earlier checker HEAD https://amiiboapi.com/ timed out after 10 seconds
+  (classification: Timeout); a later run returned HTTP 200 (classification:
+  Success). A manual GET also succeeded. No GET fallback is performed for a
+  timeout because the checker only falls back for HEAD 405/501. The variation
+  is recorded as a point-in-time availability observation.
+
+Conclusion: keep Auth = No, HTTPS = Yes, CORS = Yes. No README change.
+
+
+2. Animal Crossing: New Horizons
+---------------------------------
+
+Catalogue row (README line 1264):
+
+| [Animal Crossing: New Horizons](http://acnhapi.com/) | API for critters, fossils, art, music, furniture and villagers | No | Yes | Unknown |
+
+(A) Documentation evidence
+- https://github.com/alexislours/ACNHAPI (official project repository,
+  archived) README.MD states:
+  "The API is free and without authentification to make it easy for anyone to
+  start developing on a subject they like."
+  "No authentification is required to make requests to any of the endpoints
+  which can be accessed over HTTP or HTTPS."
+  => supports Auth = No and HTTPS = Yes.
+- The repository does not document CORS. The API documentation link in the
+  repository is https://acnhapi.com/doc, which could not be retrieved because
+  the service did not respond.
+  => CORS remains Unknown.
+
+(B) Live HTTP observations (2026-11-17T14:39Z window)
+- DNS: acnhapi.com resolves to 162.4.84.240.
+- curl --http1.1 GET http://acnhapi.com/ -> curl: (52) Empty reply from server
+- curl --http1.1 GET https://acnhapi.com/ -> curl: (52) Empty reply from server
+- Checker HEAD http://acnhapi.com/ -> RemoteDisconnected("Remote end closed
+  connection without response"), classification: Network Error.
+  => No live CORS conclusion is possible. The failure is not proof that the
+  API is permanently unavailable or that its metadata is wrong.
+
+Conclusion: keep Auth = No, HTTPS = Yes, CORS = Unknown. No README change.
+
+
+3. Astroworld
+-------------
+
+Catalogue row (README line 1265):
+
+| [Astroworld](https://api.astroworldmc.com) | Free Minecraft data: mobs, biomes, items, enchantments, structures, commands, versions, achievements, trades | No | Yes | Yes |
+
+(A) Documentation evidence
+- https://api.astroworldmc.com (HTTP 200 on 2026-11-17) states:
+  "Free, public Minecraft data API. JSON responses, CORS enabled, no auth
+  required."
+  "All routes answer the OPTIONS preflight with 204 and send
+  Access-Control-Allow-Origin: *"
+  => supports Auth = No, HTTPS = Yes, CORS = Yes.
+
+(B) Live HTTP observations (2026-11-17T14:40Z window)
+- GET https://api.astroworldmc.com/api/health -> HTTP 200, JSON:
+  {"success":true,"status":"ok","timestamp":"2026-11-17T14:40:12.089Z","version":"1.0.0"}
+- Response headers include:
+  access-control-allow-origin: *
+  access-control-allow-methods: GET, OPTIONS
+  x-ratelimit-limit: 100
+  => confirms HTTPS and CORS on the live service.
+- Checker HEAD https://api.astroworldmc.com -> HTTP 200, classification:
+  Success.
+
+Conclusion: keep Auth = No, HTTPS = Yes, CORS = Yes. No README change.
+
+
+Summary
+-------
+
+All three rows retain their existing metadata. No evidence clearly supports a
+README correction. No links were removed. Live failures for AmiiboAPI and
+Animal Crossing: New Horizons are recorded as availability observations only.

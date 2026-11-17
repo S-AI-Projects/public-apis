@@ -1,0 +1,35 @@
+R02-T037 environment
+====================
+
+Recorded: 2026-11-17T14:39:27Z
+
+Repository path:
+  /Users/apuravagarwal/programming/snai assignment/public-apis-r02-t037
+
+Branch:
+  student/e26b07f0885/R02-T037
+
+Git remotes:
+  origin    https://github.com/apurav-invisible/public-apis.git (fetch/push)
+  upstream  https://github.com/S-AI-Projects/public-apis.git (fetch/push)
+
+Python:
+  Python 3.15.2
+
+Operating system:
+  macOS 27.2 (build 26B123)
+  Architecture: arm64
+
+Git:
+  git version 2.55.0
+
+curl:
+  curl 8.7.1 (x86_64-apple-darwin26.0) libcurl/8.7.1
+  (SecureTransport) LibreSSL/3.3.6 zlib/1.2.12 nghttp2/1.69.0
+
+Checker dependencies:
+  Python standard library only (argparse, json, re, socket, sys,
+  urllib, collections.abc, dataclasses, pathlib).
+
+Network:
+  Live checks were performed. The offline self-test does not use the network.

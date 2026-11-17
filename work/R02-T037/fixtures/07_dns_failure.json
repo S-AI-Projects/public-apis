@@ -1,0 +1,21 @@
+{
+  "description": "A DNS resolution failure is classified as DNS Failure, never as timeout.",
+  "expected": {
+    "classification": "DNS Failure",
+    "method": "HEAD",
+    "status": null
+  },
+  "must_not_be": [
+    "Success",
+    "Missing resource (Not Found)",
+    "Forbidden",
+    "Rate Limited",
+    "Timeout",
+    "Network Error"
+  ],
+  "responses": {
+    "HEAD": {
+      "exception": "dns"
+    }
+  }
+}
