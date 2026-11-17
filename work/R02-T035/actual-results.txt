@@ -1,0 +1,47 @@
+R02-T035 — Actual Results
+
+$ python3 tools/course_checks/r02-t035.py --self-test
+Self-test passed: 4 fixture checks
+exit=0
+
+$ python3 tools/course_checks/r02-t035.py
+Mediastack: News (line 1854)
+Associated Press: News (line 1855)
+Chronicling America: News (line 1856)
+R02-T035 News metadata check passed.
+exit=0
+
+$ git diff --check
+exit=0
+
+$ grep -rnE '[[:blank:]]+$' tools/course_checks work/R02-T035
+no matches (exit=1)
+
+Repository status (nothing staged):
+ M README.md
+?? tools/
+?? work/
+
+README diff:
+- Line 1854: Mediastack CORS Unknown -> Yes
+- Line 1856: Chronicling America URL updated to the current HTTPS LOC API page
+- Line 1856: Chronicling America HTTPS No -> Yes
+- Chronicling America CORS remains Unknown
+- Associated Press is unchanged
+
+Evidence notes:
+- Mediastack CORS is supported only by the documented GET response.
+- Chronicling America CORS remains Unknown because the collection endpoint's
+  HTTP 403 without a CORS header is inconclusive.
+
+No other README lines changed.
+No R02-T034 files were touched.
+
+self_test assertions:
+- valid.md: exact empty error list, exit code 0.
+- missing-field.md: exactly
+  ["Missing required metadata: Mediastack Auth at line 4"], exit code 1.
+- missing-entry.md: exactly
+  ["Missing entry: Associated Press in News"], exit code 1.
+- invalid-value.md: exactly
+  ["Invalid CORS: Associated Press='Sometimes' at line 5"], exit code 1.

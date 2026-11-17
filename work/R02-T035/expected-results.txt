@@ -1,0 +1,23 @@
+R02-T035 — Expected Results
+
+Selected API          Section   Auth      HTTPS   CORS
+Mediastack            News      apiKey    Yes     Yes
+Associated Press      News      apiKey    Yes     Unknown
+Chronicling America   News      No        Yes     Unknown
+
+Expected README line numbers:
+- Mediastack: line 1854
+- Associated Press: line 1855
+- Chronicling America: line 1856
+
+Expected checker behavior:
+1. Valid fixture passes with no errors.
+2. Missing Auth value is reported as missing required metadata.
+3. Missing Associated Press entry is reported.
+4. Invalid CORS value is reported.
+5. Checker preserves original line numbers and scopes parsing to the News table.
+
+Expected catalogue changes:
+- Mediastack CORS: Unknown -> Yes
+- Chronicling America HTTPS: No -> Yes
+- Associated Press: no change
