@@ -1,0 +1,168 @@
+[
+  {
+    "fixture": "valid-all.md",
+    "description": "Valid table with all three selected entries in correct order and metadata.",
+    "expected_exit": 0,
+    "expected_errors": [],
+    "expected_entries": [
+      {"name": "arcsecond.io", "url": "https://api.arcsecond.io/", "auth": "No", "https": "Yes", "cors": "Unknown", "line": 4},
+      {"name": "arXiv", "url": "https://info.arxiv.org/help/api/user-manual.html", "auth": "No", "https": "Yes", "cors": "Unknown", "line": 5},
+      {"name": "Botlero", "url": "https://botlero.com/api/robots", "auth": "No", "https": "Yes", "cors": "Yes", "line": 6}
+    ]
+  },
+  {
+    "fixture": "malformed-row.md",
+    "description": "Row with no Markdown link in name cell; Botlero is missing so missing_entry is raised.",
+    "expected_exit": 1,
+    "expected_errors": ["bad_link", "missing_entry"],
+    "expected_entries": [
+      {"name": "arcsecond.io", "line": 4},
+      {"name": "arXiv", "line": 5}
+    ]
+  },
+  {
+    "fixture": "missing-entry.md",
+    "description": "Botlero entry omitted entirely from the table.",
+    "expected_exit": 1,
+    "expected_errors": ["missing_entry"],
+    "expected_entries": [
+      {"name": "arcsecond.io", "line": 4},
+      {"name": "arXiv", "line": 5}
+    ]
+  },
+  {
+    "fixture": "wrong-order.md",
+    "description": "Rows not in alphabetical order: Botlero before arXiv before arcsecond.io.",
+    "expected_exit": 1,
+    "expected_errors": ["wrong_order", "wrong_order"],
+    "expected_entries": [
+      {"name": "Botlero", "line": 4},
+      {"name": "arXiv", "line": 5},
+      {"name": "arcsecond.io", "line": 6}
+    ]
+  },
+  {
+    "fixture": "bad-link.md",
+    "description": "Botlero has an empty URL in its Markdown link.",
+    "expected_exit": 1,
+    "expected_errors": ["empty_url", "wrong_url"],
+    "expected_entries": [
+      {"name": "arcsecond.io", "line": 4},
+      {"name": "arXiv", "line": 5},
+      {"name": "Botlero", "line": 6}
+    ]
+  },
+  {
+    "fixture": "non-english.md",
+    "description": "arXiv description in French; non-English text must be preserved without errors.",
+    "expected_exit": 0,
+    "expected_errors": [],
+    "expected_entries": [
+      {"name": "arcsecond.io", "line": 4},
+      {"name": "arXiv", "line": 5},
+      {"name": "Botlero", "line": 6}
+    ]
+  },
+  {
+    "fixture": "paren-url.md",
+    "description": "arcsecond.io URL contains balanced parentheses; parser must handle them. URL differs from expected so wrong_url is raised.",
+    "expected_exit": 1,
+    "expected_errors": ["wrong_url"],
+    "expected_entries": [
+      {"name": "arcsecond.io", "url": "https://api.arcsecond.io/v2/(observations)/sites/", "line": 4},
+      {"name": "arXiv", "line": 5},
+      {"name": "Botlero", "line": 6}
+    ]
+  },
+  {
+    "fixture": "query-encoded.md",
+    "description": "arXiv URL contains query string with percent-encoding; parser must handle it. URL differs from expected so wrong_url is raised.",
+    "expected_exit": 1,
+    "expected_errors": ["wrong_url"],
+    "expected_entries": [
+      {"name": "arcsecond.io", "line": 4},
+      {"name": "arXiv", "url": "https://info.arxiv.org/help/api/user-manual.html?format=pdf&lang=en%2Fapi", "line": 5},
+      {"name": "Botlero", "line": 6}
+    ]
+  },
+  {
+    "fixture": "header-error.md",
+    "description": "Table header has an extra 'ExtraColumn', and separator is correspondingly wrong.",
+    "expected_exit": 1,
+    "expected_errors": ["bad_header", "bad_separator"],
+    "expected_entries": []
+  },
+  {
+    "fixture": "separator-error.md",
+    "description": "Table separator uses non-left-aligned style (no colons).",
+    "expected_exit": 1,
+    "expected_errors": ["bad_separator"],
+    "expected_entries": [
+      {"name": "arcsecond.io", "line": 4},
+      {"name": "arXiv", "line": 5},
+      {"name": "Botlero", "line": 6}
+    ]
+  },
+  {
+    "fixture": "unexpected-error.md",
+    "description": "Botlero has an invalid CORS value 'INVALID_CORS', which produces both invalid_cors and wrong_cors; tests that multi-error negative fixtures with exact error lists pass validation.",
+    "expected_exit": 1,
+    "expected_errors": ["invalid_cors", "wrong_cors"],
+    "expected_entries": []
+  },
+  {
+    "fixture": "long-description.md",
+    "description": "arcsecond.io description exceeds 100 characters, triggering description_too_long.",
+    "expected_exit": 1,
+    "expected_errors": ["description_too_long"],
+    "expected_entries": [
+      {"name": "arcsecond.io", "line": 4},
+      {"name": "arXiv", "line": 5},
+      {"name": "Botlero", "line": 6}
+    ]
+  },
+  {
+    "fixture": "bad-padding.md",
+    "description": "arcsecond.io row lacks required space padding around the opening table delimiter, triggering bad_padding.",
+    "expected_exit": 1,
+    "expected_errors": ["bad_padding"],
+    "expected_entries": [
+      {"name": "arcsecond.io", "line": 4},
+      {"name": "arXiv", "line": 5},
+      {"name": "Botlero", "line": 6}
+    ]
+  },
+  {
+    "fixture": "invalid-selected-auth.md",
+    "description": "arcsecond.io has invalid Auth value 'InvalidAuth', triggering invalid_auth and wrong_auth.",
+    "expected_exit": 1,
+    "expected_errors": ["invalid_auth", "wrong_auth"],
+    "expected_entries": [
+      {"name": "arcsecond.io", "line": 4},
+      {"name": "arXiv", "line": 5},
+      {"name": "Botlero", "line": 6}
+    ]
+  },
+  {
+    "fixture": "invalid-selected-cors.md",
+    "description": "Botlero has invalid CORS value 'InvalidCORS', triggering invalid_cors and wrong_cors.",
+    "expected_exit": 1,
+    "expected_errors": ["invalid_cors", "wrong_cors"],
+    "expected_entries": [
+      {"name": "arcsecond.io", "line": 4},
+      {"name": "arXiv", "line": 5},
+      {"name": "Botlero", "line": 6}
+    ]
+  },
+  {
+    "fixture": "neighbor-order-error.md",
+    "description": "Botlero is incorrectly placed after neighboring non-selected entry Chempirical (which should follow Botlero alphabetically).",
+    "expected_exit": 1,
+    "expected_errors": ["wrong_order"],
+    "expected_entries": [
+      {"name": "arcsecond.io", "line": 4},
+      {"name": "arXiv", "line": 5},
+      {"name": "Botlero", "line": 7}
+    ]
+  }
+]

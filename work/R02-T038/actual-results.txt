@@ -1,0 +1,52 @@
+R02-T038 Actual Results
+=======================
+Generated: 2026-11-17
+
+Self-test output (16 fixtures):
+  [PASS] valid-all.md
+  [PASS] malformed-row.md
+  [PASS] missing-entry.md
+  [PASS] wrong-order.md
+  [PASS] bad-link.md
+  [PASS] non-english.md
+  [PASS] paren-url.md
+  [PASS] query-encoded.md
+  [PASS] header-error.md
+  [PASS] separator-error.md
+  [PASS] unexpected-error.md
+  [PASS] long-description.md
+  [PASS] bad-padding.md
+  [PASS] invalid-selected-auth.md
+  [PASS] invalid-selected-cors.md
+  [PASS] neighbor-order-error.md
+
+  Summary: 16/16 fixtures passed.
+  Exit code: 0
+
+Live validation output:
+  R02-T038 - Task-Specific Validation (Selected APIs):
+    line 2113  'arcsecond.io'                 auth='No'           https='Yes'  cors='Unknown' [OK]
+    line 2114  'arXiv'                        auth='No'           https='Yes'  cors='Unknown' [OK]
+    line 2115  'Botlero'                      auth='No'           https='Yes'  cors='Yes'    [OK]
+    Selected-entry & neighbor ordering: [OK] (case-insensitive, including 'Chempirical' after 'Botlero')
+    All selected APIs passed task-specific validation.
+
+  R02-T038 - Section-Wide Validation (### Science & Math):
+    [line 2140] wrong_order: Ordering error: 'NASA InSight' (line 2139) should come after 'NASA ADS' (line 2140) alphabetically.
+    [line 2151] wrong_order: Ordering error: 'OpenAlex' (line 2150) should come after 'Open Ephemeris' (line 2151) alphabetically.
+
+  Result: FAILED (exit code 1) due to 2 section-wide validation error(s).
+  Exit code: 1
+
+Findings:
+1. Task-Specific: The three assigned entries (arcsecond.io, arXiv, Botlero) are
+   strictly valid, have correct metadata, and are in correct relative alphabetical
+   order at the head of the table (lines 2113-2115) preceding Chempirical (line 2116).
+   Immediate preceding and following neighbors are explicitly validated.
+2. Section-Wide: Two pre-existing ordering violations exist in the upstream
+   repository (verified via git blame to predate pinned commit 2676ca49 and
+   flagged by upstream's own scripts/validate/format.py).
+3. The checker reports whole-section errors separately from task-specific validation,
+   exits with code 1 due to the section-wide errors, and does not alter unrelated entries.
+
+git diff --check: clean (no output).
