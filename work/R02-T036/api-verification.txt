@@ -1,0 +1,164 @@
+R02-T036 API verification
+=========================
+
+Verification date: 2026-11-17
+Category: Vehicle
+Selected README entries: lines 2654-2656
+
+Official documentation references
+---------------------------------
+Auto Body Shop Directory
+  Documentation: https://autobodyshopnear.com/developers/body-shop-api
+  OpenAPI 3.0.2: https://autobodyshopnear.com/developers/body-shop-api/openapi.json
+
+Bike Reliability
+  Documentation: https://bikereliability.co.uk/developers
+  OpenAPI: https://bikereliability.co.uk/api/v1/openapi.json (linked from the docs)
+
+BoltPatternHQ
+  Documentation: https://boltpatternhq.com/mcp/
+  Repository README: https://github.com/double2dev/boltpatternhq-mcp
+  Dataset page: https://boltpatternhq.com/data/
+
+Documentation observations
+--------------------------
+Auto Body Shop Directory
+  - The documentation page lists five public GET endpoints under
+    /api/v1/public: index, shops/by-zip, shops/by-city, shops/nearby, and
+    shops/{slug}.
+  - The quickstart uses a keyless curl request.
+  - The OpenAPI document has servers[0].url =
+    "https://autobodyshopnear.com/api/v1/public".
+  - The OpenAPI document has no "security" section and no securitySchemes.
+  - The documentation does not state a CORS policy.
+
+Bike Reliability
+  - The documentation gives base URL https://bikereliability.co.uk/api/v1.
+  - It says "JSON over HTTPS" and "CORS is open".
+  - Keyless use is allowed up to 50 requests/day per IP; an optional free key
+    is sent in the X-Api-Key header and raises the limit.
+
+BoltPatternHQ
+  - The page describes the official Model Context Protocol server, installed
+    with "npx -y boltpatternhq-mcp" and run over stdio.
+  - The repository README documents three MCP tools and stdio launch; it does
+    not document a REST base URL or an HTTP API.
+  - The /data/ page sells a CSV/JSON dataset; it does not document a REST API.
+  - The documentation site and /data/ pages are served over HTTPS.
+
+Manual HTTP requests
+--------------------
+All curl requests used --max-time 20. Requests were limited to the three
+selected API domains. No request was retried after a failure. At most three
+independent requests were issued concurrently.
+
+1) Auto Body Shop Directory documentation page
+   Command:
+     curl --max-time 20 -sS -D - -o /tmp/abs-docs.html \
+       -A 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) \
+       AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36' \
+       https://autobodyshopnear.com/developers/body-shop-api
+   Observed:
+     HTTP/2 403
+     content-type: text/html; charset=UTF-8
+     cf-mitigated: challenge
+     server: cloudflare
+     no access-control-allow-origin header
+   Note: Cloudflare challenge, not a successful documentation response.
+
+2) Auto Body Shop Directory API index
+   Command:
+     curl --max-time 20 -sS -D - -o /tmp/abs-api.json \
+       -H 'Origin: https://example.com' \
+       https://autobodyshopnear.com/api/v1/public
+   Observed:
+     HTTP/2 403
+     content-type: text/html; charset=UTF-8
+     cf-mitigated: challenge
+     no access-control-allow-origin header
+   Note: Cloudflare challenge. This is not evidence that the API is down.
+
+3) Auto Body Shop Directory OpenAPI path
+   Command:
+     curl --max-time 20 -sS -D - -o /tmp/abs-openapi.json \
+       -H 'Origin: https://example.com' \
+       https://autobodyshopnear.com/openapi.json
+   Observed:
+     HTTP/2 403
+     content-type: text/html; charset=UTF-8
+     cf-mitigated: challenge
+     no access-control-allow-origin header
+   Note: The documentation links the spec at
+   /developers/body-shop-api/openapi.json. Direct access to /openapi.json was
+   challenged; the linked OpenAPI content was read through https://r.jina.ai/
+   for inspection instead.
+
+4) Bike Reliability keyless API request
+   Command:
+     curl --max-time 20 -sS -D - -o /dev/null \
+       -H 'Origin: https://example.com' \
+       https://bikereliability.co.uk/api/v1/makes
+   Observed:
+     HTTP/2 200
+     content-type: application/json; charset=utf-8
+     access-control-allow-origin: *
+     strict-transport-security: max-age=15552000
+     cache-control: public, max-age=21600
+     server: cloudflare
+   Note: No API key was supplied. This confirms keyless access and open CORS
+   for this endpoint.
+
+5) BoltPatternHQ MCP documentation page
+   Command:
+     curl --max-time 20 -sS -D - -o /dev/null \
+       -H 'Origin: https://example.com' \
+       https://boltpatternhq.com/mcp/
+   Observed:
+     HTTP/2 200
+     content-type: text/html; charset=utf-8
+     access-control-allow-origin: *
+     cache-control: public, max-age=0, must-revalidate
+     server: cloudflare
+   Note: This is a static documentation page, not a JSON API endpoint.
+
+6) BoltPatternHQ dataset page
+   Command:
+     curl --max-time 20 -sS -D - -o /tmp/bolt-data.html \
+       -A 'Mozilla/5.0' \
+       https://boltpatternhq.com/data/
+   Observed:
+     HTTP/2 200
+     content-type: text/html; charset=utf-8
+     access-control-allow-origin: *
+     server: cloudflare
+   Note: This is a static dataset sales page, not a JSON API endpoint.
+
+Reader-based documentation access
+---------------------------------
+The Auto Body Shop Directory documentation and OpenAPI document were rendered
+through https://r.jina.ai/ after direct curl requests were challenged:
+  https://r.jina.ai/https://autobodyshopnear.com/developers/body-shop-api
+  https://r.jina.ai/https://autobodyshopnear.com/developers/body-shop-api/openapi.json
+
+The rendered documentation confirmed the keyless quickstart, the five public
+GET endpoints, the HTTPS server URL, and the absence of OpenAPI security
+schemes. The reader response is documentation evidence, not a live API
+observation.
+
+Interpretation
+--------------
+- Bike Reliability: Auth No, HTTPS Yes, CORS Yes are supported by both the
+  documentation and a successful live request.
+- Auto Body Shop Directory: Auth No and HTTPS Yes are supported by the
+  official documentation/OpenAPI document. CORS is not documented, and direct
+  requests were blocked by Cloudflare. No CORS change is supported by clear
+  evidence.
+- BoltPatternHQ:
+  - Documentation describes an stdio MCP server; no REST API CORS policy is documented.
+  - Static `/mcp/` and `/data/` pages return a wildcard CORS header, which does not prove CORS support for the MCP API.
+  - Existing catalogue value (CORS=Yes) is retained pending clearer evidence. documented as a stdio MCP server; no REST API CORS policy is
+  documented. The static pages are HTTPS and return a wildcard CORS header.
+  Existing metadata was left unchanged because the evidence does not clearly
+  support a different value in the Vehicle table.
+- No failed, timed-out, or 403 response was treated as proof that an API is
+  unavailable.

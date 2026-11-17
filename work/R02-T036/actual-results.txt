@@ -1,0 +1,92 @@
+R02-T036 actual results
+=======================
+
+All commands were run from:
+/Users/apuravagarwal/programming/snai assignment/public-apis-r02-t036
+
+$ python3 tools/course_checks/r02-t036.py --self-test
+PASS valid-all.md
+PASS malformed-row.md
+PASS missing-entry.md
+PASS missing-required-field.md
+PASS unusual-urls.md
+PASS query-encoded-url.md
+PASS parentheses-url.md
+PASS wrong-metadata.md
+PASS malformed-header.md
+PASS bad-url.md
+PASS bad-link.md
+
+Self-test: 11/11 fixtures passed
+exit=0
+
+$ python3 tools/course_checks/r02-t036.py
+README.md: Vehicle table lines 2651-2671
+Selected entries:
+  OK    line 2654: Auto Body Shop Directory | Auth=No | HTTPS=Yes | CORS=No
+  OK    line 2655: Bike Reliability | Auth=No | HTTPS=Yes | CORS=Yes
+  OK    line 2656: BoltPatternHQ | Auth=No | HTTPS=Yes | CORS=Yes
+
+OK: Vehicle table structure valid; all 3 selected entries match expected metadata.
+exit=0
+
+$ python3 tools/course_checks/r02-t036.py --readme work/R02-T036/fixtures/malformed-row.md
+work/R02-T036/fixtures/malformed-row.md: Vehicle table lines 3-9
+Selected entries:
+  OK    line 6: Auto Body Shop Directory | Auth=No | HTTPS=Yes | CORS=No
+  OK    line 7: Bike Reliability | Auth=No | HTTPS=Yes | CORS=Yes
+  OK    line 8: BoltPatternHQ | Auth=No | HTTPS=Yes | CORS=Yes
+
+Errors:
+  work/R02-T036/fixtures/malformed-row.md:9: expected 5 cells, found 4
+
+FAIL: 1 error(s)
+exit=1
+
+$ python3 tools/course_checks/r02-t036.py --readme work/R02-T036/fixtures/missing-entry.md
+work/R02-T036/fixtures/missing-entry.md: Vehicle table lines 3-7
+Selected entries:
+  OK    line 6: Auto Body Shop Directory | Auth=No | HTTPS=Yes | CORS=No
+  FAIL  Bike Reliability: not found
+  OK    line 7: BoltPatternHQ | Auth=No | HTTPS=Yes | CORS=Yes
+
+Errors:
+  work/R02-T036/fixtures/missing-entry.md: missing selected entry: Bike Reliability
+
+FAIL: 1 error(s)
+exit=1
+
+$ python3 -m py_compile tools/course_checks/r02-t036.py
+exit=0
+
+$ git diff --check
+exit=0
+
+Note: the new files are untracked, so git diff --check has no tracked diff to
+inspect. A separate scan of every new text file was run for trailing
+whitespace, CR bytes, and UTF-8 decoding:
+
+$ python3 - <<'PY'  # trailing whitespace scan of checker, docs, and work files
+...
+PY
+all text files: UTF-8, LF, no trailing whitespace
+exit=0
+
+$ nl -ba README.md | sed -n '2651,2656p'
+  2651	### Vehicle
+  2652	API | Description | Auth | HTTPS | CORS |
+  2653	|:---|:---|:---|:---|:---|
+  2654	| [Auto Body Shop Directory](https://autobodyshopnear.com/developers/body-shop-api) | Find auto body shops by ZIP code, city, location, or profile | No | Yes | No |
+  2655	| [Bike Reliability](https://bikereliability.co.uk/developers) | UK motorcycle reliability ranked by first-time MOT pass rates | No | Yes | Yes |
+  2656	| [BoltPatternHQ](https://boltpatternhq.com/mcp/) | Vehicle wheel fitment, bolt pattern (PCD), offset, and center bore specifications | No | Yes | Yes |
+
+$ git diff -- README.md
+(no output)
+exit=0
+
+Notes
+-----
+- The self-test uses only local fixture files and does not access the network.
+- The checker exits 1 for fixture failures, as demonstrated above.
+- README.md was not modified; its original line numbers remain 2654-2656 for
+  the three selected entries.
