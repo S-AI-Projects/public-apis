@@ -1,0 +1,43 @@
+R02-T034 — API Verification Notes
+
+AI Dev Jobs
+URL: https://aidevboard.com/api/v1/jobs
+HTTP status: 200
+Access-Control-Allow-Origin: *
+CORS: Yes
+
+AI Trainer Work
+URL: https://aitrainer.work/api/jobs.json
+HTTP status: 200
+Access-Control-Allow-Origin: *
+CORS: Yes
+
+Adzuna
+URL: https://api.adzuna.com/v1/api/jobs/gb/search/1
+HTTP status: 400
+Access-Control-Allow-Origin: Not returned
+CORS: Unknown
+
+Note:
+The Adzuna request did not include API credentials.
+The HTTP 400 response is inconclusive for CORS.
+No CORS value was changed based on this request.
+
+Second verification attempt:
+Method: curl with --max-time 10
+Origin: https://example.com
+Concurrency: Sequential, one request at a time
+
+AI Dev Jobs:
+Result: DNS resolution timeout after approximately 10 seconds.
+Conclusion: Inconclusive. Retain earlier successful CORS observation.
+
+AI Trainer Work:
+Result: DNS resolution timeout after approximately 10 seconds.
+Conclusion: Inconclusive. Retain earlier successful CORS observation.
+
+Adzuna:
+Result: HTTP 400.
+Conclusion: Inconclusive without API credentials.
+
+No catalogue values were changed.
