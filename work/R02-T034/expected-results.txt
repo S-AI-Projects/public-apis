@@ -1,0 +1,15 @@
+R02-T034 — Expected Results
+
+Selected API          Expected Category
+AI Dev Jobs           Jobs
+AI Trainer Work       Jobs
+Adzuna                Jobs
+
+Expected checker behavior:
+1. Correct entries pass without errors.
+2. Misplaced entries are reported.
+3. Repeated category headings are reported.
+4. Missing selected entries are reported.
+
+Expected catalogue changes:
+None. All three selected APIs already belong under Jobs.

@@ -1,0 +1,18 @@
+R02-T034 — Actual Results
+
+Repository README check:
+AI Dev Jobs: Jobs (line 1699)
+AI Trainer Work: Jobs (line 1700)
+Adzuna: Jobs (line 1701)
+
+Result: Category consistency check passed.
+
+Offline fixture tests:
+Valid fixture: Passed
+Misplaced fixture: Passed
+Repeated-heading fixture: Passed
+Missing-entry fixture: Passed
+
+Result: Self-test passed: 4 fixture checks
+
+Catalogue changes: None.

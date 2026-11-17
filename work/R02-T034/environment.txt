@@ -1,0 +1,8 @@
+Task: R02-T034
+Branch: student/e26b07f0885/R02-T034
+Base commit: 2676ca49d557ef14a0f478311506dae947639028
+Python version: 3.15.2
+Dependencies: Python standard library only
+Test mode: Offline fixtures
+Git version: 2.55.0
+curl version: 8.7.1
