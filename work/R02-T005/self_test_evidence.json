@@ -1,0 +1,73 @@
+{
+  "tool": "r02-t005.py",
+  "tests": [
+    {
+      "name": "missing_field_fails",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_auth_fails",
+      "status": "PASS"
+    },
+    {
+      "name": "valid_entry_passes",
+      "status": "PASS"
+    },
+    {
+      "name": "long_description_flagged",
+      "status": "PASS"
+    }
+  ],
+  "evidence_table": [
+    {
+      "name": "Screenshotlayer",
+      "url": "https://screenshotlayer.com",
+      "description": "URL 2 PNG/JPG Converter",
+      "auth": "apiKey",
+      "https": "Yes",
+      "cors": "Unknown",
+      "evidence_source": "https://screenshotlayer.com/documentation",
+      "notes": "Free tier available; requires API key; HTTPS supported on paid plans",
+      "fields_verified": [
+        "auth",
+        "https"
+      ],
+      "fields_unverified": [
+        "cors"
+      ]
+    },
+    {
+      "name": "APITemplate.io",
+      "url": "https://apitemplate.io",
+      "description": "Dynamically generate images and PDFs from templates with a simple API",
+      "auth": "apiKey",
+      "https": "Yes",
+      "cors": "Yes",
+      "evidence_source": "https://docs.apitemplate.io/",
+      "notes": "Free tier with 100 credits/month; HTTPS enforced; CORS supported",
+      "fields_verified": [
+        "auth",
+        "https",
+        "cors"
+      ],
+      "fields_unverified": []
+    },
+    {
+      "name": "CheetahO",
+      "url": "https://cheetaho.com/docs/getting-started/",
+      "description": "Photo optimization and optimization API",
+      "auth": "apiKey",
+      "https": "Yes",
+      "cors": "Unknown",
+      "evidence_source": "https://cheetaho.com/docs/getting-started/",
+      "notes": "API key required; HTTPS supported; CORS status not documented",
+      "fields_verified": [
+        "auth",
+        "https"
+      ],
+      "fields_unverified": [
+        "cors"
+      ]
+    }
+  ]
+}
