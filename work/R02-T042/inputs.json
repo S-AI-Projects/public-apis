@@ -1,0 +1,30 @@
+{
+  "task": "R02-T042",
+  "source_file": "README.md",
+  "source_section": "Open Data",
+  "source_lines": {
+    "10ML Fragrance Index": 1887,
+    "221": 1888,
+    "49 Gallery Historical Data": 1889
+  },
+  "entries": [
+    {
+      "name": "10ML Fragrance Index",
+      "line": 1887,
+      "url": "https://mcp.10ml.com/openapi.json",
+      "markdown": "| [10ML Fragrance Index](https://mcp.10ml.com/openapi.json) | Perfume knowledge: notes, accords, families, similar scents, houses, guides. By 10ML | No | Yes | Yes |"
+    },
+    {
+      "name": "221",
+      "line": 1888,
+      "url": "https://221.orvlabs.com/documentation",
+      "markdown": "| [221](https://221.orvlabs.com/documentation) | Senegal reference data: public holidays, mobile operators, banks, communes, legal forms | No | Yes | Yes |"
+    },
+    {
+      "name": "49 Gallery Historical Data",
+      "line": 1889,
+      "url": "https://api.181649.com/docs",
+      "markdown": "| [49 Gallery Historical Data](https://api.181649.com/docs) | Normalized historical records and 25 daily-updated reference series | No | Yes | Yes |"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+Description
+<!-- Briefly explain what this PR does and why the change is needed. -->
+Implements a focused Python parser to extract the three assigned API entries from the Calendar section of README.md, with offline fixtures, self-test verification, and evidence logging.
+
+Related Issue
+<!-- Link the related issue, if applicable. -->
+Fixes: #5
+
+Type of Change
+<!-- Select at least one. -->
+● New Feature
+● Tests
+● Documentation
+● Refactoring / Maintenance
+
+Changes Made
+<!-- Briefly list the main changes introduced in this PR. -->
+• Added `tools/course_checks/r02-t041.py`, a standard-library-only Python Markdown table parser.
+• Added `tools/course_checks/README.md` documenting checker usage, behaviour, and fixture specifications.
+• Scoped entry extraction specifically to the `Calendar` category.
+• Extracted display names, URLs, category, and metadata while preserving source line numbers.
+• Preserved URL fragments intact.
+• Supported Markdown fenced code blocks (backtick and tilde) so fake links inside code fences are ignored.
+• Added offline fixtures in `work/R02-T041/fixtures/` covering valid Calendar entries, non-assigned entries, wrong category entries, and fenced code blocks.
+• Implemented `--self-test` mode with assertion verification and non-zero exit on failure or when run under `-O`/`-OO`.
+• Documented verification and live accessibility checks under `work/R02-T041/`.
+
+Screenshots / Recordings
+<!-- If your changes affect the UI, attach before and after screenshots or recordings. -->
+Not applicable. This contribution provides an offline command-line parser and verification tooling with no user interface changes.
+
+Testing
+<!-- Explain how you tested your changes and mention any relevant test commands. -->
+The following test suite and checks were executed locally:
+• `python3 -m py_compile tools/course_checks/r02-t041.py` (exited 0)
+• `python3 tools/course_checks/r02-t041.py --self-test` (exited 0)
+• `python3 tools/course_checks/r02-t041.py` against root `README.md` (exited 0)
+• `python3 -O tools/course_checks/r02-t041.py --self-test` (exited 1, correctly refuses false pass)
+• `python3 tools/course_checks/r02-t041.py --input work/R02-T041/fixtures/no-match.md` (exited 1, correctly fails on no match)
+• `git diff --check` and `git diff --cached --check` (exited 0, clean whitespace)
+
+The parser extracted the 3 assigned entries at their exact README source lines:
+• Africa Compliance Data — line 433
+• caldays — line 434
+• Calendarific — line 435
+
+Checklist
+● I have tested my changes locally.
+● I have added or updated tests, if needed.
+● I have updated documentation, if needed.
+● I have followed the project's coding guidelines.
+● I have run the relevant tests and checks.
+● I have addressed previous review feedback, if applicable.
+
+Additional Notes
+<!-- Share any other information that might help reviewers. -->
+• Pinned source entries:
+  1. Africa Compliance Data — https://africacompliancedata.com/docs
+  2. caldays — https://caldays.com/api
+  3. Calendarific — https://calendarific.com/
+• All 3 entries were confirmed reachable and active. No catalog modifications were required.
+• Submitted for S&AI Open-Source Project Task R02-T041 (Assigned Issue #5).
