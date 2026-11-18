@@ -1,0 +1,52 @@
+## Description
+
+Implements **R02-T047**: a formatting and ordering checker for the **Sports & Fitness** section of `README.md`.
+
+Fixes: #48
+
+## Type of Change
+
+- [x] New Feature
+- [x] Tests
+- [x] Documentation
+
+## Changes Made
+
+- `tools/course_checks/r02-t047.py` — checker script that validates pipe-table formatting, markdown link syntax, column count, and alphabetical ordering for all 68 entries in Sports & Fitness; reports results for the 3 assigned entries (lines 2355–2357)
+- `tools/course_checks/README.md` — usage documentation for the checker
+- `work/R02-T047/fixtures/valid.md` — well-formed fixture (non-ASCII chars)
+- `work/R02-T047/fixtures/malformed.md` — row missing closing pipe
+- `work/R02-T047/fixtures/bad-link.md` — bare URL instead of markdown link
+- `work/R02-T047/fixtures/out-of-order.md` — B-before-A ordering violation
+- `work/R02-T047/actual-results.json` — live checker output
+- `work/R02-T047/api-verification.md` — HTTP reachability evidence for all 3 entries
+- `work/R02-T047/environment.txt` — Python/git/OS version capture
+- `work/R02-T047/validation.txt` — full test-command log with exit codes
+
+## Testing
+
+```
+python3 tools/course_checks/r02-t047.py --self-test   # exit 0 ✅
+python3 -O  tools/course_checks/r02-t047.py --self-test # exit 1 ✅
+python3 -OO tools/course_checks/r02-t047.py --self-test # exit 1 ✅
+python3 tools/course_checks/r02-t047.py               # exit 0, 68 entries OK ✅
+```
+
+## Checklist
+
+- [x] I have tested the checker script in self-test mode and live mode
+- [x] I have added 4 offline fixtures covering valid, malformed, bad-link, and out-of-order cases
+- [x] I have updated the tools/course_checks/README.md
+- [x] I have followed all project guidelines (no live network calls in self-test, stdlib only, -O/-OO rejection)
+- [x] I have run all tests and all pass
+
+## Additional Notes
+
+Assigned entries:
+- Line 2355: 5DollarFootball — https://5dollarfootballapi.com/ (HTTP 200 ✅)
+- Line 2356: AcesAPI — https://acesapi.com/docs (HTTP 200 ✅)
+- Line 2357: API-FOOTBALL — https://www.api-football.com/documentation-v3 (HTTP 403 Cloudflare WAF — live site, not removed)
+
+No README.md changes required. All formatting checks pass on live README.
+
+Submitted by: Dhruv Kashiv (e26b07f0617) — Turing/Enigma batch
