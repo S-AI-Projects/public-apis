@@ -1,0 +1,21 @@
+{
+  "tool": "r02-t003.py",
+  "tests": [
+    {
+      "name": "exact_duplicates_found",
+      "status": "PASS"
+    },
+    {
+      "name": "distinct_anchors_not_merged",
+      "status": "PASS"
+    },
+    {
+      "name": "utm_params_stripped",
+      "status": "PASS"
+    },
+    {
+      "name": "query_dependent_not_merged",
+      "status": "PASS"
+    }
+  ]
+}
