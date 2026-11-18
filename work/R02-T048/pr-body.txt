@@ -1,0 +1,54 @@
+## Description
+
+Implements **R02-T048**: an access-requirements checker for the **Authentication & Authorization** section of `README.md`.
+Validates Auth/HTTPS/CORS field values, markdown link syntax, and documents actual registration/key requirements for the 3 assigned entries.
+
+Fixes: #49
+
+## Type of Change
+
+- [x] New Feature
+- [x] Tests
+- [x] Documentation
+
+## Changes Made
+
+- `tools/course_checks/r02-t048.py` — checker script that validates Auth/HTTPS/CORS field values, link syntax, for all 6 entries in Authentication & Authorization; compares assigned entries (lines 306–308) against expected values
+- `tools/course_checks/README.md` — updated usage documentation for the checker
+- `work/R02-T048/fixtures/valid.md` — 3 well-formed entries, all fields correct
+- `work/R02-T048/fixtures/bad-auth.md` — entry with invalid Auth value (`Bearer`)
+- `work/R02-T048/fixtures/bad-https.md` — entry with invalid HTTPS value (`Maybe`)
+- `work/R02-T048/fixtures/no-link.md` — entry with bare URL (no markdown link)
+- `work/R02-T048/actual-results.json` — live checker output
+- `work/R02-T048/api-verification.md` — HTTP reachability and access requirements evidence
+- `work/R02-T048/environment.txt` — Python/git/OS version capture
+- `work/R02-T048/validation.txt` — full test-command log with exit codes
+
+## Testing
+
+```
+python3 tools/course_checks/r02-t048.py --self-test    # exit 0 ✅
+python3 -O  tools/course_checks/r02-t048.py --self-test # exit 1 ✅
+python3 -OO tools/course_checks/r02-t048.py --self-test # exit 1 ✅
+python3 tools/course_checks/r02-t048.py                # exit 0, 6 entries OK ✅
+```
+
+## Checklist
+
+- [x] I have tested the checker script in self-test mode and live mode
+- [x] I have added 4 offline fixtures covering valid, bad-auth, bad-https, and no-link cases
+- [x] I have updated the tools/course_checks/README.md
+- [x] I have followed all project guidelines (no live network calls in self-test, stdlib only, -O/-OO rejection)
+- [x] I have run all tests and all pass
+
+## Additional Notes
+
+Assigned entries:
+- Line 306: Auth0 — https://auth0.com (HTTP 200; apiKey required; free tier available; CORS: Yes ✅)
+- Line 307: GetOTP — https://otp.dev/en/docs/ (HTTP 200; apiKey required; server-to-server only; CORS: No ✅)
+- Line 308: MojoAuth — https://mojoauth.com (HTTP 200; apiKey required; free tier; CORS: Yes ✅)
+
+All catalogue fields verified as correct. No README.md changes required.
+No credentials were saved during verification.
+
+Submitted by: Dhruv Kashiv (e26b07f0617) — Turing/Enigma batch

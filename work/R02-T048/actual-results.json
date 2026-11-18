@@ -1,0 +1,31 @@
+{
+  "mode": "live",
+  "total_entries": 6,
+  "assigned": [
+    {
+      "name": "Auth0",
+      "url": "https://auth0.com",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Yes",
+      "lineno": 306
+    },
+    {
+      "name": "GetOTP",
+      "url": "https://otp.dev/en/docs/",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "No",
+      "lineno": 307
+    },
+    {
+      "name": "MojoAuth",
+      "url": "https://mojoauth.com",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Yes",
+      "lineno": 308
+    }
+  ],
+  "errors": []
+}
