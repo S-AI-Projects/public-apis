@@ -1,0 +1,101 @@
+{
+  "tool": "r02-t010.py",
+  "fixture_used": "FIXTURE_STABLE",
+  "tests": [
+    {
+      "name": "names_exact_source_lines",
+      "status": "PASS"
+    },
+    {
+      "name": "separates_facts_from_recommendations",
+      "status": "PASS"
+    },
+    {
+      "name": "stable_output_from_same_fixtures",
+      "status": "PASS"
+    },
+    {
+      "name": "no_link_removed_without_decision",
+      "status": "PASS"
+    }
+  ],
+  "maintenance_log": [
+    {
+      "name": "Eventbrite",
+      "url": "https://www.eventbrite.com/platform/api/",
+      "before": {
+        "auth": "apiKey",
+        "https": "Yes",
+        "cors": "Unknown",
+        "description": "Find local events"
+      },
+      "after": {
+        "auth": "apiKey",
+        "https": "Yes",
+        "cors": "Unknown",
+        "description": "Find local events"
+      },
+      "observed_facts": [
+        "URL resolves to Eventbrite developer platform documentation",
+        "API key required (OAuth also supported for user data)",
+        "HTTPS enforced",
+        "CORS status not documented publicly"
+      ],
+      "recommendation": "Entry appears correct; CORS could be updated to 'Yes' if confirmed",
+      "decision": "No change required at this time",
+      "decision_type": "NO_CHANGE",
+      "source_line_checked": true
+    },
+    {
+      "name": "FindLocal",
+      "url": "https://findlocal.community/docs",
+      "before": {
+        "auth": "No",
+        "https": "Yes",
+        "cors": "Unknown",
+        "description": "Find locally sourced food"
+      },
+      "after": {
+        "auth": "No",
+        "https": "Yes",
+        "cors": "Unknown",
+        "description": "Find locally sourced food"
+      },
+      "observed_facts": [
+        "URL target is a small community platform",
+        "Documentation endpoint checked offline (fixture-based)",
+        "No authentication indicated in public documentation"
+      ],
+      "recommendation": "Verify URL is still active; mark as unverified if unavailable",
+      "decision": "Marked as unverified pending live check; no edit to README",
+      "decision_type": "UNVERIFIED",
+      "source_line_checked": true
+    },
+    {
+      "name": "SeatGeek",
+      "url": "https://platform.seatgeek.com/",
+      "before": {
+        "auth": "apiKey",
+        "https": "Yes",
+        "cors": "Unknown",
+        "description": "Search events, venues and performers"
+      },
+      "after": {
+        "auth": "apiKey",
+        "https": "Yes",
+        "cors": "Unknown",
+        "description": "Search events, venues and performers"
+      },
+      "observed_facts": [
+        "API documentation available at https://platform.seatgeek.com/",
+        "Client ID (api key) required for all endpoints",
+        "HTTPS enforced",
+        "CORS status not documented"
+      ],
+      "recommendation": "Entry is accurate; consider verifying CORS with a browser test",
+      "decision": "No change required",
+      "decision_type": "NO_CHANGE",
+      "source_line_checked": true
+    }
+  ]
+}
