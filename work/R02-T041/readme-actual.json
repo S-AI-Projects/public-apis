@@ -1,0 +1,38 @@
+[
+  {
+    "display_name": "Africa Compliance Data",
+    "url": "https://africacompliancedata.com/docs",
+    "category": "Calendar",
+    "source_line": 433,
+    "metadata": {
+      "description": "Public holidays and business days for African countries, with sources and per-country coverage",
+      "auth": "apiKey",
+      "https": "Yes",
+      "cors": "Yes"
+    }
+  },
+  {
+    "display_name": "caldays",
+    "url": "https://caldays.com/api",
+    "category": "Calendar",
+    "source_line": 434,
+    "metadata": {
+      "description": "Public holidays for 195+ countries",
+      "auth": "No",
+      "https": "Yes",
+      "cors": "Yes"
+    }
+  },
+  {
+    "display_name": "Calendarific",
+    "url": "https://calendarific.com/",
+    "category": "Calendar",
+    "source_line": 435,
+    "metadata": {
+      "description": "Worldwide Holidays",
+      "auth": "apiKey",
+      "https": "Yes",
+      "cors": "Unknown"
+    }
+  }
+]
