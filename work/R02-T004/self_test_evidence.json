@@ -1,0 +1,17 @@
+{
+  "tool": "r02-t004.py",
+  "tests": [
+    {
+      "name": "correct_placement_passes",
+      "status": "PASS"
+    },
+    {
+      "name": "misplaced_entry_flagged",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate_heading_detected",
+      "status": "PASS"
+    }
+  ]
+}
