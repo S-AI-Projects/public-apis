@@ -1,0 +1,22 @@
+{
+  "tool": "r02-t006.py",
+  "offline_only": true,
+  "tests": [
+    {
+      "name": "valid_rows_pass",
+      "status": "PASS"
+    },
+    {
+      "name": "malformed_rows_fail",
+      "status": "PASS"
+    },
+    {
+      "name": "unusual_url_chars_preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "suite_runs_offline",
+      "status": "PASS"
+    }
+  ]
+}
