@@ -1,0 +1,9 @@
+{
+  "self_test": "passed",
+  "fixtures_passed": [
+    "valid.md",
+    "malformed.md",
+    "unusual-urls.md"
+  ],
+  "network_access": "offline"
+}

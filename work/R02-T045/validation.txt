@@ -1,0 +1,30 @@
+R02-T045 — Validation Log
+Date: 18 November 2026
+
+1. Offline self-tests
+Command: python3 tools/course_checks/r02-t045.py --self-test
+Result: PASS — offline fixture suite validated (valid rows, malformed rows, unusual URLs).
+
+2. Optimized-mode self-tests
+Command: python3 -O tools/course_checks/r02-t045.py --self-test
+Result: PASS — correctly refused false pass with non-zero exit (code 1).
+
+3. Maximum-optimization self-tests
+Command: python3 -OO tools/course_checks/r02-t045.py --self-test
+Result: PASS — correctly refused false pass with non-zero exit (code 1).
+
+4. Real catalogue scan (offline file parsing)
+Command: python3 tools/course_checks/r02-t045.py
+Result: PASS
+OK line 1810: 7digital | Auth=`OAuth` | HTTPS=Yes | CORS=Unknown
+OK line 1811: AI Mastering | Auth=`apiKey` | HTTPS=Yes | CORS=Yes
+OK line 1812: Audiomack | Auth=`OAuth` | HTTPS=Yes | CORS=Unknown
+Scanned 37 Music entries successfully (offline).
+
+5. Python compilation
+Command: python3 -m py_compile tools/course_checks/r02-t045.py
+Result: PASS.
+
+6. Whitespace check
+Command: git diff --check
+Result: PASS — clean.
