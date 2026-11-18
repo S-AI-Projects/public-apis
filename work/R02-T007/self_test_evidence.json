@@ -1,0 +1,36 @@
+{
+  "tool": "r02-t007.py",
+  "tests": [
+    {
+      "name": "200_ok",
+      "expected_class": "OK",
+      "expected_method": "HEAD"
+    },
+    {
+      "name": "404",
+      "expected_class": "NOT_FOUND",
+      "expected_method": "HEAD"
+    },
+    {
+      "name": "429",
+      "expected_class": "RATE_LIMITED",
+      "expected_method": "HEAD"
+    },
+    {
+      "name": "head_405_get_200",
+      "expected_class": "OK",
+      "expected_method": "GET"
+    },
+    {
+      "name": "timeout",
+      "expected_class": "TIMEOUT",
+      "expected_method": "HEAD"
+    },
+    {
+      "name": "dns_fail",
+      "expected_class": "DNS_FAILURE",
+      "expected_method": "HEAD"
+    }
+  ],
+  "status": "PASS"
+}
