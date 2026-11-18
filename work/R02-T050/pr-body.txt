@@ -1,0 +1,54 @@
+## Description
+
+Implements **R02-T050**: a redirect-chain verifier for the **Anti-Malware** section of `README.md`.
+Resolves assigned URLs with bounded HEAD requests, classifies each result (ok/redirect/loop/login_wall/timeout/error),
+and records the final official URL with the observation date.
+
+Fixes: #51
+
+## Type of Change
+
+- [x] New Feature
+- [x] Tests
+- [x] Documentation
+
+## Changes Made
+
+- `tools/course_checks/r02-t050.py` — redirect verifier that follows chains up to 10 hops (HEAD, 10s timeout); classifies direct-200, 3xx→200 redirect, loop, login wall, and timeout; reports for 3 assigned entries (lines 244–246)
+- `tools/course_checks/README.md` — updated checker documentation
+- `work/R02-T050/fixtures/direct-200.json` — single-hop HTTP 200 fixture → classification: ok
+- `work/R02-T050/fixtures/redirect-301.json` — 301→200 chain fixture → classification: redirect
+- `work/R02-T050/fixtures/redirect-loop.json` — loop detection fixture → classification: loop
+- `work/R02-T050/fixtures/timeout.json` — connection timeout fixture → classification: timeout
+- `work/R02-T050/actual-results.json` — live checker output
+- `work/R02-T050/api-verification.md` — redirect chains, HTTP statuses, maintenance decisions
+- `work/R02-T050/environment.txt` — Python/git/OS version capture
+- `work/R02-T050/validation.txt` — full test-command log with exit codes
+
+## Testing
+
+```
+python3 tools/course_checks/r02-t050.py --self-test    # exit 0 ✅
+python3 -O  tools/course_checks/r02-t050.py --self-test # exit 1 ✅
+python3 -OO tools/course_checks/r02-t050.py --self-test # exit 1 ✅
+python3 tools/course_checks/r02-t050.py                # exit 0 ✅
+```
+
+## Checklist
+
+- [x] I have tested the checker script in self-test mode and live mode
+- [x] I have added 4 offline fixtures covering direct-200, redirect-301, redirect-loop, and timeout cases
+- [x] I have updated the tools/course_checks/README.md
+- [x] I have followed all project guidelines (no live network calls in self-test, stdlib only, -O/-OO rejection)
+- [x] I have run all tests and all pass
+
+## Additional Notes
+
+Assigned entries (observation date: 2026-11-18):
+- Line 244: AbuseIPDB — https://docs.abuseipdb.com/ → HTTP 200 OK ✅ (direct, no redirect)
+- Line 245: AlienVault OTX — https://otx.alienvault.com/api → HTTP 404 (single automated failure; OTX platform live at https://otx.alienvault.com; entry NOT removed per policy; labelled unverified)
+- Line 246: CAPEsandbox — https://capev2.readthedocs.io/en/latest/usage/api.html → HTTP 200 OK ✅ (direct, no redirect)
+
+No README.md changes were made (single automated failure is not grounds for removal).
+
+Submitted by: Dhruv Kashiv (e26b07f0617) — Turing/Enigma batch

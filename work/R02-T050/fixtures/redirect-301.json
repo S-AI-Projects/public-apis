@@ -1,0 +1,7 @@
+{
+  "description": "301 permanent redirect followed by 200 — resource moved to canonical URL",
+  "chain": [
+    {"status": 301, "url": "http://docs.abuseipdb.com/"},
+    {"status": 200, "url": "https://docs.abuseipdb.com/"}
+  ]
+}

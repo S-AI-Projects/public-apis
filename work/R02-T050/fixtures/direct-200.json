@@ -1,0 +1,6 @@
+{
+  "description": "Single hop, HTTP 200 — resource found directly, no redirect",
+  "chain": [
+    {"status": 200, "url": "https://docs.abuseipdb.com/"}
+  ]
+}

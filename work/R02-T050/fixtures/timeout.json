@@ -1,0 +1,6 @@
+{
+  "description": "Timeout — status 0 means connection timed out or refused",
+  "chain": [
+    {"status": 0, "url": "https://capev2.readthedocs.io/en/latest/usage/api.html"}
+  ]
+}
