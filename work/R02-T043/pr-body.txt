@@ -1,0 +1,55 @@
+Description
+<!-- Briefly explain what this PR does and why the change is needed. -->
+Implements a category consistency checker for the three assigned API entries in README.md under Personality. The checker verifies proper category placement, detects misplaced entries, flags duplicate headings, and flags missing entries without relying solely on keywords.
+
+Related Issue
+<!-- Link the related issue, if applicable. -->
+Fixes: #44
+
+Type of Change
+<!-- Select at least one. -->
+● New Feature
+● Tests
+● Documentation
+● Refactoring / Maintenance
+
+Changes Made
+<!-- Briefly list the main changes introduced in this PR. -->
+• Added `tools/course_checks/r02-t043.py` for category consistency checking.
+• Scoped check to ensure `Advice Slip`, `Astro Agents`, and `AstroWay` belong under `Personality`.
+• Added detection for misplaced entries, repeated category headings, and missing entries.
+• Preserved source line numbers in checker reports.
+• Implemented `--self-test` mode with 4 offline fixtures (`valid.md`, `misplaced.md`, `repeated-heading.md`, `missing-entry.md`).
+• Enforced assertion failure non-zero exit and rejection of `-O`/`-OO` flags.
+• Documented checker usage and results in `tools/course_checks/README.md`.
+• Saved verification notes, expected results, and environment info under `work/R02-T043/`.
+
+Screenshots / Recordings
+<!-- If your changes affect the UI, attach before and after screenshots or recordings. -->
+Not applicable. This contribution introduces command-line verification scripts and documentation with no user interface modifications.
+
+Testing
+<!-- Explain how you tested your changes and mention any relevant test commands. -->
+The following test suite was run:
+• `python3 -m py_compile tools/course_checks/r02-t043.py` (exited 0)
+• `python3 tools/course_checks/r02-t043.py --self-test` (exited 0, all 4 fixture checks passed)
+• `python3 -O tools/course_checks/r02-t043.py --self-test` (exited 1, correctly refuses false pass)
+• `python3 tools/course_checks/r02-t043.py` (exited 0, all 3 assigned entries correctly categorized under Personality)
+• `git diff --check` and `git diff --cached --check` (exited 0, clean whitespace)
+
+Checklist
+● I have tested my changes locally.
+● I have added or updated tests, if needed.
+● I have updated documentation, if needed.
+● I have followed the project's coding guidelines.
+● I have run the relevant tests and checks.
+● I have addressed previous review feedback, if applicable.
+
+Additional Notes
+<!-- Share any other information that might help reviewers. -->
+• Selected entries verified:
+  1. Advice Slip — http://api.adviceslip.com/ (line 2005)
+  2. Astro Agents — https://astro-agent.dev/llms.txt (line 2006)
+  3. AstroWay — https://api.astroway.info/docs/ (line 2007)
+• All 3 entries are active and correctly positioned under Personality. No catalogue modifications required.
+• Submitted for S&AI Open-Source Project Task R02-T043 (Assigned Issue #44).
