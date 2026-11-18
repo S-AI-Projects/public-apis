@@ -1,0 +1,77 @@
+{
+  "tool": "r02-t009.py",
+  "tests": [
+    {
+      "name": "each_claim_cites_official_resource",
+      "status": "PASS"
+    },
+    {
+      "name": "no_credential_saved",
+      "status": "PASS"
+    },
+    {
+      "name": "unavailable_marked_unverified",
+      "status": "PASS"
+    },
+    {
+      "name": "compare_function_works",
+      "status": "PASS"
+    }
+  ],
+  "evidence_table": [
+    {
+      "name": "Bitquery",
+      "url": "https://graphql.bitquery.io/ide",
+      "catalogue_auth": "apiKey",
+      "catalogue_https": "Yes",
+      "catalogue_cors": "Unknown",
+      "access_analysis": {
+        "auth_required": true,
+        "registration_required": true,
+        "payment_required": false,
+        "free_tier": true,
+        "env_requirement": null,
+        "description": "Requires API key; free tier available via registration at bitquery.io"
+      },
+      "evidence_source": "https://docs.bitquery.io/docs/start/getting-apikey/",
+      "verification_status": "verified",
+      "notes": "Free plan available; API key obtained after email registration"
+    },
+    {
+      "name": "Blockscout",
+      "url": "https://dev.blockscout.com/",
+      "catalogue_auth": "No",
+      "catalogue_https": "Yes",
+      "catalogue_cors": "Yes",
+      "access_analysis": {
+        "auth_required": false,
+        "registration_required": false,
+        "payment_required": false,
+        "free_tier": true,
+        "env_requirement": "Ethereum-compatible blockchain network required",
+        "description": "Open source block explorer; no auth required for public endpoints"
+      },
+      "evidence_source": "https://docs.blockscout.com/",
+      "verification_status": "verified",
+      "notes": "Public REST API; blockchain node environment may be needed for self-hosted instance"
+    },
+    {
+      "name": "Chainlink",
+      "url": "https://chain.link/developer-resources",
+      "catalogue_auth": "No",
+      "catalogue_https": "Yes",
+      "catalogue_cors": "Unknown",
+      "access_analysis": {
+        "auth_required": false,
+        "registration_required": false,
+        "payment_required": false,
+        "free_tier": true,
+        "env_requirement": "Requires Web3 provider / Ethereum node",
+        "description": "Decentralized oracle network; on-chain interaction requires Web3 environment"
+      },
+      "evidence_source": "https://docs.chain.link/",
+      "verification_status": "verified",
+      "notes": "No auth for price feed reads; smart contract calls need a funded wallet"
+    }
+  ]
+}
