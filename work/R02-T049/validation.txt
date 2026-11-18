@@ -1,0 +1,63 @@
+Validation record — R02-T049 (Maintenance pass: Entertainment)
+==============================================================
+
+## Self-test (offline fixtures)
+
+Command:
+  python3 tools/course_checks/r02-t049.py --self-test
+
+Output:
+  Self-test passed: 4 fixtures verified (valid, unknown-cors, bad-fields, no-link).
+
+Exit code: 0  ✅
+
+## Optimisation-flag rejection
+
+Command:
+  python3 -O tools/course_checks/r02-t049.py --self-test
+
+Output:
+  ERROR: Do not run this checker with -O or -OO flags.
+
+Exit code: 1  ✅
+
+Command:
+  python3 -OO tools/course_checks/r02-t049.py --self-test
+
+Exit code: 1  ✅
+
+## Live README check
+
+Command:
+  python3 tools/course_checks/r02-t049.py
+
+Output:
+  === Maintenance Pass: Entertainment ===
+
+  Total entries in section: 19
+
+  --- Observed Facts (assigned entries) ---
+    [MATCH] Line 1032: Anycrap
+             auth=`apiKey` https=Yes cors=Yes
+    [MATCH] Line 1033: Bucketlist Dream of the Day
+             auth=No https=Yes cors=Yes
+    [MATCH] Line 1034: chucknorris.io
+             auth=No https=Yes cors=Unknown
+
+  --- Recommendations ---
+    * Line 1034 [chucknorris.io]: CORS is 'Unknown' — verify via browser DevTools or OPTIONS request
+
+  Maintenance pass completed: no field errors found.
+
+Exit code: 0  ✅
+
+## Fixture tests summary
+
+| Fixture         | Description                                           | Expected result                      | Pass? |
+|-----------------|-------------------------------------------------------|--------------------------------------|-------|
+| valid.md        | 3 well-formed entries, all fields correct             | 0 errors, 3 facts                    | ✅ |
+| unknown-cors.md | Entry with CORS=Unknown → generates recommendation   | recommendation about Unknown CORS    | ✅ |
+| bad-fields.md   | Entry with invalid Auth (`Bearer`) and HTTPS (`Maybe`) | errors for both invalid fields      | ✅ |
+| no-link.md      | Entry with bare URL (no markdown link)                | missing-link error                   | ✅ |
+
+All tests passed. No README.md modifications made.

@@ -1,0 +1,54 @@
+## Description
+
+Implements **R02-T049**: a repeatable maintenance pass checker for the **Entertainment** section of `README.md`.
+Produces a one-command scoped report separating observed facts from recommendations, with stable output from fixtures.
+
+Fixes: #50
+
+## Type of Change
+
+- [x] New Feature
+- [x] Tests
+- [x] Documentation
+
+## Changes Made
+
+- `tools/course_checks/r02-t049.py` — maintenance-pass checker that validates Auth/HTTPS/CORS fields, extracts facts, and generates recommendations for all 19 entries in Entertainment; reports on assigned entries (lines 1032–1034)
+- `tools/course_checks/README.md` — updated checker documentation
+- `work/R02-T049/fixtures/valid.md` — 3 well-formed entries, all fields correct
+- `work/R02-T049/fixtures/unknown-cors.md` — entry with CORS=Unknown (triggers recommendation)
+- `work/R02-T049/fixtures/bad-fields.md` — entries with invalid Auth and HTTPS values
+- `work/R02-T049/fixtures/no-link.md` — entry with bare URL (no markdown link)
+- `work/R02-T049/actual-results.json` — live checker output
+- `work/R02-T049/api-verification.md` — HTTP reachability and maintenance decisions
+- `work/R02-T049/environment.txt` — Python/git/OS version capture
+- `work/R02-T049/validation.txt` — full test-command log with exit codes
+
+## Testing
+
+```
+python3 tools/course_checks/r02-t049.py --self-test    # exit 0 ✅
+python3 -O  tools/course_checks/r02-t049.py --self-test # exit 1 ✅
+python3 -OO tools/course_checks/r02-t049.py --self-test # exit 1 ✅
+python3 tools/course_checks/r02-t049.py                # exit 0, 19 entries, 3 assigned MATCH ✅
+```
+
+## Checklist
+
+- [x] I have tested the checker script in self-test mode and live mode
+- [x] I have added 4 offline fixtures covering valid, unknown-cors, bad-fields, and no-link cases
+- [x] I have updated the tools/course_checks/README.md
+- [x] I have followed all project guidelines (no live network calls in self-test, stdlib only, -O/-OO rejection)
+- [x] I have run all tests and all pass
+
+## Additional Notes
+
+Assigned entries:
+- Line 1032: Anycrap — https://anycrap.shop/developers (HTTP 200; apiKey; HTTPS; CORS Yes ✅)
+- Line 1033: Bucketlist Dream of the Day — https://bucketlist.nl/... (HTTP 200; No auth; HTTPS; CORS Yes ✅)
+- Line 1034: chucknorris.io — https://api.chucknorris.io (HTTP 200; No auth; HTTPS; CORS Unknown — correct label ✅)
+
+All catalogue fields verified as correct. No README.md changes required.
+Report separates facts from recommendations; stable output guaranteed from fixtures.
+
+Submitted by: Dhruv Kashiv (e26b07f0617) — Turing/Enigma batch
