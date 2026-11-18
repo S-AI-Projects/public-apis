@@ -1,0 +1,650 @@
+/Users/dhruvkashiv/Downloads/S&AI assignment/public-apis/scripts/validate/format.py:27: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+  anchor_re = re.compile(anchor + '\s(.+)')
+/Users/dhruvkashiv/Downloads/S&AI assignment/public-apis/scripts/validate/format.py:28: SyntaxWarning: "\*" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\*"? A raw string is also an option.
+  category_title_in_index_re = re.compile('\*\s\[(.*)\]')
+/Users/dhruvkashiv/Downloads/S&AI assignment/public-apis/scripts/validate/format.py:29: SyntaxWarning: "\[" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\["? A raw string is also an option.
+  link_re = re.compile('\[(.+)\]\((http.*)\)')
+(L011) APIs Covered Under APILayer Suite! category is not alphabetical order
+(L265) Art & Design category is not alphabetical order
+(L316) Blockchain category is not alphabetical order
+(L374) Business category is not alphabetical order
+(L498) Cryptocurrency category is not alphabetical order
+(L606) Currency Exchange category is not alphabetical order
+(L640) Data Validation category is not alphabetical order
+(L663) Development category is not alphabetical order
+(L920) Documents & Productivity category is not alphabetical order
+(L980) Email category is not alphabetical order
+(L1055) Environment category is not alphabetical order
+(L1107) Finance category is not alphabetical order
+(L1260) Games & Comics category is not alphabetical order
+(L1380) Geocoding category is not alphabetical order
+(L1503) Government category is not alphabetical order
+(L1696) Jobs category is not alphabetical order
+(L1744) Machine Learning category is not alphabetical order
+(L1851) News category is not alphabetical order
+(L1884) Open Data category is not alphabetical order
+(L2037) Phone category is not alphabetical order
+(L2052) Photography category is not alphabetical order
+(L2110) Science & Math category is not alphabetical order
+(L2177) Security category is not alphabetical order
+(L2246) Shopping category is not alphabetical order
+(L2286) Social category is not alphabetical order
+(L2352) Sports & Fitness category is not alphabetical order
+(L2471) Text Analysis category is not alphabetical order
+(L2516) Transportation category is not alphabetical order
+(L2676) Video category is not alphabetical order
+(L2742) Weather category is not alphabetical order
+(L011) category header (APIs Covered Under APILayer Suite!) not added to Index section
+(L043) entry does not have all the required columns (have 3, need 5)
+(L044) entry does not have all the required columns (have 3, need 5)
+(L045) entry does not have all the required columns (have 3, need 5)
+(L046) entry does not have all the required columns (have 3, need 5)
+(L047) entry does not have all the required columns (have 3, need 5)
+(L048) entry does not have all the required columns (have 3, need 5)
+(L049) entry does not have all the required columns (have 3, need 5)
+(L050) entry does not have all the required columns (have 3, need 5)
+(L051) entry does not have all the required columns (have 3, need 5)
+(L052) entry does not have all the required columns (have 3, need 5)
+(L053) entry does not have all the required columns (have 3, need 5)
+(L054) entry does not have all the required columns (have 3, need 5)
+(L055) entry does not have all the required columns (have 3, need 5)
+(L064) Title syntax should be "[TITLE](LINK)"
+(L064) auth value is not enclosed with `backticks`
+(L064) Auth is not a valid Auth option
+(L064) Transport is not a valid HTTPS option
+(L064) Install is not a valid CORS option
+(L065) each segment must start and end with exactly 1 space
+(L065) each segment must start and end with exactly 1 space
+(L065) each segment must start and end with exactly 1 space
+(L065) each segment must start and end with exactly 1 space
+(L065) each segment must start and end with exactly 1 space
+(L065) Title syntax should be "[TITLE](LINK)"
+(L065) description should not end with -
+(L065) auth value is not enclosed with `backticks`
+(L065) :--- is not a valid Auth option
+(L065) :--- is not a valid HTTPS option
+(L065) :--- is not a valid CORS option
+(L066) `stdio`, `HTTP` is not a valid HTTPS option
+(L066) [Cursor](https://cursor.directory/plugins/apilayer-mcp-adapter) · [Glama](https://glama.ai/mcp/connectors/com.apilayer.mcp/apilayer-mcp-adapter) is not a valid CORS option
+(L067) `HTTP` is not a valid HTTPS option
+(L067) [Glama](https://glama.ai/mcp/servers/agent-nexus) is not a valid CORS option
+(L068) `stdio`, `HTTP` is not a valid HTTPS option
+(L068) – is not a valid CORS option
+(L069) `stdio` is not a valid HTTPS option
+(L069) [Glama](https://glama.ai/mcp/servers/TheHiddenPandaDev/catastro_gps_mcp) is not a valid CORS option
+(L070) `stdio`, `HTTP` is not a valid HTTPS option
+(L070) [Glama](https://glama.ai/mcp/servers/lachy3433/contextfetch-mcp) is not a valid CORS option
+(L071) `stdio`, `HTTP` is not a valid HTTPS option
+(L071) [npm](https://www.npmjs.com/package/corpus-cloud-pricing-mcp) · [MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=corpus-cloud-pricing) is not a valid CORS option
+(L072) `HTTP` is not a valid HTTPS option
+(L072) [Glama](https://glama.ai/mcp/connectors/ai.councilof/gspc-free) is not a valid CORS option
+(L073) `stdio` is not a valid HTTPS option
+(L073) [npm](https://www.npmjs.com/package/@crawlbrulee/mcp) · [MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.crawlbrulee/mcp) · [Glama](https://glama.ai/mcp/servers/crawlbrulee/crawlbrulee-mcp) is not a valid CORS option
+(L074) `HTTP` is not a valid HTTPS option
+(L074) [Glama](https://glama.ai/mcp/connectors/ai.edgechat/edgepedia) is not a valid CORS option
+(L075) `stdio` is not a valid HTTPS option
+(L075) – is not a valid CORS option
+(L076) `stdio` is not a valid HTTPS option
+(L076) [Glama](https://glama.ai/mcp/servers/findip-net/findip-mcp) · [MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.findip-net/findip-mcp) is not a valid CORS option
+(L077) `stdio`, `HTTP` is not a valid HTTPS option
+(L077) [Glama](https://glama.ai/mcp/servers/@github/github-mcp-server) is not a valid CORS option
+(L078) `HTTP` is not a valid HTTPS option
+(L078) – is not a valid CORS option
+(L079) `HTTP` is not a valid HTTPS option
+(L079) – is not a valid CORS option
+(L080) `HTTP` is not a valid HTTPS option
+(L080) [Glama](https://glama.ai/mcp/connectors/com.master-setter/pokemon-tcg) · [MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=com.master-setter) is not a valid CORS option
+(L081) `stdio`, `HTTP` is not a valid HTTPS option
+(L081) [Glama](https://glama.ai/mcp/connectors/com.monocrawl/mcp) is not a valid CORS option
+(L082) `HTTP` is not a valid HTTPS option
+(L082) – is not a valid CORS option
+(L083) `HTTP` is not a valid HTTPS option
+(L083) [Anthropic](https://claude.ai/directory/openpath) · [Glama](https://glama.ai/mcp/connectors/sh.openpath/openpath) · [Smithery](https://smithery.ai/servers/openpath/openpath) is not a valid CORS option
+(L084) `stdio`, `HTTP` is not a valid HTTPS option
+(L084) [Glama](https://glama.ai/mcp/connectors/io.github.cammac-creator/openswissdata) is not a valid CORS option
+(L085) `HTTP` is not a valid HTTPS option
+(L085) [Glama](https://glama.ai/mcp/connectors/dev.refnusa/refnusa) is not a valid CORS option
+(L086) `HTTP` is not a valid HTTPS option
+(L086) [Glama](https://glama.ai/mcp/connectors/com.regsentry/tracking-inspector) is not a valid CORS option
+(L087) `stdio`, `HTTP` is not a valid HTTPS option
+(L087) [Glama](https://glama.ai/mcp/servers/scalekit-inc/scalekit-mcp-server) is not a valid CORS option
+(L088) `stdio`, `HTTP` is not a valid HTTPS option
+(L088) [Cursor](https://cursor.directory/plugins/shapeless) · [Glama](https://glama.ai/mcp/connectors/com.shapelessai/shapeless) is not a valid CORS option
+(L089) `HTTP` is not a valid HTTPS option
+(L089) [Anthropic](https://claude.ai/directory/silicon-floor) · [Glama](https://glama.ai/mcp/connectors/com.siliconfloor/silicon-floor) is not a valid CORS option
+(L090) `HTTP` is not a valid HTTPS option
+(L090) [Cursor](https://cursor.directory/plugins/skyaccess) · [Glama](https://glama.ai/mcp/connectors/com.skyaccess/skyaccess) is not a valid CORS option
+(L091) `HTTP` is not a valid HTTPS option
+(L091) [Glama](https://glama.ai/mcp/connectors/io.github.Vertisky/toolalize-mcp) · [MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=toolalize) is not a valid CORS option
+(L092) `HTTP` is not a valid HTTPS option
+(L092) – is not a valid CORS option
+(L093) `HTTP` is not a valid HTTPS option
+(L093) [Glama](https://glama.ai/mcp/connectors/com.recallsapi/recallsapi) · [MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=com.recallsapi/recallsapi) is not a valid CORS option
+(L094) `HTTP` is not a valid HTTPS option
+(L094) [Glama](https://glama.ai/mcp/servers/RAAAAAGEEEEE/vuntum-mcp) is not a valid CORS option
+(L095) `HTTP` is not a valid HTTPS option
+(L095) [Cursor](https://cursor.directory/plugins/xposedornot) · [Glama](https://glama.ai/mcp/connectors/com.xposedornot/xposedornot) is not a valid CORS option
+(L183) each segment must start and end with exactly 1 space
+(L183) each segment must start and end with exactly 1 space
+(L183) each segment must start and end with exactly 1 space
+(L183) each segment must start and end with exactly 1 space
+(L183) each segment must start and end with exactly 1 space
+(L183) Title syntax should be "[TITLE](LINK)"
+(L183) description should not end with -
+(L183) auth value is not enclosed with `backticks`
+(L183) :--- is not a valid Auth option
+(L183) :--- is not a valid HTTPS option
+(L183) :--- is not a valid CORS option
+(L215) each segment must start and end with exactly 1 space
+(L215) each segment must start and end with exactly 1 space
+(L215) each segment must start and end with exactly 1 space
+(L215) each segment must start and end with exactly 1 space
+(L215) each segment must start and end with exactly 1 space
+(L215) Title syntax should be "[TITLE](LINK)"
+(L215) description should not end with -
+(L215) auth value is not enclosed with `backticks`
+(L215) :--- is not a valid Auth option
+(L215) :--- is not a valid HTTPS option
+(L215) :--- is not a valid CORS option
+(L243) each segment must start and end with exactly 1 space
+(L243) each segment must start and end with exactly 1 space
+(L243) each segment must start and end with exactly 1 space
+(L243) each segment must start and end with exactly 1 space
+(L243) each segment must start and end with exactly 1 space
+(L243) Title syntax should be "[TITLE](LINK)"
+(L243) description should not end with -
+(L243) auth value is not enclosed with `backticks`
+(L243) :--- is not a valid Auth option
+(L243) :--- is not a valid HTTPS option
+(L243) :--- is not a valid CORS option
+(L267) each segment must start and end with exactly 1 space
+(L267) each segment must start and end with exactly 1 space
+(L267) each segment must start and end with exactly 1 space
+(L267) each segment must start and end with exactly 1 space
+(L267) each segment must start and end with exactly 1 space
+(L267) Title syntax should be "[TITLE](LINK)"
+(L267) description should not end with -
+(L267) auth value is not enclosed with `backticks`
+(L267) :--- is not a valid Auth option
+(L267) :--- is not a valid HTTPS option
+(L267) :--- is not a valid CORS option
+(L294) Title should not end with "... API". Every entry is an API here!
+(L305) each segment must start and end with exactly 1 space
+(L305) each segment must start and end with exactly 1 space
+(L305) each segment must start and end with exactly 1 space
+(L305) each segment must start and end with exactly 1 space
+(L305) each segment must start and end with exactly 1 space
+(L305) Title syntax should be "[TITLE](LINK)"
+(L305) description should not end with -
+(L305) auth value is not enclosed with `backticks`
+(L305) :--- is not a valid Auth option
+(L305) :--- is not a valid HTTPS option
+(L305) :--- is not a valid CORS option
+(L317) Title syntax should be "[TITLE](LINK)"
+(L317) auth value is not enclosed with `backticks`
+(L317) Auth is not a valid Auth option
+(L317) HTTPS is not a valid HTTPS option
+(L317) CORS is not a valid CORS option
+(L333) description should not exceed 100 characters (currently 103)
+(L343) each segment must start and end with exactly 1 space
+(L343) each segment must start and end with exactly 1 space
+(L343) each segment must start and end with exactly 1 space
+(L343) each segment must start and end with exactly 1 space
+(L343) each segment must start and end with exactly 1 space
+(L343) Title syntax should be "[TITLE](LINK)"
+(L343) description should not end with -
+(L343) auth value is not enclosed with `backticks`
+(L343) :--- is not a valid Auth option
+(L343) :--- is not a valid HTTPS option
+(L343) :--- is not a valid CORS option
+(L432) each segment must start and end with exactly 1 space
+(L432) each segment must start and end with exactly 1 space
+(L432) each segment must start and end with exactly 1 space
+(L432) each segment must start and end with exactly 1 space
+(L432) each segment must start and end with exactly 1 space
+(L432) Title syntax should be "[TITLE](LINK)"
+(L432) description should not end with -
+(L432) auth value is not enclosed with `backticks`
+(L432) :--- is not a valid Auth option
+(L432) :--- is not a valid HTTPS option
+(L432) :--- is not a valid CORS option
+(L487) each segment must start and end with exactly 1 space
+(L487) each segment must start and end with exactly 1 space
+(L487) each segment must start and end with exactly 1 space
+(L487) each segment must start and end with exactly 1 space
+(L487) each segment must start and end with exactly 1 space
+(L487) Title syntax should be "[TITLE](LINK)"
+(L487) description should not end with -
+(L487) auth value is not enclosed with `backticks`
+(L487) :--- is not a valid Auth option
+(L487) :--- is not a valid HTTPS option
+(L487) :--- is not a valid CORS option
+(L500) each segment must start and end with exactly 1 space
+(L500) each segment must start and end with exactly 1 space
+(L500) each segment must start and end with exactly 1 space
+(L500) each segment must start and end with exactly 1 space
+(L500) each segment must start and end with exactly 1 space
+(L500) Title syntax should be "[TITLE](LINK)"
+(L500) description should not end with -
+(L500) auth value is not enclosed with `backticks`
+(L500) :--- is not a valid Auth option
+(L500) :--- is not a valid HTTPS option
+(L500) :--- is not a valid CORS option
+(L519) description should not exceed 100 characters (currently 117)
+(L525) description should not end with .
+(L525) description should not exceed 100 characters (currently 116)
+(L600) first character of description is not capitalized
+(L608) each segment must start and end with exactly 1 space
+(L608) each segment must start and end with exactly 1 space
+(L608) each segment must start and end with exactly 1 space
+(L608) each segment must start and end with exactly 1 space
+(L608) each segment must start and end with exactly 1 space
+(L608) Title syntax should be "[TITLE](LINK)"
+(L608) description should not end with -
+(L608) auth value is not enclosed with `backticks`
+(L608) :--- is not a valid Auth option
+(L608) :--- is not a valid HTTPS option
+(L608) :--- is not a valid CORS option
+(L665) each segment must start and end with exactly 1 space
+(L665) each segment must start and end with exactly 1 space
+(L665) each segment must start and end with exactly 1 space
+(L665) each segment must start and end with exactly 1 space
+(L665) each segment must start and end with exactly 1 space
+(L665) Title syntax should be "[TITLE](LINK)"
+(L665) description should not end with -
+(L665) auth value is not enclosed with `backticks`
+(L665) :--- is not a valid Auth option
+(L665) :--- is not a valid HTTPS option
+(L665) :--- is not a valid CORS option
+(L900) each segment must start and end with exactly 1 space
+(L900) each segment must start and end with exactly 1 space
+(L900) each segment must start and end with exactly 1 space
+(L900) each segment must start and end with exactly 1 space
+(L900) each segment must start and end with exactly 1 space
+(L900) Title syntax should be "[TITLE](LINK)"
+(L900) description should not end with -
+(L900) auth value is not enclosed with `backticks`
+(L900) :--- is not a valid Auth option
+(L900) :--- is not a valid HTTPS option
+(L900) :--- is not a valid CORS option
+(L922) each segment must start and end with exactly 1 space
+(L922) each segment must start and end with exactly 1 space
+(L922) each segment must start and end with exactly 1 space
+(L922) each segment must start and end with exactly 1 space
+(L922) each segment must start and end with exactly 1 space
+(L922) Title syntax should be "[TITLE](LINK)"
+(L922) description should not end with -
+(L922) auth value is not enclosed with `backticks`
+(L922) :--- is not a valid Auth option
+(L922) :--- is not a valid HTTPS option
+(L922) :--- is not a valid CORS option
+(L982) each segment must start and end with exactly 1 space
+(L982) each segment must start and end with exactly 1 space
+(L982) each segment must start and end with exactly 1 space
+(L982) each segment must start and end with exactly 1 space
+(L982) each segment must start and end with exactly 1 space
+(L982) Title syntax should be "[TITLE](LINK)"
+(L982) description should not end with -
+(L982) auth value is not enclosed with `backticks`
+(L982) :--- is not a valid Auth option
+(L982) :--- is not a valid HTTPS option
+(L982) :--- is not a valid CORS option
+(L1012) description should not exceed 100 characters (currently 109)
+(L1031) each segment must start and end with exactly 1 space
+(L1031) each segment must start and end with exactly 1 space
+(L1031) each segment must start and end with exactly 1 space
+(L1031) each segment must start and end with exactly 1 space
+(L1031) each segment must start and end with exactly 1 space
+(L1031) Title syntax should be "[TITLE](LINK)"
+(L1031) description should not end with -
+(L1031) auth value is not enclosed with `backticks`
+(L1031) :--- is not a valid Auth option
+(L1031) :--- is not a valid HTTPS option
+(L1031) :--- is not a valid CORS option
+(L1057) each segment must start and end with exactly 1 space
+(L1057) each segment must start and end with exactly 1 space
+(L1057) each segment must start and end with exactly 1 space
+(L1057) each segment must start and end with exactly 1 space
+(L1057) each segment must start and end with exactly 1 space
+(L1057) Title syntax should be "[TITLE](LINK)"
+(L1057) description should not end with -
+(L1057) auth value is not enclosed with `backticks`
+(L1057) :--- is not a valid Auth option
+(L1057) :--- is not a valid HTTPS option
+(L1057) :--- is not a valid CORS option
+(L1083) description should not exceed 100 characters (currently 104)
+(L1097) each segment must start and end with exactly 1 space
+(L1097) each segment must start and end with exactly 1 space
+(L1097) each segment must start and end with exactly 1 space
+(L1097) each segment must start and end with exactly 1 space
+(L1097) each segment must start and end with exactly 1 space
+(L1097) Title syntax should be "[TITLE](LINK)"
+(L1097) description should not end with -
+(L1097) auth value is not enclosed with `backticks`
+(L1097) :--- is not a valid Auth option
+(L1097) :--- is not a valid HTTPS option
+(L1097) :--- is not a valid CORS option
+(L1219) each segment must start and end with exactly 1 space
+(L1219) each segment must start and end with exactly 1 space
+(L1219) each segment must start and end with exactly 1 space
+(L1219) each segment must start and end with exactly 1 space
+(L1219) each segment must start and end with exactly 1 space
+(L1219) Title syntax should be "[TITLE](LINK)"
+(L1219) description should not end with -
+(L1219) auth value is not enclosed with `backticks`
+(L1219) :--- is not a valid Auth option
+(L1219) :--- is not a valid HTTPS option
+(L1219) :--- is not a valid CORS option
+(L1262) each segment must start and end with exactly 1 space
+(L1262) each segment must start and end with exactly 1 space
+(L1262) each segment must start and end with exactly 1 space
+(L1262) each segment must start and end with exactly 1 space
+(L1262) each segment must start and end with exactly 1 space
+(L1262) Title syntax should be "[TITLE](LINK)"
+(L1262) description should not end with -
+(L1262) auth value is not enclosed with `backticks`
+(L1262) :--- is not a valid Auth option
+(L1262) :--- is not a valid HTTPS option
+(L1262) :--- is not a valid CORS option
+(L1265) description should not exceed 100 characters (currently 108)
+(L1272) each segment must start and end with exactly 1 space
+(L1272) each segment must start and end with exactly 1 space
+(L1272) each segment must start and end with exactly 1 space
+(L1272) each segment must start and end with exactly 1 space
+(L1382) each segment must start and end with exactly 1 space
+(L1382) each segment must start and end with exactly 1 space
+(L1382) each segment must start and end with exactly 1 space
+(L1382) each segment must start and end with exactly 1 space
+(L1382) each segment must start and end with exactly 1 space
+(L1382) Title syntax should be "[TITLE](LINK)"
+(L1382) description should not end with -
+(L1382) auth value is not enclosed with `backticks`
+(L1382) :--- is not a valid Auth option
+(L1382) :--- is not a valid HTTPS option
+(L1382) :--- is not a valid CORS option
+(L1505) each segment must start and end with exactly 1 space
+(L1505) each segment must start and end with exactly 1 space
+(L1505) each segment must start and end with exactly 1 space
+(L1505) each segment must start and end with exactly 1 space
+(L1505) each segment must start and end with exactly 1 space
+(L1505) Title syntax should be "[TITLE](LINK)"
+(L1505) description should not end with -
+(L1505) auth value is not enclosed with `backticks`
+(L1505) :--- is not a valid Auth option
+(L1505) :--- is not a valid HTTPS option
+(L1505) :--- is not a valid CORS option
+(L1641) each segment must start and end with exactly 1 space
+(L1641) each segment must start and end with exactly 1 space
+(L1641) each segment must start and end with exactly 1 space
+(L1641) each segment must start and end with exactly 1 space
+(L1641) each segment must start and end with exactly 1 space
+(L1641) Title syntax should be "[TITLE](LINK)"
+(L1641) description should not end with -
+(L1641) auth value is not enclosed with `backticks`
+(L1641) :--- is not a valid Auth option
+(L1641) :--- is not a valid HTTPS option
+(L1641) :--- is not a valid CORS option
+(L1691) description should not exceed 100 characters (currently 101)
+(L1698) each segment must start and end with exactly 1 space
+(L1698) each segment must start and end with exactly 1 space
+(L1698) each segment must start and end with exactly 1 space
+(L1698) each segment must start and end with exactly 1 space
+(L1698) each segment must start and end with exactly 1 space
+(L1698) Title syntax should be "[TITLE](LINK)"
+(L1698) description should not end with -
+(L1698) auth value is not enclosed with `backticks`
+(L1698) :--- is not a valid Auth option
+(L1698) :--- is not a valid HTTPS option
+(L1698) :--- is not a valid CORS option
+(L1705) description should not exceed 100 characters (currently 114)
+(L1746) each segment must start and end with exactly 1 space
+(L1746) each segment must start and end with exactly 1 space
+(L1746) each segment must start and end with exactly 1 space
+(L1746) each segment must start and end with exactly 1 space
+(L1746) each segment must start and end with exactly 1 space
+(L1746) Title syntax should be "[TITLE](LINK)"
+(L1746) description should not end with -
+(L1746) auth value is not enclosed with `backticks`
+(L1746) :--- is not a valid Auth option
+(L1746) :--- is not a valid HTTPS option
+(L1746) :--- is not a valid CORS option
+(L1776) description should not end with .
+(L1776) description should not exceed 100 characters (currently 127)
+(L1809) each segment must start and end with exactly 1 space
+(L1809) each segment must start and end with exactly 1 space
+(L1809) each segment must start and end with exactly 1 space
+(L1809) each segment must start and end with exactly 1 space
+(L1809) each segment must start and end with exactly 1 space
+(L1809) Title syntax should be "[TITLE](LINK)"
+(L1809) description should not end with -
+(L1809) auth value is not enclosed with `backticks`
+(L1809) :--- is not a valid Auth option
+(L1809) :--- is not a valid HTTPS option
+(L1809) :--- is not a valid CORS option
+(L1853) each segment must start and end with exactly 1 space
+(L1853) each segment must start and end with exactly 1 space
+(L1853) each segment must start and end with exactly 1 space
+(L1853) each segment must start and end with exactly 1 space
+(L1853) each segment must start and end with exactly 1 space
+(L1853) Title syntax should be "[TITLE](LINK)"
+(L1853) description should not end with -
+(L1853) auth value is not enclosed with `backticks`
+(L1853) :--- is not a valid Auth option
+(L1853) :--- is not a valid HTTPS option
+(L1853) :--- is not a valid CORS option
+(L1886) each segment must start and end with exactly 1 space
+(L1886) each segment must start and end with exactly 1 space
+(L1886) each segment must start and end with exactly 1 space
+(L1886) each segment must start and end with exactly 1 space
+(L1886) each segment must start and end with exactly 1 space
+(L1886) Title syntax should be "[TITLE](LINK)"
+(L1886) description should not end with -
+(L1886) auth value is not enclosed with `backticks`
+(L1886) :--- is not a valid Auth option
+(L1886) :--- is not a valid HTTPS option
+(L1886) :--- is not a valid CORS option
+(L1949) description should not exceed 100 characters (currently 105)
+(L1965) description should not exceed 100 characters (currently 128)
+(L1975) each segment must start and end with exactly 1 space
+(L1975) each segment must start and end with exactly 1 space
+(L1975) each segment must start and end with exactly 1 space
+(L1975) each segment must start and end with exactly 1 space
+(L1975) each segment must start and end with exactly 1 space
+(L1975) Title syntax should be "[TITLE](LINK)"
+(L1975) description should not end with -
+(L1975) auth value is not enclosed with `backticks`
+(L1975) :--- is not a valid Auth option
+(L1975) :--- is not a valid HTTPS option
+(L1975) :--- is not a valid CORS option
+(L1993) each segment must start and end with exactly 1 space
+(L1993) each segment must start and end with exactly 1 space
+(L1993) each segment must start and end with exactly 1 space
+(L1993) each segment must start and end with exactly 1 space
+(L1993) each segment must start and end with exactly 1 space
+(L1993) Title syntax should be "[TITLE](LINK)"
+(L1993) description should not end with -
+(L1993) auth value is not enclosed with `backticks`
+(L1993) :--- is not a valid Auth option
+(L1993) :--- is not a valid HTTPS option
+(L1993) :--- is not a valid CORS option
+(L2004) each segment must start and end with exactly 1 space
+(L2004) each segment must start and end with exactly 1 space
+(L2004) each segment must start and end with exactly 1 space
+(L2004) each segment must start and end with exactly 1 space
+(L2004) each segment must start and end with exactly 1 space
+(L2004) Title syntax should be "[TITLE](LINK)"
+(L2004) description should not end with -
+(L2004) auth value is not enclosed with `backticks`
+(L2004) :--- is not a valid Auth option
+(L2004) :--- is not a valid HTTPS option
+(L2004) :--- is not a valid CORS option
+(L2039) each segment must start and end with exactly 1 space
+(L2039) each segment must start and end with exactly 1 space
+(L2039) each segment must start and end with exactly 1 space
+(L2039) each segment must start and end with exactly 1 space
+(L2039) each segment must start and end with exactly 1 space
+(L2039) Title syntax should be "[TITLE](LINK)"
+(L2039) description should not end with -
+(L2039) auth value is not enclosed with `backticks`
+(L2039) :--- is not a valid Auth option
+(L2039) :--- is not a valid HTTPS option
+(L2039) :--- is not a valid CORS option
+(L2054) each segment must start and end with exactly 1 space
+(L2054) each segment must start and end with exactly 1 space
+(L2054) each segment must start and end with exactly 1 space
+(L2054) each segment must start and end with exactly 1 space
+(L2054) each segment must start and end with exactly 1 space
+(L2054) Title syntax should be "[TITLE](LINK)"
+(L2054) description should not end with -
+(L2054) auth value is not enclosed with `backticks`
+(L2054) :--- is not a valid Auth option
+(L2054) :--- is not a valid HTTPS option
+(L2054) :--- is not a valid CORS option
+(L2100) each segment must start and end with exactly 1 space
+(L2100) each segment must start and end with exactly 1 space
+(L2100) each segment must start and end with exactly 1 space
+(L2100) each segment must start and end with exactly 1 space
+(L2100) each segment must start and end with exactly 1 space
+(L2100) Title syntax should be "[TITLE](LINK)"
+(L2100) description should not end with -
+(L2100) auth value is not enclosed with `backticks`
+(L2100) :--- is not a valid Auth option
+(L2100) :--- is not a valid HTTPS option
+(L2100) :--- is not a valid CORS option
+(L2112) each segment must start and end with exactly 1 space
+(L2112) each segment must start and end with exactly 1 space
+(L2112) each segment must start and end with exactly 1 space
+(L2112) each segment must start and end with exactly 1 space
+(L2112) each segment must start and end with exactly 1 space
+(L2112) Title syntax should be "[TITLE](LINK)"
+(L2112) description should not end with -
+(L2112) auth value is not enclosed with `backticks`
+(L2112) :--- is not a valid Auth option
+(L2112) :--- is not a valid HTTPS option
+(L2112) :--- is not a valid CORS option
+(L2179) each segment must start and end with exactly 1 space
+(L2179) each segment must start and end with exactly 1 space
+(L2179) each segment must start and end with exactly 1 space
+(L2179) each segment must start and end with exactly 1 space
+(L2179) each segment must start and end with exactly 1 space
+(L2179) Title syntax should be "[TITLE](LINK)"
+(L2179) description should not end with -
+(L2179) auth value is not enclosed with `backticks`
+(L2179) :--- is not a valid Auth option
+(L2179) :--- is not a valid HTTPS option
+(L2179) :--- is not a valid CORS option
+(L2248) each segment must start and end with exactly 1 space
+(L2248) each segment must start and end with exactly 1 space
+(L2248) each segment must start and end with exactly 1 space
+(L2248) each segment must start and end with exactly 1 space
+(L2248) each segment must start and end with exactly 1 space
+(L2248) Title syntax should be "[TITLE](LINK)"
+(L2248) description should not end with -
+(L2248) auth value is not enclosed with `backticks`
+(L2248) :--- is not a valid Auth option
+(L2248) :--- is not a valid HTTPS option
+(L2248) :--- is not a valid CORS option
+(L2252) description should not exceed 100 characters (currently 104)
+(L2354) each segment must start and end with exactly 1 space
+(L2354) each segment must start and end with exactly 1 space
+(L2354) each segment must start and end with exactly 1 space
+(L2354) each segment must start and end with exactly 1 space
+(L2354) each segment must start and end with exactly 1 space
+(L2354) Title syntax should be "[TITLE](LINK)"
+(L2354) description should not end with -
+(L2354) auth value is not enclosed with `backticks`
+(L2354) :--- is not a valid Auth option
+(L2354) :--- is not a valid HTTPS option
+(L2354) :--- is not a valid CORS option
+(L2364) Title should not end with "... API". Every entry is an API here!
+(L2394) Title should not end with "... API". Every entry is an API here!
+(L2402) `Yes` is not a valid HTTPS option
+(L2402) `Unknown` is not a valid CORS option
+(L2429) each segment must start and end with exactly 1 space
+(L2429) each segment must start and end with exactly 1 space
+(L2429) each segment must start and end with exactly 1 space
+(L2429) each segment must start and end with exactly 1 space
+(L2429) each segment must start and end with exactly 1 space
+(L2429) Title syntax should be "[TITLE](LINK)"
+(L2429) description should not end with -
+(L2429) auth value is not enclosed with `backticks`
+(L2429) :--- is not a valid Auth option
+(L2429) :--- is not a valid HTTPS option
+(L2429) :--- is not a valid CORS option
+(L2473) each segment must start and end with exactly 1 space
+(L2473) each segment must start and end with exactly 1 space
+(L2473) each segment must start and end with exactly 1 space
+(L2473) each segment must start and end with exactly 1 space
+(L2473) each segment must start and end with exactly 1 space
+(L2473) Title syntax should be "[TITLE](LINK)"
+(L2473) description should not end with -
+(L2473) auth value is not enclosed with `backticks`
+(L2473) :--- is not a valid Auth option
+(L2473) :--- is not a valid HTTPS option
+(L2473) :--- is not a valid CORS option
+(L2500) each segment must start and end with exactly 1 space
+(L2500) each segment must start and end with exactly 1 space
+(L2500) each segment must start and end with exactly 1 space
+(L2500) each segment must start and end with exactly 1 space
+(L2500) each segment must start and end with exactly 1 space
+(L2500) Title syntax should be "[TITLE](LINK)"
+(L2500) description should not end with -
+(L2500) auth value is not enclosed with `backticks`
+(L2500) :--- is not a valid Auth option
+(L2500) :--- is not a valid HTTPS option
+(L2500) :--- is not a valid CORS option
+(L2518) each segment must start and end with exactly 1 space
+(L2518) each segment must start and end with exactly 1 space
+(L2518) each segment must start and end with exactly 1 space
+(L2518) each segment must start and end with exactly 1 space
+(L2518) each segment must start and end with exactly 1 space
+(L2518) Title syntax should be "[TITLE](LINK)"
+(L2518) description should not end with -
+(L2518) auth value is not enclosed with `backticks`
+(L2518) :--- is not a valid Auth option
+(L2518) :--- is not a valid HTTPS option
+(L2518) :--- is not a valid CORS option
+(L2625) each segment must start and end with exactly 1 space
+(L2625) each segment must start and end with exactly 1 space
+(L2625) each segment must start and end with exactly 1 space
+(L2625) each segment must start and end with exactly 1 space
+(L2625) each segment must start and end with exactly 1 space
+(L2625) Title syntax should be "[TITLE](LINK)"
+(L2625) description should not end with -
+(L2625) auth value is not enclosed with `backticks`
+(L2625) :--- is not a valid Auth option
+(L2625) :--- is not a valid HTTPS option
+(L2625) :--- is not a valid CORS option
+(L2653) each segment must start and end with exactly 1 space
+(L2653) each segment must start and end with exactly 1 space
+(L2653) each segment must start and end with exactly 1 space
+(L2653) each segment must start and end with exactly 1 space
+(L2653) each segment must start and end with exactly 1 space
+(L2653) Title syntax should be "[TITLE](LINK)"
+(L2653) description should not end with -
+(L2653) auth value is not enclosed with `backticks`
+(L2653) :--- is not a valid Auth option
+(L2653) :--- is not a valid HTTPS option
+(L2653) :--- is not a valid CORS option
+(L2678) each segment must start and end with exactly 1 space
+(L2678) each segment must start and end with exactly 1 space
+(L2678) each segment must start and end with exactly 1 space
+(L2678) each segment must start and end with exactly 1 space
+(L2678) each segment must start and end with exactly 1 space
+(L2678) Title syntax should be "[TITLE](LINK)"
+(L2678) description should not end with -
+(L2678) auth value is not enclosed with `backticks`
+(L2678) :--- is not a valid Auth option
+(L2678) :--- is not a valid HTTPS option
+(L2678) :--- is not a valid CORS option
+(L2744) each segment must start and end with exactly 1 space
+(L2744) each segment must start and end with exactly 1 space
+(L2744) each segment must start and end with exactly 1 space
+(L2744) each segment must start and end with exactly 1 space
+(L2744) each segment must start and end with exactly 1 space
+(L2744) Title syntax should be "[TITLE](LINK)"
+(L2744) description should not end with -
+(L2744) auth value is not enclosed with `backticks`
+(L2744) :--- is not a valid Auth option
+(L2744) :--- is not a valid HTTPS option
+(L2744) :--- is not a valid CORS option
