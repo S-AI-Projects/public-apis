@@ -1,0 +1,8 @@
+{
+  "description": "Redirect loop — same URL appears twice in chain, loop detected",
+  "chain": [
+    {"status": 302, "url": "https://example.com/api"},
+    {"status": 302, "url": "https://example.com/login"},
+    {"status": 302, "url": "https://example.com/api"}
+  ]
+}

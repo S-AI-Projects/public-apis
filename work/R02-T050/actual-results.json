@@ -1,0 +1,49 @@
+{
+  "mode": "live",
+  "observed_date": "2026-11-18",
+  "total_entries": 17,
+  "assigned": [
+    {
+      "name": "AbuseIPDB",
+      "lineno": 244,
+      "url": "https://docs.abuseipdb.com/",
+      "chain": [
+        {
+          "status": 200,
+          "url": "https://docs.abuseipdb.com/"
+        }
+      ],
+      "classification": "ok",
+      "final_url": "https://docs.abuseipdb.com/",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "name": "AlienVault Open Threat Exchange (OTX)",
+      "lineno": 245,
+      "url": "https://otx.alienvault.com/api",
+      "chain": [
+        {
+          "status": 404,
+          "url": "https://otx.alienvault.com/api"
+        }
+      ],
+      "classification": "error",
+      "final_url": "https://otx.alienvault.com/api",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "name": "CAPEsandbox",
+      "lineno": 246,
+      "url": "https://capev2.readthedocs.io/en/latest/usage/api.html",
+      "chain": [
+        {
+          "status": 200,
+          "url": "https://capev2.readthedocs.io/en/latest/usage/api.html"
+        }
+      ],
+      "classification": "ok",
+      "final_url": "https://capev2.readthedocs.io/en/latest/usage/api.html",
+      "observed_date": "2026-11-18"
+    }
+  ]
+}

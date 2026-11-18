@@ -1,0 +1,75 @@
+Validation record — R02-T050 (Redirect verification: Anti-Malware)
+====================================================================
+
+## Self-test (offline fixtures)
+
+Command:
+  python3 tools/course_checks/r02-t050.py --self-test
+
+Output:
+  Self-test passed: 4 fixtures verified (direct-200, redirect-301, redirect-loop, timeout).
+
+Exit code: 0  ✅
+
+## Optimisation-flag rejection
+
+Command:
+  python3 -O tools/course_checks/r02-t050.py --self-test
+
+Output:
+  ERROR: Do not run this checker with -O or -OO flags.
+
+Exit code: 1  ✅
+
+Command:
+  python3 -OO tools/course_checks/r02-t050.py --self-test
+
+Exit code: 1  ✅
+
+## Live README redirect check
+
+Command:
+  python3 tools/course_checks/r02-t050.py
+
+Output:
+  === Redirect Verification: Anti-Malware ===
+  Date: 2026-11-18
+  Total entries in section: 17
+
+  Checking line 244: AbuseIPDB
+    URL: https://docs.abuseipdb.com/
+    Chain: HTTP 200
+    Classification: OK
+
+  Checking line 245: AlienVault Open Threat Exchange (OTX)
+    URL: https://otx.alienvault.com/api
+    Chain: HTTP 404
+    Classification: ERROR
+
+  Checking line 246: CAPEsandbox
+    URL: https://capev2.readthedocs.io/en/latest/usage/api.html
+    Chain: HTTP 200
+    Classification: OK
+
+  Redirect verification complete.
+
+Exit code: 0  ✅
+
+## Fixture tests summary
+
+| Fixture            | Description                              | Expected classification | Actual | Pass? |
+|--------------------|------------------------------------------|------------------------|--------|-------|
+| direct-200.json    | Single hop, HTTP 200                     | ok                     | ok     | ✅ |
+| redirect-301.json  | 301 → 200 chain (HTTP→HTTPS upgrade)     | redirect               | redirect | ✅ |
+| redirect-loop.json | Repeated URL in chain (loop detection)   | loop                   | loop   | ✅ |
+| timeout.json       | Status 0 (connection timeout/refused)    | timeout                | timeout | ✅ |
+
+## AlienVault OTX 404 Analysis
+
+- HEAD https://otx.alienvault.com/api  → 404 (automated)
+- HEAD https://otx.alienvault.com/     → 200 (service live)
+- HEAD https://otx.alienvault.com/api/v1 → 404 (docs path)
+- Conclusion: SPA routing issue; OTX platform operational; entry NOT removed per policy
+- Entry labelled unverified pending manual browser check
+
+All fixture tests passed. No README.md modifications made.
