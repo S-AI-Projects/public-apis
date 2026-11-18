@@ -1,0 +1,56 @@
+Description
+<!-- Briefly explain what this PR does and why the change is needed. -->
+Implements a self-contained offline fixture test suite to parse and validate API entries under the Music category in README.md, handling clean rows, malformed rows, and unusual URL characters without requiring network connectivity.
+
+Related Issue
+<!-- Link the related issue, if applicable. -->
+Fixes: #46
+
+Type of Change
+<!-- Select at least one. -->
+● New Feature
+● Tests
+● Documentation
+● Refactoring / Maintenance
+
+Changes Made
+<!-- Briefly list the main changes introduced in this PR. -->
+• Added `tools/course_checks/r02-t045.py` for offline Music category table parsing and validation.
+• Scoped entry checking to the assigned Music entries: `7digital`, `AI Mastering`, and `Audiomack`.
+• Added 3 offline fixtures under `work/R02-T045/fixtures/`:
+  - `valid.md`: clean table rows matching the catalogue schema.
+  - `malformed.md`: malformed table structures (column count mismatch, missing Markdown link).
+  - `unusual-urls.md`: URLs with query strings, percent encoding, and anchors.
+• Added `--self-test` mode with assertion verification and non-zero exit on failure or when executed with `-O`/`-OO`.
+• Provided offline execution validation and environment details under `work/R02-T045/`.
+• Documented checker usage and behaviour in `tools/course_checks/README.md`.
+
+Screenshots / Recordings
+<!-- If your changes affect the UI, attach before and after screenshots or recordings. -->
+Not applicable. This contribution introduces command-line verification scripts and documentation with no user interface modifications.
+
+Testing
+<!-- Explain how you tested your changes and mention any relevant test commands. -->
+The following test suite was executed locally:
+• `python3 -m py_compile tools/course_checks/r02-t045.py` (exited 0)
+• `python3 tools/course_checks/r02-t045.py --self-test` (exited 0, all fixture test assertions passed)
+• `python3 -O tools/course_checks/r02-t045.py --self-test` (exited 1, correctly refuses false pass)
+• `python3 tools/course_checks/r02-t045.py` (exited 0, scanned 37 Music entries offline)
+• `git diff --check` and `git diff --cached --check` (exited 0, clean whitespace)
+
+Checklist
+● I have tested my changes locally.
+● I have added or updated tests, if needed.
+● I have updated documentation, if needed.
+● I have followed the project's coding guidelines.
+● I have run the relevant tests and checks.
+● I have addressed previous review feedback, if applicable.
+
+Additional Notes
+<!-- Share any other information that might help reviewers. -->
+• Selected entries verified:
+  1. 7digital — https://docs.7digital.com/reference (line 1810) | `OAuth` | HTTPS: Yes | CORS: Unknown
+  2. AI Mastering — https://aimastering.com/api_docs/ (line 1811) | `apiKey` | HTTPS: Yes | CORS: Yes
+  3. Audiomack — https://www.audiomack.com/data-api/docs (line 1812) | `OAuth` | HTTPS: Yes | CORS: Unknown
+• All 3 entries are active and properly documented. No catalogue modifications required.
+• Submitted for S&AI Open-Source Project Task R02-T045 (Assigned Issue #46).
