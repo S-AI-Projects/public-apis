@@ -1,0 +1,15 @@
+R02-T043 — Expected Results
+
+Selected API          Expected Category
+Advice Slip           Personality
+Astro Agents          Personality
+AstroWay              Personality
+
+Expected checker behavior:
+1. Correct entries pass without errors.
+2. Misplaced entries are reported.
+3. Repeated category headings are reported.
+4. Missing selected entries are reported.
+
+Expected catalogue changes:
+None. All three selected APIs correctly belong under Personality.
