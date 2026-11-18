@@ -1,0 +1,73 @@
+R02-T039 API Verification Notes
+===============================
+Pinned commit: 2676ca49d557ef14a0f478311506dae947639028
+
+--- 1. A Bíblia Digital ---
+Documentation URL : https://www.abibliadigital.com.br/en
+Catalogue Name    : A Bíblia Digital
+Catalogue Line    : 344
+Catalogue Auth    : apiKey   — DISCREPANCY (Historical evidence indicates 'No')
+Catalogue HTTPS   : Yes      — MATCHES (HTTPS protocol)
+Catalogue CORS    : No       — MATCHES
+Historical Access Requirements:
+  - Official historical repository documentation confirms unauthenticated requests were permitted.
+  - Unauthenticated access was capped at 20 requests per hour per IP.
+  - An optional user token was available for free to remove the rate limit, but was NOT mandatory.
+  - Under CONTRIBUTING.md guidelines, APIs that do not require authentication are classified as `No`.
+  - Therefore, the evidence-backed historical Auth value is `No`.
+Current Service Availability (Documented Separately):
+  - The official GitHub repository states that the site and APIs were disabled on 2026-08-01.
+  - Automated network requests fail or time out (status: [UNVERIFIED / INCONCLUSIVE]).
+Catalogue Discrepancy & Verdict:
+  - The repository README lists `apiKey` on line 344.
+  - The checker expects the historical evidence value `No`, reporting `wrong_auth` on line 344.
+  - Per instructions, the root README is left unchanged to transparently report the discrepancy.
+
+--- 2. Amanah Sunnah ---
+Documentation URL : https://sunnah.amanahagent.cloud/developers
+Catalogue Name    : Amanah Sunnah
+Catalogue Line    : 345
+Catalogue Auth    : apiKey   — VERIFIED (`apiKey`)
+Catalogue HTTPS   : Yes      — VERIFIED (HTTPS protocol)
+Catalogue CORS    : Yes      — VERIFIED (CORS enabled)
+Historical & Current Access Requirements:
+  - Official developer documentation specifies authentication requires an API key passed
+    via the `X-API-Key` HTTP header.
+  - Registration provides free keys.
+  - Documentation confirms: no billing, no usage caps, and no rate limits.
+Current Service Availability:
+  - Live probe from sandboxed environment is reported as [UNVERIFIED / INCONCLUSIVE].
+Verdict:
+  - Catalogue entry is consistent with developer documentation.
+
+--- 3. Bhagavad Gita ---
+Documentation URL : https://docs.bhagavadgitaapi.in
+Catalogue Name    : Bhagavad Gita
+Catalogue Line    : 346
+Catalogue Auth    : apiKey   — UNVERIFIED EVIDENCE
+Catalogue HTTPS   : Yes      — MATCHES (HTTPS protocol)
+Catalogue CORS    : Yes      — UNVERIFIED EVIDENCE
+Documentation Verification vs. Catalogue Consistency:
+  - The assigned documentation domain currently serves a parking/for-sale placeholder page.
+  - External documentation access requirements are formally UNVERIFIED.
+  - Do NOT substitute BhagavadGita.io, gita-api, or another similarly named API.
+  - Do NOT invent access requirements or remove the entry based on an automated request failure.
+  - Catalogue consistency validation verifies that the table syntax and values conform to schema
+    without confusing catalogue consistency with live external documentation verification.
+Verdict:
+  - Catalogue entry is retained as-is in README.md line 346.
+
+--- Ordering & Neighbors ---
+Section: ### Books (line 341)
+Line 342: Table header
+Line 343: Table separator
+Line 344: A Bíblia Digital
+Line 345: Amanah Sunnah
+Line 346: Bhagavad Gita
+Line 347: Bhagavad Gita telugu
+
+Ordering checks:
+  'a bíblia digital' < 'amanah sunnah'     -> CORRECT
+  'amanah sunnah' < 'bhagavad gita'         -> CORRECT
+  'bhagavad gita' < 'bhagavad gita telugu'  -> CORRECT
+All selected entries are in valid case-insensitive alphabetical sequence relative to each other and neighboring rows.

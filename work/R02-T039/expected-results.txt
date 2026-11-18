@@ -1,0 +1,34 @@
+R02-T039 Expected Results
+=========================
+
+Self-test (17 fixtures):
+  valid-all.md             exit=0  errors=[]
+  missing-entry.md         exit=1  errors=[missing_entry]
+  malformed-row.md         exit=1  errors=[bad_link, missing_entry]
+  bad-link.md              exit=1  errors=[empty_url, wrong_url]
+  invalid-auth.md          exit=1  errors=[invalid_auth, wrong_auth]
+  invalid-https.md         exit=1  errors=[invalid_https, wrong_https]
+  invalid-cors.md          exit=1  errors=[invalid_cors, wrong_cors]
+  wrong-order.md           exit=1  errors=[wrong_order]
+  bad-columns.md           exit=1  errors=[bad_column_count]
+  long-description.md      exit=1  errors=[description_too_long]
+  bad-padding.md           exit=1  errors=[bad_padding]
+  non-english.md           exit=0  errors=[]
+  paren-url.md             exit=1  errors=[wrong_url]
+  query-encoded.md         exit=1  errors=[wrong_url]
+  header-error.md          exit=1  errors=[bad_header]
+  separator-error.md       exit=1  errors=[bad_separator]
+  neighbor-order-error.md  exit=1  errors=[wrong_order]
+
+Summary: 17/17 fixtures pass.
+
+Live validation (against README.md at pinned commit 2676ca49d557ef14a0f478311506dae947639028):
+  Section: ### Books (lines 341-369)
+  Selected entries:
+    - line 344: A Bíblia Digital  auth='apiKey'  https='Yes'  cors='No'   [ERROR]
+        wrong_auth: 'A Bíblia Digital' field 'auth': expected 'No', got 'apiKey'
+    - line 345: Amanah Sunnah     auth='apiKey'  https='Yes'  cors='Yes'  [OK]
+    - line 346: Bhagavad Gita     auth='apiKey'  https='Yes'  cors='Yes'  [OK]
+  Selected-entry & neighbor ordering: [OK] (case-insensitive, followed by 'Bhagavad Gita telugu')
+  Section-wide validation: All 26 rows pass formatting, column count, padding, description length, and alphabetical ordering.
+  Exit code: 1 (due to evidence-backed discrepancy on line 344: A Bíblia Digital historical Auth is 'No', but upstream README lists 'apiKey')

@@ -1,0 +1,53 @@
+R02-T039 Actual Results
+=======================
+
+Execution Date : 2026-11-18T09:36:27Z
+Python Version : 3.15.2
+Platform       : macOS (Darwin arm64)
+Pinned Commit  : 2676ca49d557ef14a0f478311506dae947639028
+
+1. Self-Test Run (`python3 tools/course_checks/r02-t039.py --self-test`):
+-------------------------------------------------------------------------
+[PASS] valid-all.md
+[PASS] missing-entry.md
+[PASS] malformed-row.md
+[PASS] bad-link.md
+[PASS] invalid-auth.md
+[PASS] invalid-https.md
+[PASS] invalid-cors.md
+[PASS] wrong-order.md
+[PASS] bad-columns.md
+[PASS] long-description.md
+[PASS] bad-padding.md
+[PASS] non-english.md
+[PASS] paren-url.md
+[PASS] query-encoded.md
+[PASS] header-error.md
+[PASS] separator-error.md
+[PASS] neighbor-order-error.md
+
+Summary: 17/17 fixtures passed.
+Exit code: 0
+
+2. Python Optimization Modes:
+-----------------------------
+`python3 -O tools/course_checks/r02-t039.py --self-test`
+Summary: 17/17 fixtures passed.
+Exit code: 0
+
+`python3 -OO tools/course_checks/r02-t039.py --self-test`
+Summary: 17/17 fixtures passed.
+Exit code: 0
+
+3. Live README Validation (`python3 tools/course_checks/r02-t039.py`):
+----------------------------------------------------------------------
+R02-T039 - Task-Specific Validation (Selected APIs):
+  line  344  'A Bíblia Digital'        auth='apiKey'   https='Yes'  cors='No'     [ERROR]
+      wrong_auth: 'A Bíblia Digital' field 'auth': expected 'No', got 'apiKey'
+  line  345  'Amanah Sunnah'           auth='apiKey'   https='Yes'  cors='Yes'    [OK]
+  line  346  'Bhagavad Gita'           auth='apiKey'   https='Yes'  cors='Yes'    [OK]
+  Selected-entry & neighbor ordering: [OK] (case-insensitive, followed by 'Bhagavad Gita telugu')
+  Task-specific validation: [FAILED] (1 error(s))
+
+Result: FAILED (exit code 1) due to task-specific validation error(s).
+Exit code: 1

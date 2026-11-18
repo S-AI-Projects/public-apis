@@ -1,0 +1,15 @@
+R02-T039 Environment
+====================
+Date           : 2026-11-18T09:29:35+05:30
+Python         : 3.15.2
+Git            : 2.55.0
+OS             : Darwin 27.2.0 arm64 (macOS)
+Branch         : student/e26b07f0885/R02-T039
+Repository     : /Users/apuravagarwal/programming/snai assignment/public-apis-r02-t039
+Pinned commit  : 2676ca49d557ef14a0f478311506dae947639028
+Remotes:
+  origin   https://github.com/apurav-invisible/public-apis.git
+  upstream https://github.com/S-AI-Projects/public-apis.git
+Dependencies   : Python standard library only (no third-party packages)
+Mode           : Offline self-test & optional live probe (no credentials transmitted)
+

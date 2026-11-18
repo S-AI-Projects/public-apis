@@ -1,0 +1,370 @@
+[
+  {
+    "fixture": "valid-all.md",
+    "description": "Valid table with all three selected entries in correct order and metadata.",
+    "expected_exit": 0,
+    "expected_errors": [],
+    "expected_entries": [
+      {
+        "name": "A Bíblia Digital",
+        "url": "https://www.abibliadigital.com.br/en",
+        "auth": "No",
+        "https": "Yes",
+        "cors": "No",
+        "line": 4
+      },
+      {
+        "name": "Amanah Sunnah",
+        "url": "https://sunnah.amanahagent.cloud/developers",
+        "auth": "apiKey",
+        "https": "Yes",
+        "cors": "Yes",
+        "line": 5
+      },
+      {
+        "name": "Bhagavad Gita",
+        "url": "https://docs.bhagavadgitaapi.in",
+        "auth": "apiKey",
+        "https": "Yes",
+        "cors": "Yes",
+        "line": 6
+      }
+    ]
+  },
+  {
+    "fixture": "missing-entry.md",
+    "description": "Bhagavad Gita entry omitted entirely from the table.",
+    "expected_exit": 1,
+    "expected_errors": [
+      "missing_entry"
+    ],
+    "expected_entries": [
+      {
+        "name": "A Bíblia Digital",
+        "line": 4
+      },
+      {
+        "name": "Amanah Sunnah",
+        "line": 5
+      }
+    ]
+  },
+  {
+    "fixture": "malformed-row.md",
+    "description": "Row with malformed Markdown link (missing closing bracket); missing_entry is raised for A Bíblia Digital.",
+    "expected_exit": 1,
+    "expected_errors": [
+      "bad_link",
+      "missing_entry"
+    ],
+    "expected_entries": [
+      {
+        "name": "Amanah Sunnah",
+        "line": 5
+      },
+      {
+        "name": "Bhagavad Gita",
+        "line": 6
+      }
+    ]
+  },
+  {
+    "fixture": "bad-link.md",
+    "description": "A Bíblia Digital has an empty URL in its Markdown link.",
+    "expected_exit": 1,
+    "expected_errors": [
+      "empty_url",
+      "wrong_url"
+    ],
+    "expected_entries": [
+      {
+        "name": "A Bíblia Digital",
+        "line": 4
+      },
+      {
+        "name": "Amanah Sunnah",
+        "line": 5
+      },
+      {
+        "name": "Bhagavad Gita",
+        "line": 6
+      }
+    ]
+  },
+  {
+    "fixture": "invalid-auth.md",
+    "description": "A Bíblia Digital has invalid Auth value Token, triggering invalid_auth and wrong_auth.",
+    "expected_exit": 1,
+    "expected_errors": [
+      "invalid_auth",
+      "wrong_auth"
+    ],
+    "expected_entries": [
+      {
+        "name": "A Bíblia Digital",
+        "line": 4
+      },
+      {
+        "name": "Amanah Sunnah",
+        "line": 5
+      },
+      {
+        "name": "Bhagavad Gita",
+        "line": 6
+      }
+    ]
+  },
+  {
+    "fixture": "invalid-https.md",
+    "description": "A Bíblia Digital has invalid HTTPS value Maybe, triggering invalid_https and wrong_https.",
+    "expected_exit": 1,
+    "expected_errors": [
+      "invalid_https",
+      "wrong_https"
+    ],
+    "expected_entries": [
+      {
+        "name": "A Bíblia Digital",
+        "line": 4
+      },
+      {
+        "name": "Amanah Sunnah",
+        "line": 5
+      },
+      {
+        "name": "Bhagavad Gita",
+        "line": 6
+      }
+    ]
+  },
+  {
+    "fixture": "invalid-cors.md",
+    "description": "Amanah Sunnah has invalid CORS value Maybe, triggering invalid_cors and wrong_cors.",
+    "expected_exit": 1,
+    "expected_errors": [
+      "invalid_cors",
+      "wrong_cors"
+    ],
+    "expected_entries": [
+      {
+        "name": "A Bíblia Digital",
+        "line": 4
+      },
+      {
+        "name": "Amanah Sunnah",
+        "line": 5
+      },
+      {
+        "name": "Bhagavad Gita",
+        "line": 6
+      }
+    ]
+  },
+  {
+    "fixture": "wrong-order.md",
+    "description": "Rows not in alphabetical order: Bhagavad Gita before Amanah Sunnah.",
+    "expected_exit": 1,
+    "expected_errors": [
+      "wrong_order"
+    ],
+    "expected_entries": [
+      {
+        "name": "A Bíblia Digital",
+        "line": 4
+      },
+      {
+        "name": "Bhagavad Gita",
+        "line": 5
+      },
+      {
+        "name": "Amanah Sunnah",
+        "line": 6
+      }
+    ]
+  },
+  {
+    "fixture": "bad-columns.md",
+    "description": "Row with only 4 columns on non-selected entry Bhagavad Gita telugu, triggering bad_column_count.",
+    "expected_exit": 1,
+    "expected_errors": [
+      "bad_column_count"
+    ],
+    "expected_entries": [
+      {
+        "name": "A Bíblia Digital",
+        "line": 4
+      },
+      {
+        "name": "Amanah Sunnah",
+        "line": 5
+      },
+      {
+        "name": "Bhagavad Gita",
+        "line": 6
+      }
+    ]
+  },
+  {
+    "fixture": "long-description.md",
+    "description": "Amanah Sunnah description exceeds 100 characters, triggering description_too_long.",
+    "expected_exit": 1,
+    "expected_errors": [
+      "description_too_long"
+    ],
+    "expected_entries": [
+      {
+        "name": "A Bíblia Digital",
+        "line": 4
+      },
+      {
+        "name": "Amanah Sunnah",
+        "line": 5
+      },
+      {
+        "name": "Bhagavad Gita",
+        "line": 6
+      }
+    ]
+  },
+  {
+    "fixture": "bad-padding.md",
+    "description": "A Bíblia Digital row lacks required space padding before table delimiter, triggering bad_padding.",
+    "expected_exit": 1,
+    "expected_errors": [
+      "bad_padding"
+    ],
+    "expected_entries": [
+      {
+        "name": "A Bíblia Digital",
+        "line": 4
+      },
+      {
+        "name": "Amanah Sunnah",
+        "line": 5
+      },
+      {
+        "name": "Bhagavad Gita",
+        "line": 6
+      }
+    ]
+  },
+  {
+    "fixture": "non-english.md",
+    "description": "Descriptions in Portuguese, Arabic, and Sanskrit/Hindi; non-English Unicode text must be preserved without error.",
+    "expected_exit": 0,
+    "expected_errors": [],
+    "expected_entries": [
+      {
+        "name": "A Bíblia Digital",
+        "line": 4
+      },
+      {
+        "name": "Amanah Sunnah",
+        "line": 5
+      },
+      {
+        "name": "Bhagavad Gita",
+        "line": 6
+      }
+    ]
+  },
+  {
+    "fixture": "paren-url.md",
+    "description": "Bhagavad Gita URL contains balanced parentheses; parser must handle them. URL differs from expected so wrong_url is raised.",
+    "expected_exit": 1,
+    "expected_errors": [
+      "wrong_url"
+    ],
+    "expected_entries": [
+      {
+        "name": "A Bíblia Digital",
+        "line": 4
+      },
+      {
+        "name": "Amanah Sunnah",
+        "line": 5
+      },
+      {
+        "name": "Bhagavad Gita",
+        "url": "https://docs.bhagavadgitaapi.in/v1/(chapters)/",
+        "line": 6
+      }
+    ]
+  },
+  {
+    "fixture": "query-encoded.md",
+    "description": "Bhagavad Gita URL contains query string with percent-encoding; parser must handle it. URL differs from expected so wrong_url is raised.",
+    "expected_exit": 1,
+    "expected_errors": [
+      "wrong_url"
+    ],
+    "expected_entries": [
+      {
+        "name": "A Bíblia Digital",
+        "line": 4
+      },
+      {
+        "name": "Amanah Sunnah",
+        "line": 5
+      },
+      {
+        "name": "Bhagavad Gita",
+        "url": "https://docs.bhagavadgitaapi.in/api?lang=en%20hi&format=json",
+        "line": 6
+      }
+    ]
+  },
+  {
+    "fixture": "header-error.md",
+    "description": "Table header contains Authentication instead of Auth, triggering bad_header.",
+    "expected_exit": 1,
+    "expected_errors": [
+      "bad_header"
+    ],
+    "expected_entries": []
+  },
+  {
+    "fixture": "separator-error.md",
+    "description": "Table separator uses non-left-aligned style (|---| instead of |:---|), triggering bad_separator.",
+    "expected_exit": 1,
+    "expected_errors": [
+      "bad_separator"
+    ],
+    "expected_entries": [
+      {
+        "name": "A Bíblia Digital",
+        "line": 4
+      },
+      {
+        "name": "Amanah Sunnah",
+        "line": 5
+      },
+      {
+        "name": "Bhagavad Gita",
+        "line": 6
+      }
+    ]
+  },
+  {
+    "fixture": "neighbor-order-error.md",
+    "description": "Bhagavad Gita is placed after neighboring non-selected entry Bhagavad Gita telugu, triggering wrong_order.",
+    "expected_exit": 1,
+    "expected_errors": [
+      "wrong_order"
+    ],
+    "expected_entries": [
+      {
+        "name": "A Bíblia Digital",
+        "line": 4
+      },
+      {
+        "name": "Amanah Sunnah",
+        "line": 5
+      },
+      {
+        "name": "Bhagavad Gita",
+        "line": 7
+      }
+    ]
+  }
+]
