@@ -1,0 +1,17 @@
+{
+  "tool": "r02-t001.py",
+  "tests": [
+    {
+      "name": "real_entries_found",
+      "status": "PASS"
+    },
+    {
+      "name": "fenced_code_link_ignored",
+      "status": "PASS"
+    },
+    {
+      "name": "url_fragment_preserved",
+      "status": "PASS"
+    }
+  ]
+}
