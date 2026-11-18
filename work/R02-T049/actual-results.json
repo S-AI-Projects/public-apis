@@ -1,0 +1,62 @@
+{
+  "mode": "live",
+  "total_entries": 19,
+  "assigned": [
+    {
+      "name": "Anycrap",
+      "url": "https://anycrap.shop/developers",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Yes",
+      "lineno": 1032
+    },
+    {
+      "name": "Bucketlist Dream of the Day",
+      "url": "https://bucketlist.nl/samenwerken?lang=en#droom-van-de-dag",
+      "auth": "No",
+      "https": "Yes",
+      "cors": "Yes",
+      "lineno": 1033
+    },
+    {
+      "name": "chucknorris.io",
+      "url": "https://api.chucknorris.io",
+      "auth": "No",
+      "https": "Yes",
+      "cors": "Unknown",
+      "lineno": 1034
+    }
+  ],
+  "facts": [
+    "Line 1032 [Anycrap]: auth=`apiKey` https=Yes cors=Yes url=https://anycrap.shop/developers",
+    "Line 1033 [Bucketlist Dream of the Day]: auth=No https=Yes cors=Yes url=https://bucketlist.nl/samenwerken?lang=en#droom-van-de-dag",
+    "Line 1034 [chucknorris.io]: auth=No https=Yes cors=Unknown url=https://api.chucknorris.io",
+    "Line 1035 [Corporate Buzz Words]: auth=No https=Yes cors=Yes url=https://github.com/sameerkumar18/corporate-bs-generator-api",
+    "Line 1036 [CosmyDay Astrology]: auth=No https=Yes cors=Yes url=https://cosmyday.com/api-docs",
+    "Line 1037 [Excuser]: auth=No https=Yes cors=Unknown url=https://excuser.herokuapp.com/",
+    "Line 1038 [Fun Fact]: auth=No https=Yes cors=Yes url=https://api.aakhilv.me",
+    "Line 1039 [Imgflip]: auth=No https=Yes cors=Unknown url=https://imgflip.com/api",
+    "Line 1040 [JokeAPI]: auth=No https=Yes cors=Yes url=https://v2.jokeapi.dev/",
+    "Line 1041 [justmeme.wtf]: auth=No https=Yes cors=Yes url=https://justmeme.wtf/api-docs",
+    "Line 1042 [Meme Maker]: auth=No https=Yes cors=Unknown url=https://mememaker.github.io/API/",
+    "Line 1043 [Memesio]: auth=No https=Yes cors=No url=https://memesio.com/developers/api",
+    "Line 1044 [NaMoMemes]: auth=No https=Yes cors=Unknown url=https://github.com/theIYD/NaMoMemes",
+    "Line 1045 [PotterDB]: auth=No https=Yes cors=Yes url=https://docs.potterdb.com/",
+    "Line 1046 [Random Useless Facts]: auth=No https=Yes cors=Unknown url=https://uselessfacts.jsph.pl/",
+    "Line 1047 [TasteDive]: auth=`apiKey` https=Yes cors=No url=https://tastedive.com/read/api",
+    "Line 1048 [Techy]: auth=No https=Yes cors=Unknown url=https://techy-api.vercel.app/",
+    "Line 1049 [Yes or No Oracle]: auth=No https=Yes cors=Yes url=https://yesnooracle.app/api",
+    "Line 1050 [Yo Momma Jokes]: auth=No https=Yes cors=Unknown url=https://github.com/beanboi7/yomomma-apiv2"
+  ],
+  "recommendations": [
+    "Line 1034 [chucknorris.io]: CORS is 'Unknown' \u2014 verify via browser DevTools or OPTIONS request",
+    "Line 1037 [Excuser]: CORS is 'Unknown' \u2014 verify via browser DevTools or OPTIONS request",
+    "Line 1039 [Imgflip]: CORS is 'Unknown' \u2014 verify via browser DevTools or OPTIONS request",
+    "Line 1042 [Meme Maker]: CORS is 'Unknown' \u2014 verify via browser DevTools or OPTIONS request",
+    "Line 1044 [NaMoMemes]: CORS is 'Unknown' \u2014 verify via browser DevTools or OPTIONS request",
+    "Line 1046 [Random Useless Facts]: CORS is 'Unknown' \u2014 verify via browser DevTools or OPTIONS request",
+    "Line 1048 [Techy]: CORS is 'Unknown' \u2014 verify via browser DevTools or OPTIONS request",
+    "Line 1050 [Yo Momma Jokes]: CORS is 'Unknown' \u2014 verify via browser DevTools or OPTIONS request"
+  ],
+  "errors": []
+}
