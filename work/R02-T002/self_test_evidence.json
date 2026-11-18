@@ -1,0 +1,10 @@
+{
+  "tool": "r02-t002.py",
+  "fixtures_tested": [
+    "200_ok",
+    "301_then_200",
+    "redirect_loop",
+    "timeout"
+  ],
+  "status": "PASS"
+}
