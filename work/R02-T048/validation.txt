@@ -1,0 +1,51 @@
+Validation record — R02-T048 (Access requirements: Authentication & Authorization)
+===================================================================================
+
+## Self-test (offline fixtures)
+
+Command:
+  python3 tools/course_checks/r02-t048.py --self-test
+
+Output:
+  Self-test passed: 4 fixtures verified (valid, bad-auth, bad-https, no-link).
+
+Exit code: 0  ✅
+
+## Optimisation-flag rejection
+
+Command:
+  python3 -O tools/course_checks/r02-t048.py --self-test
+
+Output:
+  ERROR: Do not run this checker with -O or -OO flags.
+
+Exit code: 1  ✅
+
+Command:
+  python3 -OO tools/course_checks/r02-t048.py --self-test
+
+Exit code: 1  ✅
+
+## Live README check
+
+Command:
+  python3 tools/course_checks/r02-t048.py
+
+Output:
+  OK line 306: Auth0 | auth=`apiKey` https=Yes cors=Yes
+  OK line 307: GetOTP | auth=`apiKey` https=Yes cors=No
+  OK line 308: MojoAuth | auth=`apiKey` https=Yes cors=Yes
+  Access-requirements check passed: 6 entries validated in 'Authentication & Authorization'.
+
+Exit code: 0  ✅
+
+## Fixture tests summary
+
+| Fixture      | Description                            | Expected result              | Actual result                | Pass? |
+|--------------|----------------------------------------|------------------------------|------------------------------|-------|
+| valid.md     | 3 well-formed entries, all fields OK   | 0 errors, 3 entries          | 0 errors, 3 entries          | ✅ |
+| bad-auth.md  | Entry with invalid Auth value `Bearer` | error on Auth field          | error on Auth field          | ✅ |
+| bad-https.md | Entry with invalid HTTPS value `Maybe` | error on HTTPS field         | error on HTTPS field         | ✅ |
+| no-link.md   | Entry with bare URL (no markdown link) | missing-link error           | missing-link error           | ✅ |
+
+All tests passed. No README.md modifications made.
