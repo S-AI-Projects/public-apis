@@ -1,0 +1,48 @@
+Validation record — R02-T047 (Formatting check: Sports & Fitness)
+======================================================================
+
+## Self-test (offline fixtures)
+
+Command:
+  python3 tools/course_checks/r02-t047.py --self-test
+
+Output:
+  Self-test passed: 4 fixtures verified (valid non-English, malformed with line number, bad link syntax, out-of-order).
+
+Exit code: 0  ✅
+
+## Optimisation-flag rejection
+
+Command:
+  python3 -O tools/course_checks/r02-t047.py --self-test
+
+Exit code: 1  ✅  (correctly refused to run under -O)
+
+Command:
+  python3 -OO tools/course_checks/r02-t047.py --self-test
+
+Exit code: 1  ✅  (correctly refused to run under -OO)
+
+## Live README check
+
+Command:
+  python3 tools/course_checks/r02-t047.py
+
+Output:
+  OK line 2355: 5DollarFootball | https://5dollarfootballapi.com/
+  OK line 2356: AcesAPI | https://acesapi.com/docs
+  OK line 2357: API-FOOTBALL | https://www.api-football.com/documentation-v3
+  Formatting check passed: 68 entries validated in 'Sports & Fitness'.
+
+Exit code: 0  ✅
+
+## Fixture tests summary
+
+| Fixture | Expected result | Actual result | Pass? |
+|---------|----------------|---------------|-------|
+| valid.md (non-English chars) | 0 errors | 0 errors | ✅ |
+| malformed.md (bad row) | error on line 2 | error on line 2 | ✅ |
+| bad-link.md (no markdown link) | error on line 2 | error on line 2 | ✅ |
+| out-of-order.md (B before A) | ordering error | ordering error | ✅ |
+
+All tests passed. No README.md modifications made.
