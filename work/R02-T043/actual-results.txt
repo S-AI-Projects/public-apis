@@ -1,0 +1,4 @@
+Advice Slip: Personality (line 2005)
+Astro Agents: Personality (line 2006)
+AstroWay: Personality (line 2007)
+Category consistency check passed.

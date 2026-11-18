@@ -1,0 +1,57 @@
+Description
+<!-- Briefly explain what this PR does and why the change is needed. -->
+Adds a conservative, read-only Python checker to detect exact duplicate URLs and potential URL-normalization matches in the Open Data section of the API catalogue, preserving query parameters and meaningful fragments distinct.
+
+Related Issue
+<!-- Link the related issue, if applicable. -->
+Fixes: #43
+
+Type of Change
+<!-- Select at least one. -->
+● New Feature
+● Tests
+● Documentation
+● Refactoring / Maintenance
+
+Changes Made
+<!-- Briefly list the main changes introduced in this PR. -->
+• Added `tools/course_checks/r02-t042.py` for conservative duplicate URL detection.
+• Implemented exact URL-string duplicate detection.
+• Implemented conservative URL normalization for scheme case, hostname case, default ports, and unreserved percent-encoding.
+• Preserved query strings, fragments, paths, trailing slashes, and non-default ports distinct to prevent unwarranted merges.
+• Added 34 offline self-test checks verifying all normalizations and failure modes.
+• Added rejection of assertions disabled mode (`-O`/`-OO`).
+• Documented checker usage and behaviour in `tools/course_checks/README.md`.
+• Recorded validation evidence, inputs, and results in `work/R02-T042/`.
+• Verified that no entries in Open Data require deletion or modification.
+
+Screenshots / Recordings
+<!-- If your changes affect the UI, attach before and after screenshots or recordings. -->
+Not applicable. This contribution introduces a command-line Python checker and verification tooling with no user interface changes.
+
+Testing
+<!-- Explain how you tested your changes and mention any relevant test commands. -->
+The following test suite was run:
+• `python3 -m py_compile tools/course_checks/r02-t042.py` (exited 0)
+• `python3 tools/course_checks/r02-t042.py --self-test` (exited 0)
+• `python3 -O tools/course_checks/r02-t042.py --self-test` (exited 1, correctly refuses false pass)
+• `python3 -OO tools/course_checks/r02-t042.py --self-test` (exited 1, correctly refuses false pass)
+• `python3 tools/course_checks/r02-t042.py` (scanned 82 entries in Open Data, 0 duplicates found)
+• `git diff --check` and `git diff --cached --check` (exited 0, clean whitespace)
+
+Checklist
+● I have tested my changes locally.
+● I have added or updated tests, if needed.
+● I have updated documentation, if needed.
+● I have followed the project's coding guidelines.
+● I have run the relevant tests and checks.
+● I have addressed previous review feedback, if applicable.
+
+Additional Notes
+<!-- Share any other information that might help reviewers. -->
+• Selected entries inspected:
+  1. 10ML Fragrance Index — https://mcp.10ml.com/openapi.json (line 1887)
+  2. 221 — https://221.orvlabs.com/documentation (line 1888)
+  3. 49 Gallery Historical Data — https://api.181649.com/docs (line 1889)
+• All 3 entries are active and unique. No catalogue modifications required.
+• Submitted for S&AI Open-Source Project Task R02-T042 (Assigned Issue #43).
