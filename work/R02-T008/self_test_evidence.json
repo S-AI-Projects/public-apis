@@ -1,0 +1,21 @@
+{
+  "tool": "r02-t008.py",
+  "tests": [
+    {
+      "name": "malformed_rejected_with_source_line",
+      "status": "PASS"
+    },
+    {
+      "name": "non_english_preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "ordering_violation_detected",
+      "status": "PASS"
+    },
+    {
+      "name": "valid_fixture_passes",
+      "status": "PASS"
+    }
+  ]
+}
