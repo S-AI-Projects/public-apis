@@ -1,0 +1,37 @@
+R02-T040 Expected Results
+=========================
+
+Self-test (20 fixtures):
+  valid-all.md                exit=0  errors=[]
+  missing-entry.md            exit=1  errors=[missing_entry]
+  malformed-row.md            exit=1  errors=[bad_link, missing_entry]
+  bad-link.md                 exit=1  errors=[empty_url, wrong_url]
+  invalid-auth.md             exit=1  errors=[invalid_auth, wrong_auth]
+  invalid-https.md            exit=1  errors=[invalid_https, wrong_https]
+  invalid-cors.md             exit=1  errors=[invalid_cors, wrong_cors]
+  wrong-order.md              exit=1  errors=[wrong_order]
+  bad-columns.md              exit=1  errors=[bad_column_count]
+  long-description.md         exit=1  errors=[description_too_long]
+  bad-padding.md              exit=1  errors=[bad_padding]
+  multiple-spaces-padding.md  exit=1  errors=[bad_padding]
+  missing-heading.md          exit=1  errors=[missing_heading]
+  header-error.md             exit=1  errors=[bad_header]
+  separator-error.md          exit=1  errors=[bad_separator]
+  metadata-discrepancy.md     exit=1  errors=[wrong_auth]
+  unverified-info.md          exit=0  errors=[]
+  neighbor-order-error.md     exit=1  errors=[wrong_order]
+  dynamic-line-numbers.md     exit=0  errors=[]
+  non-english.md              exit=0  errors=[]
+
+Summary: 20/20 fixtures pass.
+
+Live validation (against README.md at pinned commit 2676ca49d557ef14a0f478311506dae947639028):
+  Target section: ### Patent (lines 1991-1997)
+  Selected entries:
+    - line 1994: EPO          auth='OAuth'   https='Yes'  cors='Unknown'  [OK]
+    - line 1995: PatentsView  auth='No'      https='Yes'  cors='Unknown'  [OK]
+    - line 1996: TIPO         auth='apiKey'  https='Yes'  cors='Unknown'  [OK]
+  Selected-entry & neighbor ordering: [OK] (case-insensitive, followed by 'USPTO')
+  Task-specific validation: [PASS] (0 errors)
+  Section-wide validation : [PASS] (0 errors)
+  Overall Validation Result: PASSED (exit code 0)

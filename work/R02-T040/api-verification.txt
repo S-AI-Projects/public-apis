@@ -1,0 +1,106 @@
+R02-T040 API Verification Notes
+===============================
+Investigation Date: 2026-11-18
+Pinned commit     : 2676ca49d557ef14a0f478311506dae947639028
+
+--- 1. EPO (European Patent Office) ---
+Official Documentation URLs:
+  - Developer Portal : https://developers.epo.org/
+  - OPS Documentation: https://developers.epo.org/ops-v3-2/documentation
+  - Token Endpoint   : https://ops.epo.org/3.2/auth/accesstoken
+Catalogue Name       : EPO
+Catalogue Line       : 1994 (dynamic)
+Catalogue Auth       : `OAuth`   — VERIFIED
+Catalogue HTTPS      : Yes       — VERIFIED
+Catalogue CORS       : Unknown   — VERIFIED (undocumented)
+Observed Facts:
+  - European Patent Office Open Patent Services (OPS) v3.2.
+  - Requires user account registration to obtain Consumer Key and Consumer Secret.
+  - Uses OAuth 2.0 Client Credentials Grant (`POST /3.2/auth/accesstoken`) to obtain access tokens.
+  - Access token must be passed in request header: `Authorization: Bearer <access_token>`.
+  - Served exclusively over HTTPS.
+  - CORS headers are not documented or guaranteed for cross-origin browser requests.
+    CORS must not be inferred from the developer portal website; classified as Unknown.
+Historical Information:
+  - OPS has consistently utilized OAuth 2.0 client credential authentication across v2.x and v3.x.
+Unverified Information:
+  - CORS headers for third-party browser clients remain unverified in official documentation.
+Verdict:
+  - Existing catalogue entry line 1994 is completely accurate. Retain as-is.
+
+--- 2. PatentsView ---
+Official Documentation URLs:
+  - Legacy Documentation (Assigned): https://patentsview.org/apis/purpose
+  - Legacy Endpoints Documentation : https://patentsview.org/apis/api-endpoints
+  - Legacy Query Endpoint          : https://api.patentsview.org/patents/query
+  - Current PatentSearch Portal    : https://search.patentsview.org/
+  - Current PatentSearch Docs      : https://search.patentsview.org/docs/
+  - USPTO Open Data Portal         : https://data.uspto.gov/
+  - USPTO API Directory            : https://api.uspto.gov/
+Catalogue Name       : PatentsView (raw cell text: `PatentsView `)
+Catalogue Line       : 1995 (dynamic)
+Catalogue Auth       : No        — VERIFIED (for legacy endpoint)
+Catalogue HTTPS      : Yes       — VERIFIED
+Catalogue CORS       : Unknown   — VERIFIED (undocumented)
+Observed Facts:
+  - Legacy PatentsView API: Endpoints documented under /apis/purpose were historically open,
+    free, and unauthenticated (Auth: No). No registration or API key was required.
+  - Current PatentSearch API: PatentsView has introduced a new API version that requires user
+    registration and an `X-Api-Key` HTTP header (Auth: apiKey).
+  - USPTO Migration: The USPTO announced the consolidation of patent data services under the
+    USPTO Open Data Portal (data.uspto.gov / api.uspto.gov), superseding earlier platforms.
+  - Minor formatting note: Raw Markdown link text contains a trailing space `[PatentsView ]`.
+Historical Information:
+  - PatentsView operated from inception through 2024 as an open, unauthenticated research API.
+Unverified Information:
+  - The exact decommission schedule for legacy unauthenticated endpoints vs transition phase
+    is unverified externally; migration timeline to USPTO ODP remains in progress.
+Verdict:
+  - The assigned URL points to the legacy purpose page. Do not apply new PatentSearch API
+    authentication requirements to the legacy API without explaining version distinction.
+  - Leave root README.md unchanged per contribution policy. Document recommendation separately.
+
+--- 3. TIPO (Taiwan Intellectual Property Office) ---
+Official Documentation URLs:
+  - Assigned Service Portal        : https://tiponet.tipo.gov.tw/Gazette/OpenData/OD/OD05.aspx?QryDS=API00
+  - Open Data Platform Overview    : https://tiponet.tipo.gov.tw/Gazette/OpenData/
+  - Member Registration & Docs     : https://tiponet.tipo.gov.tw/Gazette/OpenData/OD/OD01.aspx
+  - Taiwan Government Open Data    : https://data.gov.tw/dataset/33314
+Catalogue Name       : TIPO
+Catalogue Line       : 1996 (dynamic)
+Catalogue Auth       : `apiKey`  — VERIFIED (token authentication)
+Catalogue HTTPS      : Yes       — VERIFIED
+Catalogue CORS       : Unknown   — VERIFIED (undocumented)
+Observed Facts:
+  - Assigned service: Taiwan Intellectual Property Office (經濟部智慧財產局) Gazette Open Data
+    service (API00: 專利公報開放資料).
+  - Account Registration: Users register a member account on the TIPONet Gazette Open Data platform.
+  - Token Issuance: Users authenticate with their registered account name and password (via Basic
+    auth or verification API) to request an access token. TIPO issues an authorized token string.
+  - Bearer-Token Usage: Subsequent API requests to retrieve patent gazette datasets must pass the
+    token in the HTTP `Authorization` header as `Bearer <token>` (or pass the token parameter).
+  - Under CONTRIBUTING.md, private token authentication is defined as:
+    "the API uses a private key string/token for authentication - try and use the correct parameter".
+  - TIPO does not implement an OAuth 2.0 authorization server; token auth is properly classified as apiKey.
+  - Protocol is HTTPS; CORS is undocumented for browser cross-origin requests.
+Historical Information:
+  - TIPO established the Gazette Open Data API under the Taiwan Executive Yuan Open Data directive,
+    transitioning from CD/DVD distribution to token-authenticated REST downloads.
+Unverified Information:
+  - CORS headers for third-party browser clients and machine-readable OpenAPI specs for dataset
+    API00 remain unverified externally on tiponet.tipo.gov.tw.
+Verdict:
+  - Catalogue entry line 1996 is accurate under CONTRIBUTING.md rules. Retain as-is.
+
+--- Ordering & Neighbors ---
+Section: ### Patent (line 1991)
+Line 1992: Table header
+Line 1993: Table separator
+Line 1994: EPO
+Line 1995: PatentsView
+Line 1996: TIPO
+Line 1997: USPTO
+
+Alphabetical sequence:
+  'epo' < 'patentsview' < 'tipo' < 'uspto' -> STRICTLY CORRECT
+All entries are in valid case-insensitive alphabetical sequence.
