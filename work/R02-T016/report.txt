@@ -1,0 +1,17 @@
+Task ID: R02-T016
+Category: Food & Drink
+Python Version: 3.9.6 (default, Aug 25 2026, 21:26:21) 
+[Clang 21.0.0 (clang-2100.3.34.2)]
+Platform: macOS-27.2.1-arm64-arm-64bit
+Date: 2026-11-22
+
+=== Selected Entries Analysis ===
+1. BaconMockup: L1220 | https://baconmockup.com/ (Valid offline row, HTTP 200 live)
+2. CalorieNinjas: L1221 | https://calorieninjas.com/api (Valid offline row, HTTP 200 live)
+3. Chomp: L1222 | https://chompthis.com/api/ (Valid offline row, HTTP 200 live)
+
+=== Offline Test Suite Execution ===
+- Network Socket Isolation: PASS (Socket monkeypatched to prevent network)
+- Valid Rows Parsing: PASS
+- Malformed Rows Rejection: PASS (Column count, bracket syntax, auth backticks)
+- Unusual URL Characters Handling: PASS (Percent encoding, query strings, ports, tildes)
