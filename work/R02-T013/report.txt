@@ -1,0 +1,18 @@
+Task ID: R02-T013
+Category: Phone
+Python Version: 3.9.6 (default, Aug 25 2026, 21:26:21) 
+[Clang 21.0.0 (clang-2100.3.34.2)]
+Platform: macOS-27.2.1-arm64-arm-64bit
+Date: 2026-11-22
+
+=== Selected Entries Analysis ===
+1. Numlookup: https://numlookupapi.com (L2040) -> Unique endpoint
+2. Numverify: https://numverify.com?utm_source=... (L2041) -> Has referral query param; preserved
+3. Cloudmersive Validate: https://cloudmersive.com/phone-number-validation-API (L2042) -> Dedicated phone endpoint, distinct from L988 validate-api
+
+=== Duplicate Detection Verification ===
+- Exact Duplicates Found: PASS
+- Conservative Normalization: PASS (Case/port matched)
+- Query Separation: PASS (utm query preserved)
+- Fragment Separation: PASS (Distinct anchors preserved)
+- Deletion Policy: PASS (Manual review pair required)
