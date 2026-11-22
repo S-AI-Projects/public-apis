@@ -1,0 +1,34 @@
+{
+  "test_name": "no_duplicates",
+  "description": "The real three selected entries have distinct URLs and must produce no duplicate groups",
+  "entries": [
+    {
+      "name": "AbuseIPDB",
+      "url": "https://docs.abuseipdb.com/",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 244
+    },
+    {
+      "name": "AlienVault Open Threat Exchange (OTX)",
+      "url": "https://otx.alienvault.com/api",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 245
+    },
+    {
+      "name": "CAPEsandbox",
+      "url": "https://capev2.readthedocs.io/en/latest/usage/api.html",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 246
+    }
+  ],
+  "expected": {
+    "duplicate_groups": [],
+    "distinct_entries": 3
+  }
+}

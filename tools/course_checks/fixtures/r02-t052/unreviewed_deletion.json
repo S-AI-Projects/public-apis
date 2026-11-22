@@ -1,0 +1,32 @@
+{
+  "test_name": "unreviewed_deletion",
+  "description": "A proposed deletion without a valid manually reviewed pair must be rejected by the checker",
+  "entries": [
+    {
+      "name": "Service A",
+      "url": "https://example.com/api",
+      "auth": "apiKey",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 100
+    },
+    {
+      "name": "Service A Duplicate",
+      "url": "https://example.com/api/",
+      "auth": "apiKey",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 105
+    }
+  ],
+  "proposed_deletions": [
+    {
+      "line": 105,
+      "url": "https://example.com/api/"
+    }
+  ],
+  "reviewed_pairs": [],
+  "expected": {
+    "validation_error": "Proposed deletion at line 105 rejected: missing manually reviewed pair"
+  }
+}

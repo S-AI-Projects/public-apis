@@ -1,0 +1,33 @@
+{
+  "test_name": "exact_duplicates",
+  "description": "Two entries with byte-identical URLs must be grouped as an exact duplicate match",
+  "entries": [
+    {
+      "name": "AbuseIPDB",
+      "url": "https://docs.abuseipdb.com/",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 244
+    },
+    {
+      "name": "AbuseIPDB Mirror",
+      "url": "https://docs.abuseipdb.com/",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 999
+    }
+  ],
+  "expected": {
+    "duplicate_groups": [
+      {
+        "match_type": "exact",
+        "normalized_url": "https://docs.abuseipdb.com",
+        "reasons": ["byte_identical"],
+        "lines": [244, 999],
+        "member_names": ["AbuseIPDB", "AbuseIPDB Mirror"]
+      }
+    ]
+  }
+}

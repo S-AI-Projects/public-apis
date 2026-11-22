@@ -1,0 +1,32 @@
+{
+  "test_name": "utm_parameters",
+  "description": "Same URL with and without UTM tracking parameters must be kept distinct (no auto-stripping of query parameters)",
+  "entries": [
+    {
+      "name": "AbuseIPDB Clean",
+      "url": "https://docs.abuseipdb.com/",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 244
+    },
+    {
+      "name": "AbuseIPDB Campaign",
+      "url": "https://docs.abuseipdb.com/?utm_source=twitter&utm_medium=social",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 1005
+    }
+  ],
+  "expected": {
+    "duplicate_groups": [],
+    "distinct_entries": 2,
+    "kept_distinct_reasons": [
+      {
+        "lines": [244, 1005],
+        "reason": "query_string_differs_utm_preserved"
+      }
+    ]
+  }
+}

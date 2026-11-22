@@ -1,0 +1,33 @@
+{
+  "test_name": "trailing_slash",
+  "description": "URLs differing only by a trailing slash must be grouped as a conservative normalized match",
+  "entries": [
+    {
+      "name": "AlienVault Open Threat Exchange (OTX)",
+      "url": "https://otx.alienvault.com/api",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 245
+    },
+    {
+      "name": "AlienVault OTX Slash",
+      "url": "https://otx.alienvault.com/api/",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 1000
+    }
+  ],
+  "expected": {
+    "duplicate_groups": [
+      {
+        "match_type": "normalized",
+        "normalized_url": "https://otx.alienvault.com/api",
+        "reasons": ["trailing_slash"],
+        "lines": [245, 1000],
+        "member_names": ["AlienVault Open Threat Exchange (OTX)", "AlienVault OTX Slash"]
+      }
+    ]
+  }
+}

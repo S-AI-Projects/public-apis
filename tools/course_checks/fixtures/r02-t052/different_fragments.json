@@ -1,0 +1,32 @@
+{
+  "test_name": "different_fragments",
+  "description": "URLs differing in fragment/anchor must be kept distinct",
+  "entries": [
+    {
+      "name": "CAPEsandbox Overview",
+      "url": "https://capev2.readthedocs.io/en/latest/usage/api.html#overview",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 246
+    },
+    {
+      "name": "CAPEsandbox Endpoints",
+      "url": "https://capev2.readthedocs.io/en/latest/usage/api.html#endpoints",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 1004
+    }
+  ],
+  "expected": {
+    "duplicate_groups": [],
+    "distinct_entries": 2,
+    "kept_distinct_reasons": [
+      {
+        "lines": [246, 1004],
+        "reason": "fragment_differs"
+      }
+    ]
+  }
+}

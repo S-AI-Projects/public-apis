@@ -1,0 +1,33 @@
+{
+  "test_name": "case_of_host",
+  "description": "URLs differing only in hostname casing must be grouped under conservative normalization",
+  "entries": [
+    {
+      "name": "AbuseIPDB",
+      "url": "https://docs.abuseipdb.com/",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 244
+    },
+    {
+      "name": "AbuseIPDB Uppercase Host",
+      "url": "https://DOCS.ABUSEIPDB.COM/",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 1001
+    }
+  ],
+  "expected": {
+    "duplicate_groups": [
+      {
+        "match_type": "normalized",
+        "normalized_url": "https://docs.abuseipdb.com",
+        "reasons": ["case_of_host"],
+        "lines": [244, 1001],
+        "member_names": ["AbuseIPDB", "AbuseIPDB Uppercase Host"]
+      }
+    ]
+  }
+}
