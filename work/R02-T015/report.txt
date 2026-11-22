@@ -1,0 +1,25 @@
+Task ID: R02-T015
+Category: Test Data
+Python Version: 3.9.6 (default, Aug 25 2026, 21:26:21) 
+[Clang 21.0.0 (clang-2100.3.34.2)]
+Platform: macOS-27.2.1-arm64-arm-64bit
+Date: 2026-11-22
+
+=== Evidence Table for Selected Entries ===
+1. AddressMock: L2430 | https://addressmock.com/api
+   Catalogue: Auth=No, HTTPS=Yes, CORS=Yes
+   Observed: HTTP 404 (Unreachable)
+   Decision: Retain entry per retention policy
+2. Bacon Ipsum: L2431 | https://baconipsum.com/json-api/
+   Catalogue: Auth=No, HTTPS=Yes, CORS=Unknown
+   Observed: API returns Access-Control-Allow-Origin: *
+   Decision: Proposed update CORS to Yes
+3. Dicebear Avatars: L2432 | https://avatars.dicebear.com/
+   Catalogue: Auth=No, HTTPS=Yes, CORS=No
+   Observed: Redirects to www.dicebear.com; CORS is enabled
+   Decision: Proposed update URL to https://www.dicebear.com/ and CORS to Yes
+
+=== Validation Assertions ===
+- Missing Required Field Rejection: PASS
+- Invalid Enum Rejections (Auth, HTTPS, CORS): PASS
+- Evidence Table Completeness: PASS
