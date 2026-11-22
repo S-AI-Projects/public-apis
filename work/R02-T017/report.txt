@@ -1,0 +1,19 @@
+Task ID: R02-T017
+Category: Shopping
+Python Version: 3.9.6 (default, Aug 25 2026, 21:26:21) 
+[Clang 21.0.0 (clang-2100.3.34.2)]
+Platform: macOS-27.2.1-arm64-arm-64bit
+Date: 2026-11-22
+
+=== Selected Entries Probing ===
+1. ARC: L2249 | https://www.arcreport.ai/developers -> SUCCESS_200 (Active)
+2. Best Buy: L2250 | https://bestbuyapis.github.io/api-documentation/#overview -> SUCCESS_200 (Active)
+3. BirkinBagStock: L2251 | https://birkinbagstock.com/.well-known/openapi.json -> SUCCESS_200 (Active)
+
+=== Failure Classification Fixtures ===
+- 200 OK: PASS (SUCCESS_200, Retain)
+- 404 Not Found: PASS (MISSING_RESOURCE_404, Manual review before removal)
+- 429 Too Many Requests: PASS (RATE_LIMITED_429, Retain)
+- HEAD 405 -> GET 200: PASS (HEAD_405_GET_200_SUCCESS, Method fallback confirmed)
+- Timeout: PASS (REQUEST_TIMEOUT, Retain)
+- DNS Failure: PASS (DNS_RESOLUTION_FAILURE, Retain)
