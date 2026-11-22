@@ -1,0 +1,18 @@
+Task ID: R02-T020
+Category: Anime
+Python Version: 3.9.6 (default, Aug 25 2026, 21:26:21) 
+[Clang 21.0.0 (clang-2100.3.34.2)]
+Platform: macOS-27.2.1-arm64-arm-64bit
+Date: 2026-11-22
+
+=== Selected Entries Validation ===
+1. AniAPI: L216 | Valid markdown link, segments spaced, alphabetical (A)
+2. AniDB: L217 | Valid markdown link, segments spaced, alphabetical (B)
+3. AniList: L218 | Valid markdown link, segments spaced, alphabetical (L)
+
+=== Formatting & Ordering Check Assertions ===
+- Valid Anime Table Syntax: PASS (Zero errors)
+- Non-English Unicode Preservation: PASS (日本語 preserved)
+- Out-of-Order Rejection: PASS (Rejected with source line L305)
+- Missing Column Rejection: PASS (Rejected with source line L404)
+- Forbidden Suffix Rejection: PASS (Rejected with source line L504)
