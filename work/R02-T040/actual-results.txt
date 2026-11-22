@@ -1,0 +1,118 @@
+R02-T040 Actual Results
+=======================
+
+Execution Date : 2026-11-18T11:14:18Z
+Python Version : 3.15.2
+Platform       : macOS (Darwin arm64)
+Pinned Commit  : 2676ca49d557ef14a0f478311506dae947639028
+
+1. Self-Test Run (`python3 tools/course_checks/r02-t040.py --self-test`):
+-------------------------------------------------------------------------
+[PASS] valid-all.md
+[PASS] missing-entry.md
+[PASS] malformed-row.md
+[PASS] bad-link.md
+[PASS] invalid-auth.md
+[PASS] invalid-https.md
+[PASS] invalid-cors.md
+[PASS] wrong-order.md
+[PASS] bad-columns.md
+[PASS] long-description.md
+[PASS] bad-padding.md
+[PASS] multiple-spaces-padding.md
+[PASS] missing-heading.md
+[PASS] header-error.md
+[PASS] separator-error.md
+[PASS] metadata-discrepancy.md
+[PASS] unverified-info.md
+[PASS] neighbor-order-error.md
+[PASS] dynamic-line-numbers.md
+[PASS] non-english.md
+
+Summary: 20/20 fixtures passed.
+Exit code: 0
+
+2. Python Optimization Modes:
+-----------------------------
+`python3 -O tools/course_checks/r02-t040.py --self-test`
+Summary: 20/20 fixtures passed.
+Exit code: 0
+
+`python3 -OO tools/course_checks/r02-t040.py --self-test`
+Summary: 20/20 fixtures passed.
+Exit code: 0
+
+3. Live README Validation (`python3 tools/course_checks/r02-t040.py`):
+----------------------------------------------------------------------
+================================================================================
+R02-T040 Validation & Evidence Report: ### Patent Section
+================================================================================
+
+[1. SOURCE FACTS & SCOPE]
+  Target file          : /Users/apuravagarwal/programming/snai assignment/public-apis-r02-t040/README.md
+  Target section       : ### Patent
+  Heading line (1-based): 1991
+  Header line          : 1992
+  Separator line       : 1993
+  Total data rows      : 4
+
+[2. EXISTING CATALOGUE METADATA]
+  1. EPO          (line 1994): Auth='OAuth'  HTTPS='Yes' CORS='Unknown' URL=https://developers.epo.org/
+  2. PatentsView  (line 1995): Auth='No'     HTTPS='Yes' CORS='Unknown' URL=https://patentsview.org/apis/purpose
+  3. TIPO         (line 1996): Auth='apiKey' HTTPS='Yes' CORS='Unknown' URL=https://tiponet.tipo.gov.tw/Gazette/OpenData/OD/OD05.aspx?QryDS=API00
+
+[3. OFFICIAL DOCUMENTATION OBSERVATIONS]
+  1. EPO:
+     Documentation URL: https://developers.epo.org/
+     Observed Facts   : European Patent Office Open Patent Services (OPS) v3.2 official documentation at https://developers.epo.org/ states user registration generates a Consumer Key and Consumer Secret. Token endpoint POST https://ops.epo.org/3.2/auth/accesstoken issues an OAuth 2.0 access token supplied as 'Authorization: Bearer <token>'. Served exclusively over HTTPS.
+  2. PatentsView:
+     Documentation URL: https://patentsview.org/apis/purpose
+     Observed Facts   : Legacy API documentation at https://patentsview.org/apis/purpose and https://patentsview.org/apis/api-endpoints documented unauthenticated GET/POST access to https://api.patentsview.org/patents/query without any API key (Auth: 'No'). The newer PatentSearch API at https://search.patentsview.org/docs/ requires user registration and an 'X-Api-Key' HTTP header (Auth: 'apiKey'). USPTO announced migration of patent data dissemination services to the USPTO Open Data Portal at https://data.uspto.gov/ and https://api.uspto.gov/.
+  3. TIPO:
+     Documentation URL: https://tiponet.tipo.gov.tw/Gazette/OpenData/OD/OD05.aspx?QryDS=API00
+     Observed Facts   : Taiwan Intellectual Property Office (經濟部智慧財產局) Gazette Open Data platform at https://tiponet.tipo.gov.tw/Gazette/OpenData/OD/OD05.aspx?QryDS=API00 provides patent gazette dataset API00. Developers register on TIPONet (https://tiponet.tipo.gov.tw/), authenticate with account credentials to obtain an API access token, and supply the token as a Bearer token in the Authorization header (or token parameter). Protocol is HTTPS.
+
+[4. HISTORICAL INFORMATION & VERSION DISTINCTIONS]
+  1. EPO:
+     Context : OPS has operated as an OAuth 2.0 service across v2.x and v3.x releases, superseding earlier unauthenticated access interfaces.
+  2. PatentsView:
+     Context : PatentsView legacy API operated as an open, unauthenticated REST service. The newer PatentSearch API was introduced subsequently, and migration to the USPTO Open Data Portal is scheduled to supersede earlier dissemination platforms.
+  3. TIPO:
+     Context : TIPO established the Gazette Open Data API under the Taiwan Executive Yuan Open Data initiative, providing programmatic REST access in place of physical and batch media distribution.
+
+[5. MANUAL DECISIONS & RECOMMENDED METADATA]
+  1. EPO:
+     Recommended Metadata : Auth='OAuth', HTTPS='Yes', CORS='Unknown'
+     Decision Rationale   : Retain existing catalogue metadata as-is ('OAuth', 'Yes', 'Unknown'). Accurately reflects OPS OAuth 2.0 client credentials requirement under CONTRIBUTING.md rules.
+  2. PatentsView:
+     Recommended Metadata : Auth='No', HTTPS='Yes', CORS='Unknown'
+     Decision Rationale   : Keep root README.md unchanged ('No', 'Yes', 'Unknown') for the legacy URL assigned. Per policy, do not apply new PatentSearch API key requirements to the legacy endpoint without version distinction. Document the legacy vs current distinction and USPTO migration separately in decisions.md.
+  3. TIPO:
+     Recommended Metadata : Auth='apiKey', HTTPS='Yes', CORS='Unknown'
+     Decision Rationale   : Retain 'apiKey' classification. In CONTRIBUTING.md, 'apiKey' is defined as 'the API uses a private key string/token for authentication'. Because TIPO uses an issued private token rather than an OAuth 2.0 authorization server, 'apiKey' is the exact, proper classification.
+
+[6. UNVERIFIED OR INCONCLUSIVE INFORMATION]
+  Policy Rule: Unverified external evidence or inconclusive reachability
+  probes are retained as inconclusive observations and do NOT become
+  confirmed catalogue metadata errors.
+  - EPO: CORS headers for third-party browser clients are undocumented in the OPS developer portal. Direct browser cross-origin requests remain unverified without live header capture.
+  - PatentsView: Exact decommission date for legacy unauthenticated endpoints vs transition phase is unverified externally; migration timeline to USPTO ODP remains in progress.
+  - TIPO: CORS headers for third-party browser clients and machine-readable OpenAPI specs for dataset API00 remain unverified externally on tiponet.tipo.gov.tw.
+
+[7. SECTION-WIDE & NEIGHBOR STRUCTURAL VALIDATIONS]
+  Table header format         : [PASS]
+  Table separator format      : [PASS]
+  Row column counts (5 cols)  : [PASS]
+  Markdown delimiter padding  : [PASS] (rejects missing and multiple spaces)
+  Description length (<=100)  : [PASS]
+  Alphabetical row ordering   : [PASS] (case-insensitive)
+  - 'EPO' (line 1994): preceded by 'None (first row)', followed by 'PatentsView'
+  - 'PatentsView' (line 1995): preceded by 'EPO', followed by 'TIPO'
+  - 'TIPO' (line 1996): preceded by 'PatentsView', followed by 'USPTO'
+  Neighbor ordering check     : [OK] (All selected entries ordered relative to neighbors)
+
+[8. AUTOMATED VALIDATION SUMMARY]
+  Task-specific validation    : [PASS] (0 error(s))
+  Section-wide validation     : [PASS] (0 error(s))
+  Overall Validation Result   : PASSED (exit code 0)
+Exit code: 0
