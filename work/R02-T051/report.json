@@ -1,0 +1,76 @@
+{
+  "task": "R02-T051",
+  "observation_date": "2026-11-22T08:49:36.629524+00:00",
+  "readme_path": "/Users/divyanshiyadav/Desktop/public-apis/README.md",
+  "total_requests": 3,
+  "results": [
+    {
+      "entry_name": "Currencylayer",
+      "entry_url": "https://currencylayer.com?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers",
+      "entry_line_number": 609,
+      "entry_auth": "`apiKey`",
+      "entry_https": "Yes",
+      "entry_cors": "Unknown",
+      "entry_description": "Exchange rates and currency conversion",
+      "classification": "transient_failure",
+      "hop_count": 0,
+      "chain": [
+        [
+          "https://currencylayer.com?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers",
+          "SSL_ERROR"
+        ]
+      ],
+      "final_url": null,
+      "recommendation": "manual_review",
+      "error_kind": "ssl_error",
+      "error_detail": "SSL error for https://currencylayer.com?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1147)",
+      "utm_flagged": true
+    },
+    {
+      "entry_name": "Exchangerate.host",
+      "entry_url": "https://exchangerate.host?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers",
+      "entry_line_number": 610,
+      "entry_auth": "`apiKey`",
+      "entry_https": "Yes",
+      "entry_cors": "Unknown",
+      "entry_description": "Foreign exchange & crypto rates API (keyless access ended 2023)",
+      "classification": "transient_failure",
+      "hop_count": 0,
+      "chain": [
+        [
+          "https://exchangerate.host?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers",
+          "SSL_ERROR"
+        ]
+      ],
+      "final_url": null,
+      "recommendation": "manual_review",
+      "error_kind": "ssl_error",
+      "error_detail": "SSL error for https://exchangerate.host?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1147)",
+      "utm_flagged": true
+    },
+    {
+      "entry_name": "Exchangeratesapi.io",
+      "entry_url": "https://exchangeratesapi.io?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers",
+      "entry_line_number": 611,
+      "entry_auth": "`apiKey`",
+      "entry_https": "Yes",
+      "entry_cors": "Yes",
+      "entry_description": "Exchange rates with currency conversion",
+      "classification": "transient_failure",
+      "hop_count": 0,
+      "chain": [
+        [
+          "https://exchangeratesapi.io?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers",
+          "SSL_ERROR"
+        ]
+      ],
+      "final_url": null,
+      "recommendation": "manual_review",
+      "error_kind": "ssl_error",
+      "error_detail": "SSL error for https://exchangeratesapi.io?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1147)",
+      "utm_flagged": true
+    }
+  ],
+  "readme_unchanged": true,
+  "readme_change_rationale": "No changes made. Classification results do not meet the evidence bar for a catalogue correction (single-run automated check only)."
+}

@@ -1,0 +1,25 @@
+{
+  "_comment": "Fixture: 429 Too Many Requests — Classified as 'transient_failure'.",
+  "id": "fixture_429",
+  "description": "Server returns 429 (rate limit). Treat as transient; never remove an entry for this reason.",
+  "steps": [
+    {
+      "url": "https://rate-limited-api.example.com/",
+      "response": {
+        "status": 429,
+        "headers": {
+          "Content-Type": "text/html",
+          "Retry-After": "60"
+        },
+        "body": "<html><body>Too Many Requests</body></html>"
+      }
+    }
+  ],
+  "expected": {
+    "classification": "transient_failure",
+    "hop_count": 0,
+    "final_url": null,
+    "recommendation": "manual_review",
+    "error_kind": "rate_limited"
+  }
+}

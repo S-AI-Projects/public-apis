@@ -1,0 +1,24 @@
+{
+  "_comment": "Fixture: Login wall — 401 Unauthorized. Classified as 'login_wall'.",
+  "id": "fixture_login_wall_401",
+  "description": "Server returns 401 Unauthorized (authentication required). This is a login wall, not a client error.",
+  "steps": [
+    {
+      "url": "https://auth-required-api.example.com/",
+      "response": {
+        "status": 401,
+        "headers": {
+          "Content-Type": "application/json",
+          "WWW-Authenticate": "Bearer realm=\"api\""
+        },
+        "body": "{\"error\": \"Unauthorized\", \"message\": \"Authentication required\"}"
+      }
+    }
+  ],
+  "expected": {
+    "classification": "login_wall",
+    "hop_count": 0,
+    "final_url": null,
+    "recommendation": "manual_review"
+  }
+}

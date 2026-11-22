@@ -1,0 +1,23 @@
+{
+  "_comment": "Fixture: Direct 200 OK — no redirects. Classified as 'ok'.",
+  "id": "fixture_200",
+  "description": "Server returns 200 immediately. No redirect chain.",
+  "steps": [
+    {
+      "url": "https://example-api.com/",
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8"
+        },
+        "body": "<html><body><h1>Welcome to Example API</h1></body></html>"
+      }
+    }
+  ],
+  "expected": {
+    "classification": "ok",
+    "hop_count": 0,
+    "final_url": "https://example-api.com/",
+    "recommendation": "keep"
+  }
+}

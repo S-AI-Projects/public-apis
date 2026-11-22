@@ -1,0 +1,35 @@
+{
+  "_comment": "Fixture: Redirect loop — A redirects to B, B redirects back to A. Classified as 'redirect_loop'.",
+  "id": "fixture_redirect_loop",
+  "description": "URL A redirects to URL B, URL B redirects back to URL A. Loop detected.",
+  "steps": [
+    {
+      "url": "https://loop-a.example.com/",
+      "response": {
+        "status": 301,
+        "headers": {
+          "Location": "https://loop-b.example.com/",
+          "Content-Type": "text/html"
+        },
+        "body": ""
+      }
+    },
+    {
+      "url": "https://loop-b.example.com/",
+      "response": {
+        "status": 301,
+        "headers": {
+          "Location": "https://loop-a.example.com/",
+          "Content-Type": "text/html"
+        },
+        "body": ""
+      }
+    }
+  ],
+  "expected": {
+    "classification": "redirect_loop",
+    "hop_count": 2,
+    "final_url": null,
+    "recommendation": "manual_review"
+  }
+}

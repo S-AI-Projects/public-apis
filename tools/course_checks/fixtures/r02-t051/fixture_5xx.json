@@ -1,0 +1,22 @@
+{
+  "_comment": "Fixture: 5xx Server Error — Classified as 'transient_failure'.",
+  "id": "fixture_5xx",
+  "description": "Server returns 500 Internal Server Error. Treated as transient, not a reason to remove entry.",
+  "steps": [
+    {
+      "url": "https://unstable-api.example.com/",
+      "response": {
+        "status": 500,
+        "headers": {"Content-Type": "text/html"},
+        "body": "<html><body>Internal Server Error</body></html>"
+      }
+    }
+  ],
+  "expected": {
+    "classification": "transient_failure",
+    "hop_count": 0,
+    "final_url": null,
+    "recommendation": "manual_review",
+    "error_kind": "server_error"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "_comment": "Fixture: Login wall — 403 Forbidden. Classified as 'login_wall'.",
+  "id": "fixture_login_wall_403",
+  "description": "Server returns 403 Forbidden. The resource exists but access is denied (login wall).",
+  "steps": [
+    {
+      "url": "https://forbidden-api.example.com/",
+      "response": {
+        "status": 403,
+        "headers": {"Content-Type": "text/html"},
+        "body": "<html><body><h1>403 Forbidden</h1><p>You must be logged in to access this resource.</p></body></html>"
+      }
+    }
+  ],
+  "expected": {
+    "classification": "login_wall",
+    "hop_count": 0,
+    "final_url": null,
+    "recommendation": "manual_review"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "task": "R02-T051",
+  "description": "Extracted inputs: Currency Exchange section and target entries from README.md",
+  "readme_path": "README.md",
+  "section": "Currency Exchange",
+  "section_start_line": 606,
+  "readme_section_raw": [
+    "### Currency Exchange",
+    "API | Description | Auth | HTTPS | CORS |",
+    "|:---|:---|:---|:---|:---|",
+    "| [Currencylayer](https://currencylayer.com?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers) | Exchange rates and currency conversion | `apiKey` | Yes | Unknown |",
+    "| [Exchangerate.host](https://exchangerate.host?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers) | Foreign exchange & crypto rates API (keyless access ended 2023) | `apiKey` | Yes | Unknown |",
+    "| [Exchangeratesapi.io](https://exchangeratesapi.io?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers) | Exchange rates with currency conversion | `apiKey` | Yes | Yes |"
+  ],
+  "target_entries": [
+    {
+      "name": "Currencylayer",
+      "url": "https://currencylayer.com?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers",
+      "description": "Exchange rates and currency conversion",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line_number": 609,
+      "utm_flagged": true
+    },
+    {
+      "name": "Exchangerate.host",
+      "url": "https://exchangerate.host?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers",
+      "description": "Foreign exchange & crypto rates API (keyless access ended 2023)",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line_number": 610,
+      "utm_flagged": true
+    },
+    {
+      "name": "Exchangeratesapi.io",
+      "url": "https://exchangeratesapi.io?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers",
+      "description": "Exchange rates with currency conversion",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Yes",
+      "line_number": 611,
+      "utm_flagged": true
+    }
+  ],
+  "note": "All three URLs carry utm_* tracking parameters. These are flagged for manual review but are NOT stripped automatically."
+}

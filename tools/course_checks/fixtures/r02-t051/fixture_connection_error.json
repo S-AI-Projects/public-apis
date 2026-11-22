@@ -1,0 +1,20 @@
+{
+  "_comment": "Fixture: Connection error — DNS failure or refused connection. Classified as 'transient_failure'.",
+  "id": "fixture_connection_error",
+  "description": "urllib raises URLError due to connection refused or DNS failure (not timeout).",
+  "steps": [
+    {
+      "url": "https://unreachable-host.example.com/",
+      "response": null,
+      "error": "connection_error",
+      "error_detail": "Name or service not known"
+    }
+  ],
+  "expected": {
+    "classification": "transient_failure",
+    "hop_count": 0,
+    "final_url": null,
+    "recommendation": "manual_review",
+    "error_kind": "connection_error"
+  }
+}

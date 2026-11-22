@@ -1,0 +1,21 @@
+{
+  "_comment": "Fixture: Client error — 404 Not Found. Classified as 'client_error'.",
+  "id": "fixture_client_error_404",
+  "description": "Server returns 404 Not Found. This is a client error (not 401/403, not 429, not 5xx).",
+  "steps": [
+    {
+      "url": "https://defunct-api.example.com/v1/",
+      "response": {
+        "status": 404,
+        "headers": {"Content-Type": "text/html"},
+        "body": "<html><body><h1>404 Not Found</h1></body></html>"
+      }
+    }
+  ],
+  "expected": {
+    "classification": "client_error",
+    "hop_count": 0,
+    "final_url": null,
+    "recommendation": "manual_review"
+  }
+}
