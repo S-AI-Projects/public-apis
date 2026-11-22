@@ -1,0 +1,32 @@
+{
+  "test_name": "different_query_strings",
+  "description": "URLs differing in query string must be kept distinct and not grouped as duplicates",
+  "entries": [
+    {
+      "name": "CAPEsandbox Mode 1",
+      "url": "https://capev2.readthedocs.io/en/latest/usage/api.html?mode=simple",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 246
+    },
+    {
+      "name": "CAPEsandbox Mode 2",
+      "url": "https://capev2.readthedocs.io/en/latest/usage/api.html?mode=extended",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 1003
+    }
+  ],
+  "expected": {
+    "duplicate_groups": [],
+    "distinct_entries": 2,
+    "kept_distinct_reasons": [
+      {
+        "lines": [246, 1003],
+        "reason": "query_string_differs"
+      }
+    ]
+  }
+}

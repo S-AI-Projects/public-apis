@@ -1,0 +1,66 @@
+=== PASSING RUN: python3 tools/course_checks/r02-t052.py --self-test ===
+==================================================
+RUNNING SELF-TEST SUITE FOR R02-T052
+Fixtures directory: tools/course_checks/fixtures/r02-t052
+==================================================
+
+--- Running fixture test: case_of_host (case_of_host.json) ---
+Description: URLs differing only in hostname casing must be grouped under conservative normalization
+PASS: case_of_host
+
+--- Running fixture test: default_port (default_port.json) ---
+Description: URLs with explicit default ports (:443 for https, :80 for http) must match their port-less equivalents
+PASS: default_port
+
+--- Running fixture test: different_fragments (different_fragments.json) ---
+Description: URLs differing in fragment/anchor must be kept distinct
+PASS: different_fragments
+
+--- Running fixture test: different_query_strings (different_query_strings.json) ---
+Description: URLs differing in query string must be kept distinct and not grouped as duplicates
+PASS: different_query_strings
+
+--- Running fixture test: exact_duplicates (exact_duplicates.json) ---
+Description: Two entries with byte-identical URLs must be grouped as an exact duplicate match
+PASS: exact_duplicates
+
+--- Running fixture test: http_vs_https (http_vs_https.json) ---
+Description: URLs with http vs https scheme must be kept distinct
+PASS: http_vs_https
+
+--- Running fixture test: no_duplicates (no_duplicates.json) ---
+Description: The real three selected entries have distinct URLs and must produce no duplicate groups
+PASS: no_duplicates
+
+--- Running fixture test: trailing_slash (trailing_slash.json) ---
+Description: URLs differing only by a trailing slash must be grouped as a conservative normalized match
+PASS: trailing_slash
+
+--- Running fixture test: unreviewed_deletion (unreviewed_deletion.json) ---
+Description: A proposed deletion without a valid manually reviewed pair must be rejected by the checker
+PASS: Correctly rejected unreviewed proposed deletion (Proposed deletion at line 105 rejected: missing manually reviewed pair)
+
+--- Running fixture test: utm_parameters (utm_parameters.json) ---
+Description: Same URL with and without UTM tracking parameters must be kept distinct (no auto-stripping of query parameters)
+PASS: utm_parameters
+
+All 10/10 fixture tests passed successfully!
+
+--------------------------------------------------
+RUNNING NEGATIVE TEST (DELIBERATE FAILURE VERIFICATION)
+--------------------------------------------------
+PASS: Negative test correctly exited with non-zero code (3)
+Negative test output preview: Executing deliberately failing assertion: expecting distinct URLs to be grouped as duplicates...
+Deliberate failure triggered: URLs with different query strings were correctly kept distinct, not duplicated.
+
+==================================================
+SELF-TEST SUITE COMPLETED: ALL TESTS PASSED (EXIT CODE 0)
+==================================================
+
+Exit Code: 0
+
+=== NEGATIVE TEST RUN: python3 tools/course_checks/r02-t052.py --run-negative-test-case ===
+Executing deliberately failing assertion: expecting distinct URLs to be grouped as duplicates...
+Deliberate failure triggered: URLs with different query strings were correctly kept distinct, not duplicated.
+
+Exit Code: 3

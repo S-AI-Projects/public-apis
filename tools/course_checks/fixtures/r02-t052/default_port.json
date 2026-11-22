@@ -1,0 +1,33 @@
+{
+  "test_name": "default_port",
+  "description": "URLs with explicit default ports (:443 for https, :80 for http) must match their port-less equivalents",
+  "entries": [
+    {
+      "name": "CAPEsandbox",
+      "url": "https://capev2.readthedocs.io/en/latest/usage/api.html",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 246
+    },
+    {
+      "name": "CAPEsandbox Default Port",
+      "url": "https://capev2.readthedocs.io:443/en/latest/usage/api.html",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 1002
+    }
+  ],
+  "expected": {
+    "duplicate_groups": [
+      {
+        "match_type": "normalized",
+        "normalized_url": "https://capev2.readthedocs.io/en/latest/usage/api.html",
+        "reasons": ["default_port"],
+        "lines": [246, 1002],
+        "member_names": ["CAPEsandbox", "CAPEsandbox Default Port"]
+      }
+    ]
+  }
+}

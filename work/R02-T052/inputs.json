@@ -1,0 +1,169 @@
+{
+  "section_name": "Anti-Malware",
+  "section_start_line": 241,
+  "section_end_line": 260,
+  "selected_entries": [
+    {
+      "name": "AbuseIPDB",
+      "url": "https://docs.abuseipdb.com/",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 244
+    },
+    {
+      "name": "AlienVault Open Threat Exchange (OTX)",
+      "url": "https://otx.alienvault.com/api",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 245
+    },
+    {
+      "name": "CAPEsandbox",
+      "url": "https://capev2.readthedocs.io/en/latest/usage/api.html",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 246
+    }
+  ],
+  "all_section_entries": [
+    {
+      "name": "AbuseIPDB",
+      "url": "https://docs.abuseipdb.com/",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 244
+    },
+    {
+      "name": "AlienVault Open Threat Exchange (OTX)",
+      "url": "https://otx.alienvault.com/api",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 245
+    },
+    {
+      "name": "CAPEsandbox",
+      "url": "https://capev2.readthedocs.io/en/latest/usage/api.html",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 246
+    },
+    {
+      "name": "Google Safe Browsing",
+      "url": "https://developers.google.com/safe-browsing/",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 247
+    },
+    {
+      "name": "IPWhois.net Blacklist",
+      "url": "https://ipwhois.net/blacklist/docs",
+      "auth": "No",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 248
+    },
+    {
+      "name": "MalDatabase",
+      "url": "https://maldatabase.com/api-doc.html",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 249
+    },
+    {
+      "name": "MalShare",
+      "url": "https://malshare.com/doc.php",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "No",
+      "line": 250
+    },
+    {
+      "name": "Malwagon",
+      "url": "https://malwagon.com/docs/api",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 251
+    },
+    {
+      "name": "MalwareBazaar",
+      "url": "https://bazaar.abuse.ch/api/",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 252
+    },
+    {
+      "name": "NoPhishy",
+      "url": "https://rapidapi.com/Amiichu/api/exerra-phishing-check/",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Yes",
+      "line": 253
+    },
+    {
+      "name": "Phisherman",
+      "url": "https://phisherman.gg/",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 254
+    },
+    {
+      "name": "Scanii",
+      "url": "https://docs.scanii.com/",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Yes",
+      "line": 255
+    },
+    {
+      "name": "ScanMalware",
+      "url": "https://scanmalware.com",
+      "auth": "No",
+      "https": "Yes",
+      "cors": "Yes",
+      "line": 256
+    },
+    {
+      "name": "URLhaus",
+      "url": "https://urlhaus-api.abuse.ch/",
+      "auth": "No",
+      "https": "Yes",
+      "cors": "Yes",
+      "line": 257
+    },
+    {
+      "name": "URLScan.io",
+      "url": "https://urlscan.io/about-api/",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 258
+    },
+    {
+      "name": "VirusTotal",
+      "url": "https://docs.virustotal.com/reference/overview",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 259
+    },
+    {
+      "name": "Web of Trust",
+      "url": "https://support.mywot.com/hc/en-us/sections/360004477734-API-",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 260
+    }
+  ]
+}

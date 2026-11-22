@@ -1,0 +1,32 @@
+{
+  "test_name": "http_vs_https",
+  "description": "URLs with http vs https scheme must be kept distinct",
+  "entries": [
+    {
+      "name": "AbuseIPDB HTTP",
+      "url": "http://docs.abuseipdb.com/",
+      "auth": "`apiKey`",
+      "https": "No",
+      "cors": "Unknown",
+      "line": 1006
+    },
+    {
+      "name": "AbuseIPDB HTTPS",
+      "url": "https://docs.abuseipdb.com/",
+      "auth": "`apiKey`",
+      "https": "Yes",
+      "cors": "Unknown",
+      "line": 244
+    }
+  ],
+  "expected": {
+    "duplicate_groups": [],
+    "distinct_entries": 2,
+    "kept_distinct_reasons": [
+      {
+        "lines": [1006, 244],
+        "reason": "scheme_differs_http_vs_https"
+      }
+    ]
+  }
+}

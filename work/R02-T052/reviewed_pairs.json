@@ -1,0 +1,31 @@
+{
+  "task": "R02-T052",
+  "review_date": "2026-11-22",
+  "reviewer": "divyanshiyadav396-lab",
+  "summary": "Review of the 3 selected entries in the Anti-Malware section of README.md. No duplicate URLs exist. All entries are valid and retained.",
+  "reviewed_entries": [
+    {
+      "name": "AbuseIPDB",
+      "url": "https://docs.abuseipdb.com/",
+      "line": 244,
+      "decision": "keep",
+      "rationale": "Official documentation URL is active; parameters match README; unique entry."
+    },
+    {
+      "name": "AlienVault Open Threat Exchange (OTX)",
+      "url": "https://otx.alienvault.com/api",
+      "line": 245,
+      "decision": "keep",
+      "rationale": "Official documentation URL is active; parameters match README; unique entry."
+    },
+    {
+      "name": "CAPEsandbox",
+      "url": "https://capev2.readthedocs.io/en/latest/usage/api.html",
+      "line": 246,
+      "decision": "keep",
+      "rationale": "Official documentation URL is active; parameters match README; unique entry."
+    }
+  ],
+  "proposed_deletions": [],
+  "reviewed_pairs": []
+}

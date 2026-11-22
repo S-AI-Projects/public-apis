@@ -1,0 +1,96 @@
+{
+  "task": "R02-T052",
+  "issue": 52,
+  "section": "Anti-Malware",
+  "runs": {
+    "selected_only": {
+      "command": "python3 tools/course_checks/r02-t052.py --readme README.md --section Anti-Malware --selected-only",
+      "selected_entries": [
+        {
+          "name": "AbuseIPDB",
+          "url": "https://docs.abuseipdb.com/",
+          "line": 244
+        },
+        {
+          "name": "AlienVault Open Threat Exchange (OTX)",
+          "url": "https://otx.alienvault.com/api",
+          "line": 245
+        },
+        {
+          "name": "CAPEsandbox",
+          "url": "https://capev2.readthedocs.io/en/latest/usage/api.html",
+          "line": 246
+        }
+      ],
+      "expected": {
+        "duplicate_groups_count": 0,
+        "duplicate_groups": [],
+        "distinct_entries_count": 3,
+        "pairwise_distinctions": [
+          {
+            "lines": [244, 245],
+            "reason": "hostname_differs"
+          },
+          {
+            "lines": [244, 246],
+            "reason": "hostname_differs"
+          },
+          {
+            "lines": [245, 246],
+            "reason": "hostname_differs"
+          }
+        ],
+        "proposed_deletions": [],
+        "readme_action": "no_change"
+      },
+      "actual": {
+        "duplicate_groups_count": 0,
+        "duplicate_groups": [],
+        "distinct_entries_count": 3,
+        "pairwise_distinctions": [
+          {
+            "lines": [244, 245],
+            "reason": "hostname_differs"
+          },
+          {
+            "lines": [244, 246],
+            "reason": "hostname_differs"
+          },
+          {
+            "lines": [245, 246],
+            "reason": "hostname_differs"
+          }
+        ],
+        "proposed_deletions": [],
+        "readme_action": "no_change"
+      },
+      "verdict": "MATCH"
+    },
+    "full_section": {
+      "command": "python3 tools/course_checks/r02-t052.py --readme README.md --section Anti-Malware",
+      "total_entries": 17,
+      "text_report": "work/R02-T052/report_full_section.txt",
+      "json_report": "work/R02-T052/report_full_section.json",
+      "expected": {
+        "duplicate_groups_count": 0,
+        "duplicate_groups": [],
+        "distinct_entries_count": 17,
+        "proposed_deletions": [],
+        "readme_action": "no_change"
+      },
+      "actual": {
+        "duplicate_groups_count": 0,
+        "duplicate_groups": [],
+        "distinct_entries_count": 17,
+        "proposed_deletions": [],
+        "readme_action": "no_change"
+      },
+      "verdict": "MATCH"
+    }
+  },
+  "overall_verdict": "MATCH",
+  "readme_decision": {
+    "action": "no_change",
+    "reasoning": "All official documentation URLs are active and verified. Auth and HTTPS match observed documentation. CORS response headers were NOT OBSERVED directly in the test environment, so 'Unknown' is preserved as the safe and accurate designation. No duplicate URLs exist."
+  }
+}

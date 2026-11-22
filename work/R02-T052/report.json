@@ -1,0 +1,28 @@
+{
+  "duplicate_groups": [],
+  "distinct_entries": 3,
+  "total_input_entries": 3,
+  "kept_distinct_reasons": [
+    {
+      "lines": [
+        244,
+        245
+      ],
+      "reason": "hostname_differs"
+    },
+    {
+      "lines": [
+        244,
+        246
+      ],
+      "reason": "hostname_differs"
+    },
+    {
+      "lines": [
+        245,
+        246
+      ],
+      "reason": "hostname_differs"
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+==================================================
+R02-T052 Duplicate URL Check Report
+Section: ### Anti-Malware
+Total entries analyzed: 17
+==================================================
+Duplicate Groups Found: 0
+  -> None. All analyzed URLs are distinct under conservative normalization.
+
+All Analyzed Section Entries (with line numbers):
+  - Line 244: AbuseIPDB
+      URL:            https://docs.abuseipdb.com/
+      Normalized URL: https://docs.abuseipdb.com
+      Auth:           `apiKey`
+      HTTPS:          Yes
+      CORS:           Unknown
+  - Line 245: AlienVault Open Threat Exchange (OTX)
+      URL:            https://otx.alienvault.com/api
+      Normalized URL: https://otx.alienvault.com/api
+      Auth:           `apiKey`
+      HTTPS:          Yes
+      CORS:           Unknown
+  - Line 246: CAPEsandbox
+      URL:            https://capev2.readthedocs.io/en/latest/usage/api.html
+      Normalized URL: https://capev2.readthedocs.io/en/latest/usage/api.html
+      Auth:           `apiKey`
+      HTTPS:          Yes
+      CORS:           Unknown
+  - Line 247: Google Safe Browsing
+      URL:            https://developers.google.com/safe-browsing/
+      Normalized URL: https://developers.google.com/safe-browsing
+      Auth:           `apiKey`
+      HTTPS:          Yes
+      CORS:           Unknown
+  - Line 248: IPWhois.net Blacklist
+      URL:            https://ipwhois.net/blacklist/docs
+      Normalized URL: https://ipwhois.net/blacklist/docs
+      Auth:           No
+      HTTPS:          Yes
+      CORS:           Unknown
+  - Line 249: MalDatabase
+      URL:            https://maldatabase.com/api-doc.html
+      Normalized URL: https://maldatabase.com/api-doc.html
+      Auth:           `apiKey`
+      HTTPS:          Yes
+      CORS:           Unknown
+  - Line 250: MalShare
+      URL:            https://malshare.com/doc.php
+      Normalized URL: https://malshare.com/doc.php
+      Auth:           `apiKey`
+      HTTPS:          Yes
+      CORS:           No
+  - Line 251: Malwagon
+      URL:            https://malwagon.com/docs/api
+      Normalized URL: https://malwagon.com/docs/api
+      Auth:           `apiKey`
+      HTTPS:          Yes
+      CORS:           Unknown
+  - Line 252: MalwareBazaar
+      URL:            https://bazaar.abuse.ch/api/
+      Normalized URL: https://bazaar.abuse.ch/api
+      Auth:           `apiKey`
+      HTTPS:          Yes
+      CORS:           Unknown
+  - Line 253: NoPhishy
+      URL:            https://rapidapi.com/Amiichu/api/exerra-phishing-check/
+      Normalized URL: https://rapidapi.com/Amiichu/api/exerra-phishing-check
+      Auth:           `apiKey`
+      HTTPS:          Yes
+      CORS:           Yes
+  - Line 254: Phisherman
+      URL:            https://phisherman.gg/
+      Normalized URL: https://phisherman.gg
+      Auth:           `apiKey`
+      HTTPS:          Yes
+      CORS:           Unknown
+  - Line 255: Scanii
+      URL:            https://docs.scanii.com/
+      Normalized URL: https://docs.scanii.com
+      Auth:           `apiKey`
+      HTTPS:          Yes
+      CORS:           Yes
+  - Line 256: ScanMalware
+      URL:            https://scanmalware.com
+      Normalized URL: https://scanmalware.com
+      Auth:           No
+      HTTPS:          Yes
+      CORS:           Yes
+  - Line 257: URLhaus
+      URL:            https://urlhaus-api.abuse.ch/
+      Normalized URL: https://urlhaus-api.abuse.ch
+      Auth:           No
+      HTTPS:          Yes
+      CORS:           Yes
+  - Line 258: URLScan.io
+      URL:            https://urlscan.io/about-api/
+      Normalized URL: https://urlscan.io/about-api
+      Auth:           `apiKey`
+      HTTPS:          Yes
+      CORS:           Unknown
+  - Line 259: VirusTotal
+      URL:            https://docs.virustotal.com/reference/overview
+      Normalized URL: https://docs.virustotal.com/reference/overview
+      Auth:           `apiKey`
+      HTTPS:          Yes
+      CORS:           Unknown
+  - Line 260: Web of Trust
+      URL:            https://support.mywot.com/hc/en-us/sections/360004477734-API-
+      Normalized URL: https://support.mywot.com/hc/en-us/sections/360004477734-API-
+      Auth:           `apiKey`
+      HTTPS:          Yes
+      CORS:           Unknown
+
+Selected Entries Summary:
+  - Line 244: AbuseIPDB
+      URL:            https://docs.abuseipdb.com/
+      Normalized URL: https://docs.abuseipdb.com
+      Auth:           `apiKey`
+      HTTPS:          Yes
+      CORS:           Unknown
+  - Line 245: AlienVault Open Threat Exchange (OTX)
+      URL:            https://otx.alienvault.com/api
+      Normalized URL: https://otx.alienvault.com/api
+      Auth:           `apiKey`
+      HTTPS:          Yes
+      CORS:           Unknown
+  - Line 246: CAPEsandbox
+      URL:            https://capev2.readthedocs.io/en/latest/usage/api.html
+      Normalized URL: https://capev2.readthedocs.io/en/latest/usage/api.html
+      Auth:           `apiKey`
+      HTTPS:          Yes
+      CORS:           Unknown
