@@ -1,0 +1,18 @@
+Task ID: R02-T012
+Category: Open Data
+Python Version: 3.9.6 (default, Aug 25 2026, 21:26:21) 
+[Clang 21.0.0 (clang-2100.3.34.2)]
+Platform: macOS-27.2.1-arm64-arm-64bit
+Date: 2026-11-22
+
+=== Selected Entries ===
+1. 10ML Fragrance Index: https://mcp.10ml.com/openapi.json (L1887) -> HTTP 200 OK (current)
+2. 221: https://221.orvlabs.com/documentation (L1888) -> HTTP 200 OK (current)
+3. 49 Gallery Historical Data: https://api.181649.com/docs (L1889) -> HTTP 200 OK (current)
+
+=== Offline Fixtures Results ===
+- 200 OK: PASS
+- 301->200: PASS (Resolved to destination)
+- Redirect Loop: PASS (Detected and bounded at 5 hops)
+- Timeout: PASS (Transient failure, link retained)
+- Login Wall: PASS (Identified)
