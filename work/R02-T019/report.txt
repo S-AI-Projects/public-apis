@@ -1,0 +1,41 @@
+================================================================================
+                 MAINTENANCE REPORT: BOOKS CATEGORY                            
+================================================================================
+
+[Source Line L344] Entry: A Bíblia Digital
+----------------------------------------------------------------------
+  BEFORE: [A Bíblia Digital](https://www.abibliadigital.com.br/en) | Auth=`apiKey` | HTTPS=Yes | CORS=No
+  [OBSERVED FACTS]
+    - HTTP Status: 503 (Service Unavailable)
+    - Observed Target URL: https://www.abibliadigital.com.br/en
+    - Probe Note: Host returned 503 during probe
+  [RECOMMENDATIONS & DECISIONS]
+    - Decision: Retain
+    - Justification: Policy: No link is removed solely because a single automated request failed. Retain entry and monitor.
+  AFTER:  [A Bíblia Digital](https://www.abibliadigital.com.br/en) | Auth=`apiKey` | HTTPS=Yes | CORS=No
+
+[Source Line L345] Entry: Amanah Sunnah
+----------------------------------------------------------------------
+  BEFORE: [Amanah Sunnah](https://sunnah.amanahagent.cloud/developers) | Auth=`apiKey` | HTTPS=Yes | CORS=Yes
+  [OBSERVED FACTS]
+    - HTTP Status: 200 (OK)
+    - Observed Target URL: https://sunnah.llm-kita.com/developers
+    - Probe Note: Permanent redirect to new canonical host sunnah.llm-kita.com
+  [RECOMMENDATIONS & DECISIONS]
+    - Decision: Update URL
+    - Justification: Canonical service documentation moved to sunnah.llm-kita.com
+  AFTER:  [Amanah Sunnah](https://sunnah.llm-kita.com/developers) | Auth=`apiKey` | HTTPS=Yes | CORS=Yes
+
+[Source Line L346] Entry: Bhagavad Gita
+----------------------------------------------------------------------
+  BEFORE: [Bhagavad Gita](https://docs.bhagavadgitaapi.in) | Auth=`apiKey` | HTTPS=Yes | CORS=Yes
+  [OBSERVED FACTS]
+    - HTTP Status: 200 (OK)
+    - Observed Target URL: https://docs.bhagavadgitaapi.in
+    - Probe Note: Direct healthy response
+  [RECOMMENDATIONS & DECISIONS]
+    - Decision: No Change
+    - Justification: Current metadata and URL are healthy and accurate
+  AFTER:  [Bhagavad Gita](https://docs.bhagavadgitaapi.in) | Auth=`apiKey` | HTTPS=Yes | CORS=Yes
+
+================================================================================
