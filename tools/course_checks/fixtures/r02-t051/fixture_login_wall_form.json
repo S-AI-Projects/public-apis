@@ -1,0 +1,21 @@
+{
+  "_comment": "Fixture: Login wall — 200 OK but body contains a login form. Classified as 'login_wall'.",
+  "id": "fixture_login_wall_form",
+  "description": "Server returns 200 but the response body contains a login form (<input type=password> or <form action=/login>).",
+  "steps": [
+    {
+      "url": "https://gated-api.example.com/",
+      "response": {
+        "status": 200,
+        "headers": {"Content-Type": "text/html; charset=utf-8"},
+        "body": "<html><body><h1>Sign In</h1><form action='/login' method='post'><input type='text' name='username'/><input type='password' name='password'/><button type='submit'>Login</button></form></body></html>"
+      }
+    }
+  ],
+  "expected": {
+    "classification": "login_wall",
+    "hop_count": 0,
+    "final_url": "https://gated-api.example.com/",
+    "recommendation": "manual_review"
+  }
+}

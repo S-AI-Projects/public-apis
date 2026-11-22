@@ -1,0 +1,38 @@
+{
+  "_comment": "Fixture: Too many hops — redirect chain exceeds MAX_HOPS=5. Classified as 'too_many_hops'.",
+  "id": "fixture_too_many_hops",
+  "description": "Redirect chain is longer than the allowed budget (5 hops). No loop, just excessively long chain.",
+  "steps": [
+    {
+      "url": "https://hop0.example.com/",
+      "response": {"status": 301, "headers": {"Location": "https://hop1.example.com/"}, "body": ""}
+    },
+    {
+      "url": "https://hop1.example.com/",
+      "response": {"status": 301, "headers": {"Location": "https://hop2.example.com/"}, "body": ""}
+    },
+    {
+      "url": "https://hop2.example.com/",
+      "response": {"status": 301, "headers": {"Location": "https://hop3.example.com/"}, "body": ""}
+    },
+    {
+      "url": "https://hop3.example.com/",
+      "response": {"status": 301, "headers": {"Location": "https://hop4.example.com/"}, "body": ""}
+    },
+    {
+      "url": "https://hop4.example.com/",
+      "response": {"status": 301, "headers": {"Location": "https://hop5.example.com/"}, "body": ""}
+    },
+    {
+      "url": "https://hop5.example.com/",
+      "response": {"status": 200, "headers": {"Content-Type": "text/html"}, "body": "<html>OK</html>"}
+    }
+  ],
+  "_note": "The checker stops at MAX_HOPS=5 without following the 6th step.",
+  "expected": {
+    "classification": "too_many_hops",
+    "hop_count": 5,
+    "final_url": null,
+    "recommendation": "manual_review"
+  }
+}

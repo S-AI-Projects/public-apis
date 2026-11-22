@@ -1,0 +1,32 @@
+{
+  "_comment": "Fixture: Login wall — redirect to /login-style URL. Classified as 'login_wall'.",
+  "id": "fixture_login_wall_redirect",
+  "description": "Server redirects to a URL containing '/login', '/signin', or '/auth', indicating a login wall.",
+  "steps": [
+    {
+      "url": "https://api.example.com/dashboard",
+      "response": {
+        "status": 302,
+        "headers": {
+          "Location": "https://api.example.com/login?next=/dashboard",
+          "Content-Type": "text/html"
+        },
+        "body": ""
+      }
+    },
+    {
+      "url": "https://api.example.com/login?next=/dashboard",
+      "response": {
+        "status": 200,
+        "headers": {"Content-Type": "text/html"},
+        "body": "<html><body><form method='post'><input type='password'/></form></body></html>"
+      }
+    }
+  ],
+  "expected": {
+    "classification": "login_wall",
+    "hop_count": 1,
+    "final_url": "https://api.example.com/login?next=/dashboard",
+    "recommendation": "manual_review"
+  }
+}

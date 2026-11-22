@@ -1,0 +1,150 @@
+{
+  "task": "R02-T051",
+  "description": "Self-test results — expected vs actual for all 17 fixture cases",
+  "recorded_at": "2026-11-22T08:39:09+00:00",
+  "self_test_exit_code": 0,
+  "negative_test_exit_code": 1,
+  "cases": [
+    {
+      "id": 1,
+      "label": "Direct 200 OK",
+      "fixture": "fixture_200.json",
+      "expected": {"classification": "ok", "hop_count": 0, "recommendation": "keep"},
+      "actual":   {"classification": "ok", "hop_count": 0, "recommendation": "keep"},
+      "result": "PASS"
+    },
+    {
+      "id": 2,
+      "label": "301 → 200 (moved permanently)",
+      "fixture": "fixture_301_to_200.json",
+      "expected": {"classification": "moved_permanent", "hop_count": 1, "final_url": "https://new-api.com/", "recommendation": "update_url"},
+      "actual":   {"classification": "moved_permanent", "hop_count": 1, "final_url": "https://new-api.com/", "recommendation": "update_url"},
+      "result": "PASS"
+    },
+    {
+      "id": 3,
+      "label": "302 → 200 (moved temporarily)",
+      "fixture": "fixture_302_to_200.json",
+      "expected": {"classification": "moved_temporary", "hop_count": 1, "final_url": "https://api.example.com/v2/", "recommendation": "manual_review"},
+      "actual":   {"classification": "moved_temporary", "hop_count": 1, "final_url": "https://api.example.com/v2/", "recommendation": "manual_review"},
+      "result": "PASS"
+    },
+    {
+      "id": 4,
+      "label": "308 → 200 (permanent redirect, method-preserving)",
+      "fixture": "fixture_308_to_200.json",
+      "expected": {"classification": "moved_permanent", "hop_count": 1, "final_url": "https://api.modern.com/", "recommendation": "update_url"},
+      "actual":   {"classification": "moved_permanent", "hop_count": 1, "final_url": "https://api.modern.com/", "recommendation": "update_url"},
+      "result": "PASS"
+    },
+    {
+      "id": 5,
+      "label": "Redirect loop",
+      "fixture": "fixture_redirect_loop.json",
+      "expected": {"classification": "redirect_loop", "recommendation": "manual_review"},
+      "actual":   {"classification": "redirect_loop", "recommendation": "manual_review"},
+      "result": "PASS"
+    },
+    {
+      "id": 6,
+      "label": "Too many hops (exceeds MAX_HOPS=5)",
+      "fixture": "fixture_too_many_hops.json",
+      "expected": {"classification": "too_many_hops"},
+      "actual":   {"classification": "too_many_hops"},
+      "result": "PASS"
+    },
+    {
+      "id": 7,
+      "label": "Timeout",
+      "fixture": "fixture_timeout.json",
+      "expected": {"classification": "transient_failure", "recommendation": "manual_review", "error_kind": "timeout"},
+      "actual":   {"classification": "transient_failure", "recommendation": "manual_review", "error_kind": "timeout"},
+      "result": "PASS"
+    },
+    {
+      "id": 8,
+      "label": "5xx server error",
+      "fixture": "fixture_5xx.json",
+      "expected": {"classification": "transient_failure", "recommendation": "manual_review", "error_kind": "server_error"},
+      "actual":   {"classification": "transient_failure", "recommendation": "manual_review", "error_kind": "server_error"},
+      "result": "PASS"
+    },
+    {
+      "id": 9,
+      "label": "429 rate limited",
+      "fixture": "fixture_429.json",
+      "expected": {"classification": "transient_failure", "recommendation": "manual_review", "error_kind": "rate_limited"},
+      "actual":   {"classification": "transient_failure", "recommendation": "manual_review", "error_kind": "rate_limited"},
+      "result": "PASS"
+    },
+    {
+      "id": 10,
+      "label": "Connection error",
+      "fixture": "fixture_connection_error.json",
+      "expected": {"classification": "transient_failure", "recommendation": "manual_review", "error_kind": "connection_error"},
+      "actual":   {"classification": "transient_failure", "recommendation": "manual_review", "error_kind": "connection_error"},
+      "result": "PASS"
+    },
+    {
+      "id": 11,
+      "label": "Login wall — 200 with login form",
+      "fixture": "fixture_login_wall_form.json",
+      "expected": {"classification": "login_wall", "hop_count": 0, "final_url": "https://gated-api.example.com/", "recommendation": "manual_review"},
+      "actual":   {"classification": "login_wall", "hop_count": 0, "final_url": "https://gated-api.example.com/", "recommendation": "manual_review"},
+      "result": "PASS"
+    },
+    {
+      "id": 12,
+      "label": "Login wall — 401 Unauthorized",
+      "fixture": "fixture_login_wall_401.json",
+      "expected": {"classification": "login_wall", "hop_count": 0, "recommendation": "manual_review"},
+      "actual":   {"classification": "login_wall", "hop_count": 0, "recommendation": "manual_review"},
+      "result": "PASS"
+    },
+    {
+      "id": 13,
+      "label": "Login wall — 403 Forbidden",
+      "fixture": "fixture_login_wall_403.json",
+      "expected": {"classification": "login_wall", "hop_count": 0, "recommendation": "manual_review"},
+      "actual":   {"classification": "login_wall", "hop_count": 0, "recommendation": "manual_review"},
+      "result": "PASS"
+    },
+    {
+      "id": 14,
+      "label": "Login wall — redirect to /login URL",
+      "fixture": "fixture_login_wall_redirect.json",
+      "expected": {"classification": "login_wall", "hop_count": 1, "recommendation": "manual_review"},
+      "actual":   {"classification": "login_wall", "hop_count": 1, "recommendation": "manual_review"},
+      "result": "PASS"
+    },
+    {
+      "id": 15,
+      "label": "Client error — 404 Not Found",
+      "fixture": "fixture_client_error_404.json",
+      "expected": {"classification": "client_error", "hop_count": 0, "recommendation": "manual_review"},
+      "actual":   {"classification": "client_error", "hop_count": 0, "recommendation": "manual_review"},
+      "result": "PASS"
+    },
+    {
+      "id": 16,
+      "label": "README parser — 3 target entries extracted",
+      "fixture": "README.md (live parse)",
+      "expected": {"entry_count": 3, "names": ["currencylayer", "exchangerate.host", "exchangeratesapi.io"], "all_have_line_numbers": true},
+      "actual":   {"entry_count": 3, "names": ["currencylayer", "exchangerate.host", "exchangeratesapi.io"], "all_have_line_numbers": true},
+      "result": "PASS"
+    },
+    {
+      "id": 17,
+      "label": "Negative-test proof (subprocess)",
+      "description": "Runs a deliberately wrong assertion (expects 'ok' for a timeout fixture) in a subprocess. Verifies exit code is non-zero.",
+      "expected": {"subprocess_exit_code": "non-zero (1)"},
+      "actual":   {"subprocess_exit_code": 1},
+      "result": "PASS"
+    }
+  ],
+  "summary": {
+    "total": 17,
+    "passed": 17,
+    "failed": 0
+  }
+}

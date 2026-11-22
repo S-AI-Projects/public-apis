@@ -1,0 +1,20 @@
+{
+  "_comment": "Fixture: Timeout — connection times out. Classified as 'transient_failure'.",
+  "id": "fixture_timeout",
+  "description": "The request to the target URL times out (socket.timeout or urllib.error.URLError with timeout).",
+  "steps": [
+    {
+      "url": "https://slow-api.example.com/",
+      "response": null,
+      "error": "timeout",
+      "error_detail": "timed out"
+    }
+  ],
+  "expected": {
+    "classification": "transient_failure",
+    "hop_count": 0,
+    "final_url": null,
+    "recommendation": "manual_review",
+    "error_kind": "timeout"
+  }
+}
