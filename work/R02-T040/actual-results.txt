@@ -99,7 +99,7 @@ R02-T040 Validation & Evidence Report: ### Patent Section
   - PatentsView: Exact decommission date for legacy unauthenticated endpoints vs transition phase is unverified externally; migration timeline to USPTO ODP remains in progress.
   - TIPO: CORS headers for third-party browser clients and machine-readable OpenAPI specs for dataset API00 remain unverified externally on tiponet.tipo.gov.tw.
 
-[7. SECTION-WIDE & NEIGHBOR STRUCTURAL VALIDATION]
+[7. SECTION-WIDE & NEIGHBOR STRUCTURAL VALIDATIONS]
   Table header format         : [PASS]
   Table separator format      : [PASS]
   Row column counts (5 cols)  : [PASS]
