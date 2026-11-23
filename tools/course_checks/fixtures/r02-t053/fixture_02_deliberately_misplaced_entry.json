@@ -1,0 +1,27 @@
+{
+  "description": "Deliberately misplaced entry (WeatherAPI under Animals) with valid citation",
+  "markdown": "### Animals\nAPI | Description | Auth | HTTPS | CORS |\n|:---|:---|:---|:---|:---|\n| [WeatherAPI](https://weatherapi.com) | Real-time weather forecasting and meteorology data | `apiKey` | Yes | Yes |\n",
+  "citations": {
+    "https://weatherapi.com": {
+      "observed_subject": "weather forecasts and meteorological data",
+      "citation_url": "https://weatherapi.com/docs",
+      "observation_date": "2026-11-23"
+    }
+  },
+  "expected": {
+    "status": "FLAGGED",
+    "heading_issues": [],
+    "entries": [
+      {
+        "name": "WeatherAPI",
+        "url": "https://weatherapi.com",
+        "category": "Animals",
+        "line": 4,
+        "recommendation": "manual_review",
+        "proposed_category": "Weather",
+        "citation_valid": true,
+        "reason": "Cited subject belongs to 'Weather', not 'Animals'. Manual review recommended."
+      }
+    ]
+  }
+}

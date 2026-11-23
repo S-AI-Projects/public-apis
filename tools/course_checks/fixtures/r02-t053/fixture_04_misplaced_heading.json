@@ -1,0 +1,17 @@
+{
+  "description": "Misplaced heading out of alphabetical order",
+  "markdown": "### Animals\nAPI | Description | Auth | HTTPS | CORS |\n|:---|:---|:---|:---|:---|\n| [CatAPI](https://catapi.com) | Cats | No | Yes | Yes |\n\n### Weather\nAPI | Description | Auth | HTTPS | CORS |\n|:---|:---|:---|:---|:---|\n| [WeatherAPI](https://weatherapi.com) | Weather | No | Yes | Yes |\n\n### Books\nAPI | Description | Auth | HTTPS | CORS |\n|:---|:---|:---|:---|:---|\n| [BookAPI](https://bookapi.com) | Books | No | Yes | Yes |\n",
+  "citations": {},
+  "expected": {
+    "status": "HEADING_ISSUES",
+    "repeated_headings": [],
+    "misplaced_headings": [
+      {
+        "heading": "Books",
+        "line": 11,
+        "previous_heading": "Weather",
+        "reason": "Category 'Books' is out of alphabetical order (appears after 'Weather')"
+      }
+    ]
+  }
+}

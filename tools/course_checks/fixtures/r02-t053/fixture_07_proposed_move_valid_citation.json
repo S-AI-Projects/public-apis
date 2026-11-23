@@ -1,0 +1,20 @@
+{
+  "description": "Proposed move with valid citation must be accepted as a recommendation for manual review",
+  "proposal": {
+    "target_url": "https://example.com/some-tool",
+    "current_category": "Phone",
+    "proposed_category": "Photography",
+    "citation": {
+      "observed_subject": "photo editing and image processing",
+      "citation_url": "https://example.com/some-tool/docs",
+      "observation_date": "2026-11-23"
+    }
+  },
+  "expected": {
+    "valid": true,
+    "status": "ACCEPTED_RECOMMENDATION",
+    "recommendation": "manual_review",
+    "proposed_category": "Photography",
+    "reason": "Valid citation provided. Mapped category 'Photography' differs from current 'Phone'. Recommendation accepted for manual review."
+  }
+}

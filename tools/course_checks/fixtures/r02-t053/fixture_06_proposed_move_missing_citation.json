@@ -1,0 +1,15 @@
+{
+  "description": "Proposed move without a complete citation must be rejected by the checker",
+  "proposal": {
+    "target_url": "https://numlookupapi.com",
+    "proposed_category": "Data Validation",
+    "citation": {
+      "observed_subject": "phone number validation"
+    }
+  },
+  "expected": {
+    "valid": false,
+    "status": "REJECTED",
+    "reason": "Proposed move rejected: incomplete official documentation citation. Missing required fields: citation_url, observation_date"
+  }
+}

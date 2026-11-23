@@ -1,0 +1,36 @@
+{
+  "task": "R02-T053",
+  "issue_number": 53,
+  "issue_url": "https://github.com/S-AI-Projects/public-apis/issues/53",
+  "category": "Phone",
+  "section_lines": "2037-2048",
+  "selected_entries": [
+    {
+      "name": "Numlookup",
+      "url": "https://numlookupapi.com",
+      "line": 2040,
+      "description": "Phone number validation and carrier lookup API with global coverage",
+      "auth": "apiKey",
+      "https": "Yes",
+      "cors": "Unknown"
+    },
+    {
+      "name": "Numverify",
+      "url": "https://numverify.com?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers",
+      "line": 2041,
+      "description": "Phone number validation",
+      "auth": "apiKey",
+      "https": "Yes",
+      "cors": "Unknown"
+    },
+    {
+      "name": "Cloudmersive Validate",
+      "url": "https://cloudmersive.com/phone-number-validation-API",
+      "line": 2042,
+      "description": "Validate international phone numbers",
+      "auth": "apiKey",
+      "https": "Yes",
+      "cors": "Yes"
+    }
+  ]
+}

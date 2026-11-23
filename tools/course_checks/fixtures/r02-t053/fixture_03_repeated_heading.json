@@ -1,0 +1,15 @@
+{
+  "description": "Repeated heading detection",
+  "markdown": "### Books\nAPI | Description | Auth | HTTPS | CORS |\n|:---|:---|:---|:---|:---|\n| [BookAPI](https://bookapi.com) | Books catalog | No | Yes | Yes |\n\n### Books\nAPI | Description | Auth | HTTPS | CORS |\n|:---|:---|:---|:---|:---|\n| [AnotherBook](https://anotherbook.com) | More books | No | Yes | Yes |\n",
+  "citations": {},
+  "expected": {
+    "status": "HEADING_ISSUES",
+    "repeated_headings": [
+      {
+        "heading": "Books",
+        "lines": [1, 6]
+      }
+    ],
+    "misplaced_headings": []
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "readme_path": "README.md",
+  "target_section": "Phone",
+  "selected_only": true,
+  "total_headings_inspected": 59,
+  "repeated_headings_count": 0,
+  "repeated_headings": [],
+  "misplaced_headings_count": 0,
+  "misplaced_headings": [],
+  "entries_count": 3,
+  "entries": [
+    {
+      "name": "Numlookup",
+      "url": "https://numlookupapi.com",
+      "category": "Phone",
+      "line": 2040,
+      "citation_valid": true,
+      "recommendation": "keep",
+      "reason": "Observed subject aligns with current category"
+    },
+    {
+      "name": "Numverify",
+      "url": "https://numverify.com?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers",
+      "category": "Phone",
+      "line": 2041,
+      "citation_valid": true,
+      "recommendation": "keep",
+      "reason": "Observed subject aligns with current category"
+    },
+    {
+      "name": "Cloudmersive Validate",
+      "url": "https://cloudmersive.com/phone-number-validation-API",
+      "category": "Phone",
+      "line": 2042,
+      "citation_valid": true,
+      "recommendation": "keep",
+      "reason": "Observed subject aligns with current category"
+    }
+  ]
+}

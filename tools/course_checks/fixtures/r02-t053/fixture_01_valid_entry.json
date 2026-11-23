@@ -1,0 +1,26 @@
+{
+  "description": "Valid entry under Phone with cited subject aligned with category",
+  "markdown": "### Phone\nAPI | Description | Auth | HTTPS | CORS |\n|:---|:---|:---|:---|:---|\n| [Numlookup](https://numlookupapi.com) | Phone number validation and carrier lookup API with global coverage | `apiKey` | Yes | Unknown |\n",
+  "citations": {
+    "https://numlookupapi.com": {
+      "observed_subject": "phone number validation and carrier lookup",
+      "citation_url": "https://numlookupapi.com/",
+      "observation_date": "2026-11-23"
+    }
+  },
+  "expected": {
+    "status": "PASS",
+    "heading_issues": [],
+    "entries": [
+      {
+        "name": "Numlookup",
+        "url": "https://numlookupapi.com",
+        "category": "Phone",
+        "line": 4,
+        "recommendation": "keep",
+        "citation_valid": true,
+        "reason": "Observed subject aligns with current category"
+      }
+    ]
+  }
+}
