@@ -1,0 +1,38 @@
+{
+  "task": "R02-T056",
+  "fixture_and_expected_outcome": "Three valid selected Finance rows parse; malformed fixture rejected; query-string URL preserved; no network used.",
+  "source_file": "README.md",
+  "source_line_numbers": [
+    1110,
+    1111,
+    1112
+  ],
+  "source_urls": [
+    "https://marketstack.com/?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers",
+    "https://aletheiaapi.com/",
+    "https://docs.alpaca.markets/us/docs/about-market-data-api"
+  ],
+  "local_verification": {
+    "python_version": "Python 3.15.2",
+    "compile_command": "python3 -m py_compile tools/course_checks/r02-t056.py",
+    "compile_exit_code": 0,
+    "self_test_command": "python3 tools/course_checks/r02-t056.py --self-test",
+    "self_test_exit_code": 0,
+    "self_test_passed": 4,
+    "report_command": "python3 tools/course_checks/r02-t056.py --report --readme README.md --output work/R02-T056/actual.json",
+    "report_exit_code": 0,
+    "selected_entries": [
+      "Marketstack",
+      "Aletheia",
+      "Alpaca"
+    ],
+    "missing_targets": [],
+    "invalid_entries": [],
+    "network_used": false
+  },
+  "actual_result": "Local verification passed. The report found and validated all three assigned Finance entries; no target entries were missing or invalid. The self-test rejected the malformed fixture, preserved the query-string URL, and ran without network access.",
+  "tool_versions": {
+    "python": "3.15.2",
+    "network": "No network used"
+  }
+}
