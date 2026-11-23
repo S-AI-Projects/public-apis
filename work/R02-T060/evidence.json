@@ -1,0 +1,35 @@
+{
+  "task": "R02-T060",
+  "fixture_and_expected_outcome": "Stable repeated report; exact source lines; before/after observed metadata; manual decision and recommendation separated.",
+  "source_file": "README.md",
+  "source_line_numbers": [
+    216,
+    217,
+    218
+  ],
+  "source_urls": [
+    "https://aniapi.com/docs/",
+    "https://wiki.anidb.net/HTTP_API_Definition",
+    "https://github.com/AniList/ApiV2-GraphQL-Docs"
+  ],
+  "self_test": {
+    "command": "python3 tools/course_checks/r02-t060.py --self-test",
+    "expected_exit_code": 0,
+    "actual_exit_code": 0,
+    "execution_status": "PASS — run locally by the user"
+  },
+  "tool_versions": {
+    "python": "3.15.2",
+    "network": "No live network; offline fixture tests"
+  },
+  "actual_result": "Executed locally on Python 3.15.2: py_compile, --self-test and --report all exited 0. Self-test reported 3 checks; repeated output was identical and the report included before/after metadata for all three Anime entries.",
+  "report_command": "python3 tools/course_checks/r02-t060.py --report --readme README.md --output work/R02-T060/actual.json",
+  "syntax_check": {
+    "command": "python3 -m py_compile tools/course_checks/r02-t060.py",
+    "actual_exit_code": 0
+  },
+  "environment": {
+    "python": "3.15.2",
+    "network": "offline fixture tests; no live requests"
+  }
+}
