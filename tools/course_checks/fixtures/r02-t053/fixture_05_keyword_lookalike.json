@@ -1,0 +1,20 @@
+{
+  "description": "Keyword lookalike entry that must NOT be reclassified based on keywords",
+  "markdown": "### Phone\nAPI | Description | Auth | HTTPS | CORS |\n|:---|:---|:---|:---|:---|\n| [Phone Validator Pro](https://example.com/phone-validator) | Validates data and checks format | `apiKey` | Yes | Unknown |\n",
+  "citations": {},
+  "expected": {
+    "status": "PASS",
+    "heading_issues": [],
+    "entries": [
+      {
+        "name": "Phone Validator Pro",
+        "url": "https://example.com/phone-validator",
+        "category": "Phone",
+        "line": 4,
+        "recommendation": "keep",
+        "citation_valid": false,
+        "reason": "No cited subject provided; keyword matching alone is prohibited from reclassifying entries"
+      }
+    ]
+  }
+}

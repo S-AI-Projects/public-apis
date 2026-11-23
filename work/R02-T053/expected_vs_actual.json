@@ -1,0 +1,76 @@
+{
+  "task": "R02-T053",
+  "category": "Phone",
+  "selected_entries": [
+    {
+      "name": "Numlookup",
+      "url": "https://numlookupapi.com",
+      "expected_recommendation": "keep",
+      "actual_recommendation": "keep",
+      "match": true
+    },
+    {
+      "name": "Numverify",
+      "url": "https://numverify.com?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers",
+      "expected_recommendation": "keep",
+      "actual_recommendation": "keep",
+      "match": true
+    },
+    {
+      "name": "Cloudmersive Validate",
+      "url": "https://cloudmersive.com/phone-number-validation-API",
+      "expected_recommendation": "keep",
+      "actual_recommendation": "keep",
+      "match": true
+    }
+  ],
+  "fixtures": [
+    {
+      "fixture": "fixture_01_valid_entry.json",
+      "expected_status": "PASS",
+      "actual_status": "PASS",
+      "match": true
+    },
+    {
+      "fixture": "fixture_02_deliberately_misplaced_entry.json",
+      "expected_status": "FLAGGED",
+      "actual_status": "FLAGGED",
+      "match": true
+    },
+    {
+      "fixture": "fixture_03_repeated_heading.json",
+      "expected_status": "HEADING_ISSUES",
+      "actual_status": "HEADING_ISSUES",
+      "match": true
+    },
+    {
+      "fixture": "fixture_04_misplaced_heading.json",
+      "expected_status": "HEADING_ISSUES",
+      "actual_status": "HEADING_ISSUES",
+      "match": true
+    },
+    {
+      "fixture": "fixture_05_keyword_lookalike.json",
+      "expected_status": "PASS",
+      "actual_status": "PASS",
+      "match": true
+    },
+    {
+      "fixture": "fixture_06_proposed_move_missing_citation.json",
+      "expected_status": "REJECTED",
+      "actual_status": "REJECTED",
+      "match": true
+    },
+    {
+      "fixture": "fixture_07_proposed_move_valid_citation.json",
+      "expected_status": "ACCEPTED_RECOMMENDATION",
+      "actual_status": "ACCEPTED_RECOMMENDATION",
+      "match": true
+    }
+  ],
+  "subprocess_negative_test": {
+    "expected_exit_code": 3,
+    "actual_exit_code": 3,
+    "match": true
+  }
+}

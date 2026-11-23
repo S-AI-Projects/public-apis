@@ -1,0 +1,32 @@
+=== Running Offline Fixtures from /Users/divyanshiyadav/Desktop/public-apis/tools/course_checks/fixtures/r02-t053 ===
+-> Testing fixture: fixture_01_valid_entry.json (Valid entry under Phone with cited subject aligned with category)
+   PASSED.
+-> Testing fixture: fixture_02_deliberately_misplaced_entry.json (Deliberately misplaced entry (WeatherAPI under Animals) with valid citation)
+   PASSED.
+-> Testing fixture: fixture_03_repeated_heading.json (Repeated heading detection)
+   PASSED.
+-> Testing fixture: fixture_04_misplaced_heading.json (Misplaced heading out of alphabetical order)
+   PASSED.
+-> Testing fixture: fixture_05_keyword_lookalike.json (Keyword lookalike entry that must NOT be reclassified based on keywords)
+   PASSED.
+-> Testing fixture: fixture_06_proposed_move_missing_citation.json (Proposed move without a complete citation must be rejected by the checker)
+   PASSED: REJECTED
+-> Testing fixture: fixture_07_proposed_move_valid_citation.json (Proposed move with valid citation must be accepted as a recommendation for manual review)
+   PASSED: ACCEPTED_RECOMMENDATION
+
+=== Running Subprocess Negative Test ===
+Subprocess exit code: 3
+Subprocess stderr:
+[NEGATIVE-TEST] Initiating intentional assertion test...
+[NEGATIVE-TEST] Expected failure triggered: Intentional failure: assertion that uncited proposal is valid failed!
+[NEGATIVE-TEST] Exiting with non-zero exit code 3.
+Negative test correctly exited with code 3 (PASSED).
+
+ALL SELF-TESTS PASSED SUCCESSFULLY (Exit Code 0).
+Self-test Exit Code: 0
+
+=== Direct Standalone Negative Test Run ===
+[NEGATIVE-TEST] Initiating intentional assertion test...
+[NEGATIVE-TEST] Expected failure triggered: Intentional failure: assertion that uncited proposal is valid failed!
+[NEGATIVE-TEST] Exiting with non-zero exit code 3.
+Negative-test Standalone Exit Code: 3
