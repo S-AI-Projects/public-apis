@@ -1,0 +1,35 @@
+{
+  "task": "R02-T058",
+  "fixture_and_expected_outcome": "Access requirements reported with official URLs: Chinese Character Web unverified; Chinese Text Project tiered access; Collins API key/registration and published fee tiers; no credentials stored.",
+  "source_file": "README.md",
+  "source_line_numbers": [
+    901,
+    902,
+    903
+  ],
+  "source_urls": [
+    "http://ccdb.hemiola.com/",
+    "https://ctext.org/tools/api",
+    "https://www.collinsdictionary.com/collins-api"
+  ],
+  "self_test": {
+    "command": "python3 tools/course_checks/r02-t058.py --self-test",
+    "expected_exit_code": 0,
+    "actual_exit_code": 0,
+    "execution_status": "PASS — run locally by the user"
+  },
+  "tool_versions": {
+    "python": "3.15.2",
+    "network": "No live network; offline fixture tests"
+  },
+  "actual_result": "Executed locally on Python 3.15.2: py_compile, --self-test and --report all exited 0. Self-test reported 5 checks; all three assigned Dictionaries entries were present and the report did not store credentials.",
+  "report_command": "python3 tools/course_checks/r02-t058.py --report --readme README.md --output work/R02-T058/actual.json",
+  "syntax_check": {
+    "command": "python3 -m py_compile tools/course_checks/r02-t058.py",
+    "actual_exit_code": 0
+  },
+  "environment": {
+    "python": "3.15.2",
+    "network": "offline fixture tests; no live requests"
+  }
+}
